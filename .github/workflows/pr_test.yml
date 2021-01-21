@@ -65,6 +65,38 @@ jobs:
         with:
           os: ${{ matrix.os }}
           command: test
+  test-pot-3:
+    name: Test PR on POT 3
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: ['12']
+        os: [macOS-latest, ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install
+        run: npm i
+      - name: Setup CLI
+        uses: adobe/aio-cli-setup-action@1.0.1
+        with:
+          os: ${{ matrix.os }}
+      - name: Build
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT3_AIO_RUNTIME_NAMESPACE_STAGE }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: build
+      - name: Test
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: test
   test-pot-5:
     name: Test PR on POT 5
     runs-on: ${{ matrix.os }}
