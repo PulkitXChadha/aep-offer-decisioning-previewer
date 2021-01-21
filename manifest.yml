@@ -1,0 +1,85 @@
+packages:
+  __APP_PACKAGE__:
+    license: Apache-2.0
+    actions:
+      get-sandboxes:
+        function: actions/PALM/get-sandboxes.js
+        web: 'yes'
+        runtime: 'nodejs:12'
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-activities:
+        function: actions/ODE/get-activities.js
+        web: 'yes'
+        runtime: 'nodejs:12'
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-offer-representation:
+        function: actions/ODE/get-offer-representation.js
+        web: 'yes'
+        runtime: 'nodejs:12'
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-container:
+        function: actions/ODE/get-container.js
+        web: 'yes'
+        runtime: 'nodejs:12'
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-placements:
+        function: actions/ODE/get-placements.js
+        web: 'yes'
+        runtime: 'nodejs:12'
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-identity-namespaces:
+        function: actions/UPS/get-identity-namespaces.js
+        web: "yes"
+        runtime: "nodejs:10"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-identity-preview-report:
+        function: actions/UPS/get-identity-preview-report.js
+        web: "yes"
+        runtime: "nodejs:10"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-profile:
+        function: actions/UPS/get-profile.js
+        web: "yes"
+        runtime: "nodejs:10"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+

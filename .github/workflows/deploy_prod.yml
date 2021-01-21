@@ -1,0 +1,154 @@
+name: AIO App CD - Deploy to Prod
+
+on:
+  release:
+    types: [released]
+jobs:
+  deploy-pot-1:
+    name: POT 1 - Deploy to Prod
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: ['12']
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install
+        run: npm i
+      - name: Setup CLI
+        uses: adobe/aio-cli-setup-action@1.0.1
+        with:
+          os: ${{ matrix.os }}
+      - name: Build
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT1_AIO_RUNTIME_NAMESPACE_PROD }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: build
+      - name: Deploy
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT1_AIO_RUNTIME_NAMESPACE_PROD }}
+          AIO_RUNTIME_AUTH: ${{ secrets.POT1_AIO_RUNTIME_AUTH_PROD }}
+          SERVICE_API_KEY: ${{ secrets.POT1_SERVICE_API_KEY_PROD }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: Deploy
+  deploy-pot-2:
+    name: POT 2 - Deploy to Prod
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: ['12']
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install
+        run: npm i
+      - name: Setup CLI
+        uses: adobe/aio-cli-setup-action@1.0.1
+        with:
+          os: ${{ matrix.os }}
+      - name: Build
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT2_AIO_RUNTIME_NAMESPACE_PROD }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: build
+      - name: Deploy
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT2_AIO_RUNTIME_NAMESPACE_PROD }}
+          AIO_RUNTIME_AUTH: ${{ secrets.POT2_AIO_RUNTIME_AUTH_PROD }}
+          SERVICE_API_KEY: ${{ secrets.POT2_SERVICE_API_KEY_PROD }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: Deploy
+  deploy-pot-5:
+    name: POT 5 - Deploy to Prod
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: ['12']
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install
+        run: npm i
+      - name: Setup CLI
+        uses: adobe/aio-cli-setup-action@1.0.1
+        with:
+          os: ${{ matrix.os }}
+      - name: Build
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT5_AIO_RUNTIME_NAMESPACE_PROD }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: build
+      - name: Deploy
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT5_AIO_RUNTIME_NAMESPACE_PROD }}
+          AIO_RUNTIME_AUTH: ${{ secrets.POT5_AIO_RUNTIME_AUTH_PROD }}
+          SERVICE_API_KEY: ${{ secrets.POT5_SERVICE_API_KEY_PROD }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: Deploy
+  deploy-pot-6:
+    name: POT 6 - Deploy to Prod
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: ['12']
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install
+        run: npm i
+      - name: Setup CLI
+        uses: adobe/aio-cli-setup-action@1.0.1
+        with:
+          os: ${{ matrix.os }}
+      - name: Build
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT6_AIO_RUNTIME_NAMESPACE_PROD }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: build
+      - name: Deploy
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT6_AIO_RUNTIME_NAMESPACE_PROD }}
+          AIO_RUNTIME_AUTH: ${{ secrets.POT6_AIO_RUNTIME_AUTH_PROD }}
+          SERVICE_API_KEY: ${{ secrets.POT6_SERVICE_API_KEY_PROD }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: Deploy

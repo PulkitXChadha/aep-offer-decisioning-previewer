@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home> on load renders correctly  1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Welcome to Offer Decisioning Engine Previewer!
+    </h1>
+    <div
+      aria-label="Getting Containers"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
+      hidden=""
+      id="home-page-progress-circle"
+      role="progressbar"
+      style="display: none;"
+    >
+      <div
+        class="_spectrum-CircleLoader-track_40b43"
+      />
+      <div
+        class="_spectrum-CircleLoader-fills_40b43"
+      >
+        <div
+          class="_spectrum-CircleLoader-fillMask1_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fillSubMask1_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fill_40b43"
+            />
+          </div>
+        </div>
+        <div
+          class="_spectrum-CircleLoader-fillMask2_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fillSubMask2_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fill_40b43"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="_flex_ffbb7 _spectrum-IllustratedMessage_5a24b"
+    >
+      <svg
+        aria-hidden="true"
+        height="87"
+        width="135.321"
+      >
+        <g
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+        >
+          <path
+            d="M11.821 60.5v23a2.006 2.006 0 002 2h118a2.006 2.006 0 002-2v-80a2.006 2.006 0 00-2-2h-118a2.006 2.006 0 00-2 2v27"
+            stroke-width="3"
+          />
+          <path
+            d="M133.721 14h-122M29.721 8h-10"
+            stroke-width="2"
+          />
+          <path
+            d="M2.121 55.1l19.3-19.2M21.421 55.1l-19.3-19.2"
+            stroke-width="3"
+          />
+        </g>
+      </svg>
+      <h3
+        class="_spectrum-IllustratedMessage-heading_5a24b"
+      >
+        Select a Sandbox
+      </h3>
+      <section
+        class="_spectrum-IllustratedMessage-description_5a24b"
+      >
+        To Continue
+      </section>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Home> on sandbox selection renders correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Welcome to Offer Decisioning Engine Previewer!
+    </h1>
+    <div
+      aria-label="Getting Containers"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
+      hidden=""
+      id="home-page-progress-circle"
+      role="progressbar"
+      style="display: none;"
+    >
+      <div
+        class="_spectrum-CircleLoader-track_40b43"
+      />
+      <div
+        class="_spectrum-CircleLoader-fills_40b43"
+      >
+        <div
+          class="_spectrum-CircleLoader-fillMask1_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fillSubMask1_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fill_40b43"
+            />
+          </div>
+        </div>
+        <div
+          class="_spectrum-CircleLoader-fillMask2_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fillSubMask2_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fill_40b43"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

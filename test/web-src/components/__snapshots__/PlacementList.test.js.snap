@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PlacementList> calls custom hook call custom hooks with global parameters correctly 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="Getting Offer Placement"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
+    id="placement-list-progress-circle"
+    role="progressbar"
+  >
+    <div
+      class="_spectrum-CircleLoader-track_40b43"
+    />
+    <div
+      class="_spectrum-CircleLoader-fills_40b43"
+    >
+      <div
+        class="_spectrum-CircleLoader-fillMask1_40b43"
+      >
+        <div
+          class="_spectrum-CircleLoader-fillSubMask1_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fill_40b43"
+          />
+        </div>
+      </div>
+      <div
+        class="_spectrum-CircleLoader-fillMask2_40b43"
+      >
+        <div
+          class="_spectrum-CircleLoader-fillSubMask2_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fill_40b43"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<PlacementList> calls custom hook call custom hooks with global parameters correctly 2`] = `
+<DocumentFragment>
+  <div
+    aria-label="Getting Offer Placement"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
+    id="placement-list-progress-circle"
+    role="progressbar"
+  >
+    <div
+      class="_spectrum-CircleLoader-track_40b43"
+    />
+    <div
+      class="_spectrum-CircleLoader-fills_40b43"
+    >
+      <div
+        class="_spectrum-CircleLoader-fillMask1_40b43"
+      >
+        <div
+          class="_spectrum-CircleLoader-fillSubMask1_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fill_40b43"
+          />
+        </div>
+      </div>
+      <div
+        class="_spectrum-CircleLoader-fillMask2_40b43"
+      >
+        <div
+          class="_spectrum-CircleLoader-fillSubMask2_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fill_40b43"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<PlacementList> on data renders correctly on no data 1`] = `
+<DocumentFragment>
+  <span>
+    You have no placements !
+  </span>
+</DocumentFragment>
+`;
+
+exports[`<PlacementList> on error renders correctly on error 1`] = `
+<DocumentFragment>
+  <span>
+    fake-error-message
+  </span>
+</DocumentFragment>
+`;
+
+exports[`<PlacementList> on load renders correctly on load 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="Getting Offer Placement"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
+    id="placement-list-progress-circle"
+    role="progressbar"
+  >
+    <div
+      class="_spectrum-CircleLoader-track_40b43"
+    />
+    <div
+      class="_spectrum-CircleLoader-fills_40b43"
+    >
+      <div
+        class="_spectrum-CircleLoader-fillMask1_40b43"
+      >
+        <div
+          class="_spectrum-CircleLoader-fillSubMask1_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fill_40b43"
+          />
+        </div>
+      </div>
+      <div
+        class="_spectrum-CircleLoader-fillMask2_40b43"
+      >
+        <div
+          class="_spectrum-CircleLoader-fillSubMask2_40b43"
+        >
+          <div
+            class="_spectrum-CircleLoader-fill_40b43"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
