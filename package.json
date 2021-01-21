@@ -1,10 +1,10 @@
 {
-  "name": "AEP Offer Decisioning Previewer App",
+  "name": "ODEPreviewerApp",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@adobe/aio-lib-ims": "^4.1.1",
-    "@adobe/aio-sdk": "^2.3.0",
+    "@adobe/aio-sdk": "^3.0.0",
     "@adobe/exc-app": "^0.2.21",
     "@adobe/react-spectrum": "^3.4.0",
     "@babel/preset-react": "^7.12.10",
