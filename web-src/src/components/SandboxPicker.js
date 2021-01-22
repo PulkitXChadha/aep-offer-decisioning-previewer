@@ -37,6 +37,8 @@ const SandboxPicker = (props) => {
   }
 
   if (sandboxes.data) {
+    // const defaultSelection = sandboxes.data.sandboxes[0].name;
+
     picker = (
       <Picker
         position="fixed"
@@ -48,6 +50,7 @@ const SandboxPicker = (props) => {
         width="25%"
         maxWidth="100%"
         aria-label="select a sandbox"
+        // defaultSelectedKey={defaultSelection}
         items={sandboxes.data.sandboxes.map((sandbox) => ({
           id: sandbox.name,
           name: `${sandbox.title} (${sandbox.region})`,

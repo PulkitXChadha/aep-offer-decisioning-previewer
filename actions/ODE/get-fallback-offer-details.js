@@ -1,6 +1,7 @@
-"use strict";
+/*
+ * <license header>
+ */
 const fetch = require("node-fetch");
-
 const { Core } = require("@adobe/aio-sdk");
 const {
   errorResponse,
@@ -22,13 +23,8 @@ async function main(params) {
     logger.debug(stringParameters(params));
 
     // check for missing request input parameters and headers
-    const requiredParams = [
-      "apiKey",
-      "sandboxName",
-      "identityValue",
-      "identityNamespace",
-    ];
-    const requiredHeaders = ["authorization", "x-gw-ims-org-id"];
+    const requiredParams = ["offerID", "containerID", "apiKey"];
+    const requiredHeaders = ["Authorization", "x-gw-ims-org-id"];
     const errorMessage = checkMissingRequestInputs(
       params,
       requiredParams,
@@ -41,23 +37,18 @@ async function main(params) {
 
     // extract the user Bearer token from the Authorization header
     const token = getBearerToken(params);
-
     // replace this with the api you want to access
-    const apiEndpoint = `https://platform.adobe.io/data/core/ups/access/entities?entityId=${params.identityValue}&entityIdNS=${params.identityNamespace}&schema.name=_xdm.context.profile&withCA=true`;
+    const apiEndpoint = `https://platform.adobe.io/data/core/xcore/${params.containerID}/instances?schema=https://ns.adobe.com/experience/offer-management/fallback-offer;version=0.1&id=${params.offerID}`;
     // fetch content from external api endpoint
-    const res = await fetch(
-      apiEndpoint, {
-        method: "GET",
-        headers: {
-          "x-api-key": params.apiKey,
-          "x-gw-ims-org-id": params.__ow_headers["x-gw-ims-org-id"],
-          Authorization: `Bearer ${token}`,
-          "x-sandbox-name": params.sandboxName,
-          Accept: "application/vnd.adobe.xed+json",
-          "cache-control": "no-cache",
-        },
-      }
-    );
+    const res = await fetch(apiEndpoint, {
+      method: "GET",
+      headers: {
+        "x-api-key": params.apiKey,
+        "x-gw-ims-org-id": params.__ow_headers["x-gw-ims-org-id"],
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
     if (!res.ok) {
       throw new Error(
         "request to " + apiEndpoint + " failed with status code " + res.status

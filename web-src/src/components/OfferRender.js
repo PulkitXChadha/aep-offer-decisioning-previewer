@@ -6,20 +6,17 @@ import {
   ProgressCircle,
   IllustratedMessage,
   Heading,
+  View,
+  Well,
 } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
 
 import Error from "@spectrum-icons/illustrations/Error";
 
+import OfferDetails from "./OfferDetails";
+import FallbackOfferDetails from "./FallbackOfferDetails";
+
 const OfferRender = (props) => {
-  const displayParams = {
-    containerID: props.containerID,
-    placementID: props.placementID,
-    activityID: props.activityID,
-    identityNamespace: props.identityNamespace,
-    entityValue: props.entityValue,
-  };
-  console.log(`from OfferRender ${JSON.stringify(displayParams)}`);
   let headers = {};
   if (props.ims.token && !headers.authorization) {
     headers.authorization = `Bearer ${props.ims.token}`;
@@ -73,19 +70,55 @@ const OfferRender = (props) => {
 
   if (!offer.isLoading && offer.data && offer.data.status != 404) {
     const offerProposition = offer.data["xdm:propositions"][0];
-    const offerData = offerProposition["xdm:options"]
-      ? offerProposition["xdm:options"][0]
-      : offerProposition["xdm:fallback"];
 
+    //get proposition or Fallback response
+    const offerData = offerProposition["xdm:options"]
+      ? { offerType: "proposition", ...offerProposition["xdm:options"][0] }
+      : { offerType: "fallback", ...offerProposition["xdm:fallback"] };
+    const offerID = offerData["xdm:id"];
+
+    let offerContent = null;
     if (
       offerData["dc:format"] == "image/png" ||
       offerData["dc:format"] == "image/jpeg"
     )
-      content = (
+      offerContent = (
         <Image src={offerData["xdm:deliveryURL"]} alt="Offer Content" />
       );
+
     if (offerData["dc:format"] == "text/plain")
-      content = <Content>{offerData["xdm:content"]}</Content>;
+      offerContent = <Content>{offerData["xdm:content"]}</Content>;
+
+    if (offerData.offerType === "proposition") {
+      content = (
+        <View>
+          <OfferDetails
+            ims={props.ims}
+            containerID={props.containerID}
+            offerID={offerID}
+          />
+          <Well>
+            <h3>Offer Content</h3>
+            {offerContent}
+          </Well>
+        </View>
+      );
+    }
+    if (offerData.offerType === "fallback") {
+      content = (
+        <View>
+          <FallbackOfferDetails
+            ims={props.ims}
+            containerID={props.containerID}
+            offerID={offerID}
+          />
+          <Well>
+            <h3>Offer Content</h3>
+            {offerContent}
+          </Well>
+        </View>
+      );
+    }
   }
 
   return content;
