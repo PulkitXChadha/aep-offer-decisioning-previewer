@@ -51,10 +51,23 @@ const ProfileView = (props) => {
       </IllustratedMessage>
     );
   }
+  // let showFields = ["profile"];
 
   if (!profile.isLoading && profile.data) {
     const keys = Object.keys(profile.data);
-    content = <ReactJson src={profile.data[keys[0]].entity} />;
+    content = (
+      <ReactJson
+        src={profile.data[keys[0]].entity}
+        name="profile"
+        displayObjectSize={false}
+        displayDataTypes={false}
+        quotesOnKeys={false}
+        // shouldCollapse={(field) => {
+        //   console.log(field);
+        //   return showFields.indexOf(field.name) != -1 ? false : true;
+        // }}
+      />
+    );
   }
 
   return content;

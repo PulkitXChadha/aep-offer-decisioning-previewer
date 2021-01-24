@@ -5,7 +5,8 @@ import {
   View,
   ProgressCircle,
   IllustratedMessage,
-  Heading,Well
+  Heading,
+  Well,
 } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
 
@@ -52,8 +53,8 @@ const EligibilityRuleDetails = (props) => {
 
   if (!ruleDetails.isLoading && ruleDetails.data) {
     const detailedResult = ruleDetails.data._embedded.results[0];
-
     const ruleName = detailedResult._instance["xdm:name"];
+
     const ruleConditionValue =
       detailedResult._instance["xdm:condition"]["xdm:value"];
 
