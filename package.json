@@ -43,9 +43,9 @@
     "react-test-renderer": "^17.0.1"
   },
   "scripts": {
-    "test": "jest --watch --passWithNoTests ./test",
-    "e2e": "jest --collectCoverage=false --testRegex ./e2e",
-    "test-coverage": "jest --collectCoverage=true"
+    "test": "jest --env=jest-environment-jsdom-sixteen --passWithNoTests ./test",
+    "e2e": "jest --collectCoverage=false --env=jest-environment-jsdom-sixteen --testRegex ./e2e",
+    "test-coverage": "jest --collectCoverage=true --env=jest-environment-jsdom-sixteen"
   },
   "engines": {
     "node": "^10 || ^12"

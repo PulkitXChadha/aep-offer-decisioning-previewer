@@ -6,7 +6,7 @@ exports[`<SideBar> on load renders correctly  1`] = `
     class="_spectrum_d43d2 _spectrum_60105 _spectrum--darkest_acf7f _spectrum--large_38267 _spectrum_5be2e _spectrum--medium_5be2e _spectrum--large_5be2e _spectrum--darkest_5be2e _spectrum--dark_5be2e _spectrum--light_5be2e _spectrum--lightest_5be2e"
     dir="ltr"
     lang="en-US"
-    style="isolation: isolate;"
+    style="isolation: isolate; color-scheme: dark;"
   >
     <ul
       class="SideNav"

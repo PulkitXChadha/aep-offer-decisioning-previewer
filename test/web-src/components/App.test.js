@@ -28,9 +28,9 @@ describe("<App> on initial load", () => {
     expect(screen.getByRole("list")).toBeDefined();
     expect(screen.getAllByRole("listitem")).toHaveLength(2);
 
-    // await waitFor(() => expect(actionWebInvoke).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(actionWebInvoke).toHaveBeenCalledTimes(2));
 
-    // expect(screen.queryByRole("progressbar")).not.toBeInTheDocument();
-    // expect(screen.getByText("select a sandbox")).toBeDefined();
+    expect(screen.queryByRole("progressbar")).not.toBeInTheDocument();
+    expect(screen.getByText("select a sandbox")).toBeDefined();
   });
 });
