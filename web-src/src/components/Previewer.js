@@ -8,17 +8,20 @@ import {
   View,
   Divider,
 } from "@adobe/react-spectrum";
+import { Tabs, Item } from "@react-spectrum/tabs";
 
 import ActivityList from "./ActivityList";
 import PlacementList from "./PlacementList";
 import NamespaceList from "./NamespaceList";
 import OfferRender from "./OfferRender";
+import ProfileView from "./ProfileView";
+
+import ExperienceEventsView from "./ExperienceEventsView";
 
 const Previewer = (props) => {
   const [getOffer, setGetOffer] = useState(false);
-  // let sandboxName = props.sandboxName;
-  // let containerID = props.containerID;
-
+  const [getProfile, setGetProfile] = useState(false);
+  const [getExperienceEvents, setGetExperienceEvents] = useState(false);
   const [sandboxName, setSandboxName] = useState(null);
   const [containerID, setContainerID] = useState(null);
 
@@ -27,11 +30,18 @@ const Previewer = (props) => {
   const [selectedNamespace, setSelectedNamespace] = useState();
   let [entityValue, setEntityValue] = React.useState();
 
+  //refresh profile and experience events went entity value or selectedNamespace change
+  useEffect(() => {
+    setGetProfile(false);
+    setGetExperienceEvents(false);
+  }, [entityValue, selectedNamespace]);
+
+  //refresh offer when any of the inputs change
   useEffect(() => {
     setGetOffer(false);
-  }, [selectedActivity, selectedPlacement,selectedNamespace,entityValue]);
+  }, [selectedActivity, selectedPlacement, selectedNamespace, entityValue]);
 
-
+  //Update page if sandbox or container change
   useEffect(() => {
     setGetOffer(false);
     setSelectedActivity(null);
@@ -45,7 +55,6 @@ const Previewer = (props) => {
 
   let header = <Heading level={3}>ODE Previewer</Heading>;
   let activities = null;
-
 
   if (containerID) {
     activities = (
@@ -107,6 +116,8 @@ const Previewer = (props) => {
         variant="primary"
         onPress={() => {
           if (!getOffer) setGetOffer(true);
+          setGetProfile(true);
+          setGetExperienceEvents(true);
         }}
         isDisabled={!entityValue}
       >
@@ -130,6 +141,30 @@ const Previewer = (props) => {
     );
   }
 
+  let profileContent = null;
+  if (getProfile && getExperienceEvents) {
+    profileContent = (
+      <Tabs aria-label="Profile Data">
+        <Item title="Profile" key="profile">
+          <ProfileView
+            ims={props.ims}
+            identityNamespace={selectedNamespace}
+            identityValue={entityValue}
+            sandboxName={sandboxName}
+          />
+        </Item>
+        <Item title="Experience Events" key="ee">
+          <ExperienceEventsView
+            ims={props.ims}
+            identityNamespace={selectedNamespace}
+            identityValue={entityValue}
+            sandboxName={sandboxName}
+          />
+        </Item>
+      </Tabs>
+    );
+  }
+
   return (
     <Grid
       areas={[
@@ -137,10 +172,10 @@ const Previewer = (props) => {
         "activity activity activity placement placement placement",
         "namespace namespace entityValue entityValue offer offer",
         "spacing spacing spacing spacing spacing spacing",
-        "content content content content content content",
+        "content content content profileContent profileContent profileContent",
       ]}
       columns={["1fr", "1fr", "1fr", "1fr", "1fr", "1fr"]}
-      rows={["size-400", "size-400", "size-400", "auto"]}
+      rows={["size-400", "size-400", "size-400", "size-100", "auto"]}
       height="100vh"
       gap="size-100"
     >
@@ -154,6 +189,7 @@ const Previewer = (props) => {
         <Divider></Divider>
       </View>
       <View gridArea="content">{offerContent}</View>
+      <View gridArea="profileContent">{profileContent}</View>
     </Grid>
   );
 };

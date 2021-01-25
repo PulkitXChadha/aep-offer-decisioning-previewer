@@ -4,8 +4,8 @@ packages:
     actions:
       get-sandboxes:
         function: actions/PALM/get-sandboxes.js
-        web: 'yes'
-        runtime: 'nodejs:12'
+        web: "yes"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -14,8 +14,8 @@ packages:
           final: true
       get-activities:
         function: actions/ODE/get-activities.js
-        web: 'yes'
-        runtime: 'nodejs:12'
+        web: "yes"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -24,8 +24,8 @@ packages:
           final: true
       get-offer-representation:
         function: actions/ODE/get-offer-representation.js
-        web: 'yes'
-        runtime: 'nodejs:12'
+        web: "yes"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -34,8 +34,8 @@ packages:
           final: true
       get-container:
         function: actions/ODE/get-container.js
-        web: 'yes'
-        runtime: 'nodejs:12'
+        web: "yes"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -44,8 +44,8 @@ packages:
           final: true
       get-placements:
         function: actions/ODE/get-placements.js
-        web: 'yes'
-        runtime: 'nodejs:12'
+        web: "yes"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -82,4 +82,43 @@ packages:
         annotations:
           require-adobe-auth: true
           final: true
-
+      get-profile-experience-events:
+        function: actions/UPS/get-profile-experience-events.js
+        web: "yes"
+        runtime: "nodejs:10"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-decision-rules:
+        function: actions/ODE/get-decision-rules.js
+        web: "yes"
+        runtime: "nodejs:10"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-offer-details:
+        function: actions/ODE/get-offer-details.js
+        web: "yes"
+        runtime: "nodejs:10"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-fallback-offer-details:
+        function: actions/ODE/get-fallback-offer-details.js
+        web: "yes"
+        runtime: "nodejs:10"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true

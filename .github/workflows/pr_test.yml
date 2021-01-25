@@ -1,12 +1,12 @@
 name: AIO App CI - Test Pull Request
 on: [pull_request]
 jobs:
-  test-pot-1:
-    name: Test PR on POT 1
+  test:
+    name: Test PR
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: ['12']
+        node-version: ["12"]
         os: [macOS-latest, ubuntu-latest]
     steps:
       - name: Checkout
@@ -21,142 +21,74 @@ jobs:
         uses: adobe/aio-cli-setup-action@1.0.1
         with:
           os: ${{ matrix.os }}
-      - name: Build
+      - name: Build on POT 1
         env:
           AIO_RUNTIME_NAMESPACE: ${{ secrets.POT1_AIO_RUNTIME_NAMESPACE_STAGE }}
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: build
-      - name: Test
+      - name: Test on POT 1
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: test
-  test-pot-2:
-    name: Test PR on POT 2
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: ['12']
-        os: [macOS-latest, ubuntu-latest]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: npm i
-      - name: Setup CLI
-        uses: adobe/aio-cli-setup-action@1.0.1
-        with:
-          os: ${{ matrix.os }}
-      - name: Build
+      - name: Build on POT 2
         env:
           AIO_RUNTIME_NAMESPACE: ${{ secrets.POT2_AIO_RUNTIME_NAMESPACE_STAGE }}
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: build
-      - name: Test
+      - name: Test on POT 2
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: test
-  test-pot-3:
-    name: Test PR on POT 3
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: ['12']
-        os: [macOS-latest, ubuntu-latest]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: npm i
-      - name: Setup CLI
-        uses: adobe/aio-cli-setup-action@1.0.1
-        with:
-          os: ${{ matrix.os }}
-      - name: Build
+      - name: Build on POT 3
         env:
           AIO_RUNTIME_NAMESPACE: ${{ secrets.POT3_AIO_RUNTIME_NAMESPACE_STAGE }}
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: build
-      - name: Test
+      - name: Test on POT 3
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: test
-  test-pot-5:
-    name: Test PR on POT 5
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: ['12']
-        os: [macOS-latest, ubuntu-latest]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: npm i
-      - name: Setup CLI
-        uses: adobe/aio-cli-setup-action@1.0.1
-        with:
-          os: ${{ matrix.os }}
-      - name: Build
+      - name: Build on POT 5
         env:
-          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT5_AIO_RUNTIME_NAMESPACE_DEV }}
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT5_AIO_RUNTIME_NAMESPACE_STAGE }}
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: build
-      - name: Test
+      - name: Test on POT 5
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: test
-  test-pot-6:
-    name: Test PR on POT 6
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: ['12']
-        os: [macOS-latest, ubuntu-latest]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: npm i
-      - name: Setup CLI
-        uses: adobe/aio-cli-setup-action@1.0.1
-        with:
-          os: ${{ matrix.os }}
-      - name: Build
+      - name: Build on POT 6
         env:
           AIO_RUNTIME_NAMESPACE: ${{ secrets.POT6_AIO_RUNTIME_NAMESPACE_STAGE }}
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: build
-      - name: Test
+      - name: Test on POT 6
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: test
+      - name: Build on DSN
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.DSN_AIO_RUNTIME_NAMESPACE_STAGE }}
+        uses: adobe/aio-apps-action@1.1.0
+        with:
+          os: ${{ matrix.os }}
+          command: build
+      - name: Test on DSN
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}

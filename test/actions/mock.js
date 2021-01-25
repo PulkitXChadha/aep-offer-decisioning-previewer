@@ -196,8 +196,8 @@ const container = {
 
 const offerRepresentationError = {
   "xdm:propositionID": "6d0bdb6e-b63f-487e-9127-505222325b66",
-  "status": 404,
-  "detail":"fake-error-message",
+  status: 404,
+  detail: "fake-error-message",
   "ode:createDate": 1607364798809,
 };
 
@@ -710,6 +710,51 @@ const identityNamespaces = [
     custom: true,
   },
 ];
+const experienceEvents = {
+  _page: {
+    orderby: "timestamp",
+    start: "c8d11988-6b56-4571-a123-b6ce74236036",
+    count: 1,
+    next: "c8d11988-6b56-4571-a123-b6ce74236037",
+  },
+  children: [
+    {
+      relatedEntityId: "A29cgveD5y64e2RixjUXNzcm",
+      entityId: "c8d11988-6b56-4571-a123-b6ce74236036",
+      timestamp: 1531260476000,
+      entity: {
+        endUserIDs: {
+          _experience: {
+            ecid: {
+              id: "89149270342662559642753730269986316900",
+              namespace: {
+                code: "ecid",
+              },
+            },
+          },
+        },
+        channel: {
+          _type: "web",
+        },
+        web: {
+          webPageDetails: {
+            name: "Fernie Snow",
+            pageViews: {
+              value: 1,
+            },
+          },
+        },
+      },
+      lastModifiedAt: "2018-08-21T06:49:02Z",
+    },
+  ],
+  _links: {
+    next: {
+      href:
+        "/entities?start=c8d11988-6b56-4571-a123-b6ce74236037&orderby=timestamp&schema.name=_xdm.context.experienceevent&relatedSchema.name=_xdm.context.profile&relatedEntityId=89149270342662559642753730269986316900&relatedEntityIdNS=ECID&fields=endUserIDs,web,channel&startTime=1531260476000&endTime=1531260480000&limit=1",
+    },
+  },
+};
 const profile = {
   BVrqzwVv7o2p3naHvnsWpqZXv3KJgA: {
     entityId: "BVrqzwVv7o2p3naHvnsWpqZXv3KJgA",
@@ -828,16 +873,311 @@ const identityPreviewReport = {
   ],
   reportTimestamp: "2020-11-15T13:02:05.179",
 };
+
+const offerDetails = {
+  containerId: "e0bd8463-0913-4ca1-bd84-6309134ca1f6",
+  schemaNs:
+    "https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5",
+  requestTime: "2020-10-21T20:59:16.238585Z",
+  _embedded: {
+    results: [
+      {
+        instanceId: "fb2aad00-130e-11eb-aa26-21e7b1fa6da6",
+        schemas: [
+          "https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5",
+        ],
+        productContexts: ["acp"],
+        "repo:etag": 1,
+        "repo:createdDate": "2020-10-20T20:01:02.927874Z",
+        "repo:lastModifiedDate": "2020-10-20T20:01:02.927874Z",
+        "repo:createdBy": "{CREATED_BY}",
+        "repo:lastModifiedBy": "{MODIFIED_BY}",
+        "repo:createdByClientId": "{CREATED_CLIENT_ID}",
+        "repo:lastModifiedByClientId": "{MODIFIED_CLIENT_ID}",
+        _score: 0,
+        _instance: {
+          "xdm:name": "Discount offer",
+          "xdm:representations": [
+            {
+              "xdm:components": [
+                {
+                  "dc:language": ["en"],
+                  "@type":
+                    "https://ns.adobe.com/experience/offer-management/content-component-json",
+                  "dc:format": "application/json",
+                },
+              ],
+              "xdm:placement": "xcore:offer-placement:12428d436d87dc84",
+            },
+          ],
+          "xdm:rank": {
+            "xdm:priority": 1,
+          },
+          "xdm:selectionConstraint": {
+            "xdm:startDate": "2020-10-01T16:00:00Z",
+            "xdm:endDate": "2021-12-13T16:00:00Z",
+            "xdm:eligibilityRule": "xcore:eligibility-rule:124cb4511da781fc",
+          },
+          "xdm:status": "draft",
+          "xdm:cappingConstraint": {
+            "xdm:globalCap": 150,
+          },
+          "xdm:tags": ["xcore:tag:1246d138ec8cca1f"],
+          "@id": "xcore:personalized-offer:124cc332095cfa74",
+        },
+        _links: {
+          self: {
+            name:
+              "https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5#fb2aad00-130e-11eb-aa26-21e7b1fa6da6",
+            href:
+              "/e0bd8463-0913-4ca1-bd84-6309134ca1f6/instances/fb2aad00-130e-11eb-aa26-21e7b1fa6da6",
+            "@type":
+              "https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5",
+          },
+        },
+      },
+    ],
+    total: 1,
+    count: 1,
+  },
+  _links: {
+    self: {
+      href:
+        "/e0bd8463-0913-4ca1-bd84-6309134ca1f6/instances?schema=https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5&name=Discount%20offer",
+      "@type": "https://ns.adobe.com/experience/xcore/hal/results",
+    },
+  },
+};
+
+const offerDecisionRule = {
+  containerId: "8a4838ca-dc7c-31d8-9983-2fbb0c224f3a",
+  schemaNs:
+    "https://ns.adobe.com/experience/offer-management/eligibility-rule;version=0.3",
+  requestTime: "2021-01-22T18:31:38.993812Z",
+  _embedded: {
+    results: [
+      {
+        instanceId: "1c070910-43ca-11eb-a04a-4ded9646b13a",
+        schemas: [
+          "https://ns.adobe.com/experience/offer-management/eligibility-rule;version=0.3",
+        ],
+        productContexts: ["acp"],
+        "repo:etag": 1,
+        "repo:createdDate": "2020-12-21T20:21:29.761274Z",
+        "repo:lastModifiedDate": "2020-12-21T20:21:29.761274Z",
+        "repo:createdBy": "45474F415B5198070A495D87@AdobeID",
+        "repo:lastModifiedBy": "45474F415B5198070A495D87@AdobeID",
+        "repo:createdByClientId": "exc_app",
+        "repo:lastModifiedByClientId": "exc_app",
+        _score: 0,
+        _instance: {
+          "xdm:name": "Loan Eligibility Rule - SL",
+          "offerui:segmentModel": {
+            name: "Loan Eligibility Rule - SL",
+            canHaveFolder: true,
+            isMissingAnsibleModel: false,
+            description: "",
+            deprecated: {
+              reason: "",
+              status: false,
+            },
+            schema: {
+              name: "_xdm.context.profile",
+              id: "some id",
+            },
+            schemaName: "",
+            expression: {
+              xEventAttributesContainer: {
+                itemType: "eventTypeCardContainer",
+                logicalOperator: "then",
+                exclude: false,
+                items: [],
+              },
+              logicalOperator: "and",
+              isValid: true,
+              profileAttributesContainer: {
+                itemType: "segmentContainer",
+                logicalOperator: "and",
+                exclude: false,
+                items: [
+                  {
+                    component: {
+                      __entity__: true,
+                      id:
+                        "profile._adobedemoamericas270.propensityProfileDetails.propensityReFi",
+                      type: "n",
+                    },
+                    isPlaceholder: false,
+                    comparisonType: ">",
+                    value: 7,
+                  },
+                  {
+                    component: {
+                      __entity__: true,
+                      id:
+                        "profile._adobedemoamericas270.creditProfileDetails.creditRating",
+                      type: "n",
+                    },
+                    isPlaceholder: false,
+                    comparisonType: ">",
+                    value: 2000,
+                  },
+                ],
+              },
+            },
+            mergePolicyId: "55bb2a40-80f6-40f8-be13-24bed8b70ccd",
+            namespace: "ups",
+          },
+          "xdm:condition": {
+            "xdm:format": "pql/text",
+            "xdm:type": "PQL",
+            "xdm:value":
+              "_adobedemoamericas270.propensityProfileDetails.propensityReFi > 7 and _adobedemoamericas270.creditProfileDetails.creditRating > 2000",
+          },
+          "xdm:definedOn": {},
+          "xdm:description": "",
+          "@id": "xcore:eligibility-rule:129c9a72195ade11",
+        },
+        _links: {
+          self: {
+            name:
+              "https://ns.adobe.com/experience/offer-management/eligibility-rule;version=0.3#1c070910-43ca-11eb-a04a-4ded9646b13a",
+            href:
+              "/8a4838ca-dc7c-31d8-9983-2fbb0c224f3a/instances/1c070910-43ca-11eb-a04a-4ded9646b13a",
+            "@type":
+              "https://ns.adobe.com/experience/offer-management/eligibility-rule;version=0.3",
+          },
+        },
+        sandboxName: "sandbox1",
+      },
+    ],
+    total: 1,
+    count: 1,
+  },
+  _links: {
+    self: {
+      href:
+        "/8a4838ca-dc7c-31d8-9983-2fbb0c224f3a/instances?schema=https://ns.adobe.com/experience/offer-management/eligibility-rule;version=0.3&id=xcore:eligibility-rule:129c9a72195ade11",
+      "@type": "https://ns.adobe.com/experience/xcore/hal/results",
+    },
+  },
+};
+
+const offerFallback = {
+  containerId: "8a4838ca-dc7c-31d8-9983-2fbb0c224f3a",
+  schemaNs:
+    "https://ns.adobe.com/experience/offer-management/fallback-offer;version=0.1",
+  requestTime: "2021-01-22T20:25:40.573429Z",
+  _embedded: {
+    results: [
+      {
+        instanceId: "4e3c3f50-3faf-11eb-865a-a7cd54291d2b",
+        schemas: [
+          "https://ns.adobe.com/experience/offer-management/fallback-offer;version=0.1",
+        ],
+        productContexts: ["acp"],
+        "repo:etag": 1,
+        "repo:createdDate": "2020-12-16T14:59:32.933297Z",
+        "repo:lastModifiedDate": "2020-12-16T14:59:32.933297Z",
+        "repo:createdBy": "E76F15505E83842B0A495FE6@techacct.adobe.com",
+        "repo:lastModifiedBy": "E76F15505E83842B0A495FE6@techacct.adobe.com",
+        "repo:createdByClientId": "5b7ca58b978b4f9889c7f3e574d46ac3",
+        "repo:lastModifiedByClientId": "5b7ca58b978b4f9889c7f3e574d46ac3",
+        _score: 0,
+        _instance: {
+          "xdm:name": "Fallback Offer",
+          "xdm:representations": [
+            {
+              "xdm:components": [
+                {
+                  "dc:format": "text/plain",
+                  "repo:name": "Fallback Offer Email Text",
+                  "dc:language": ["en-us"],
+                  "xdm:content": "Banking reimagined",
+                  "@type":
+                    "https://ns.adobe.com/experience/offer-management/content-component-text",
+                },
+              ],
+              "xdm:channel": "https://ns.adobe.com/xdm/channel-types/email",
+              "xdm:placement": "xcore:offer-placement:1295c896591a36b7",
+            },
+            {
+              "xdm:components": [
+                {
+                  "dc:format": "text/plain",
+                  "repo:name": "Fallback Offer SMS Text",
+                  "dc:language": ["en-us"],
+                  "xdm:content": "Banking reimagined",
+                  "@type":
+                    "https://ns.adobe.com/experience/offer-management/content-component-text",
+                },
+              ],
+              "xdm:channel": "https://ns.adobe.com/xdm/channel-types/messaging",
+              "xdm:placement": "xcore:offer-placement:1295c8e2ff844f06",
+            },
+            {
+              "xdm:components": [
+                {
+                  "dc:format": "image/png",
+                  "repo:name": "Fallback Offer Email Image",
+                  "dc:language": ["en-us"],
+                  "@type":
+                    "https://ns.adobe.com/experience/offer-management/content-component-imagelink",
+                  "xdm:deliveryURL":
+                    "https://www.moneycrashers.com/wp-content/uploads/2020/08/open-bank-account-banking-tablet-financial-planning-1068x713.jpg",
+                  "xdm:linkURL":
+                    "https://americaspot6-publish.adobedemo.com/content/we-finance-pot/language-masters/en.html",
+                },
+              ],
+              "xdm:channel": "https://ns.adobe.com/xdm/channel-types/email",
+              "xdm:placement": "xcore:offer-placement:1295c92cb0af5455",
+            },
+          ],
+          "xdm:characteristics": {
+            product: "Fallback",
+          },
+          "xdm:status": "approved",
+          "xdm:tags": ["xcore:tag:1295c7b2b7af5451"],
+          "@id": "xcore:fallback-offer:1295e0cf09517696",
+        },
+        _links: {
+          self: {
+            name:
+              "https://ns.adobe.com/experience/offer-management/fallback-offer;version=0.1#4e3c3f50-3faf-11eb-865a-a7cd54291d2b",
+            href:
+              "/8a4838ca-dc7c-31d8-9983-2fbb0c224f3a/instances/4e3c3f50-3faf-11eb-865a-a7cd54291d2b",
+            "@type":
+              "https://ns.adobe.com/experience/offer-management/fallback-offer;version=0.1",
+          },
+        },
+        sandboxName: "sandbox1",
+      },
+    ],
+    total: 1,
+    count: 1,
+  },
+  _links: {
+    self: {
+      href:
+        "/8a4838ca-dc7c-31d8-9983-2fbb0c224f3a/instances?schema=https://ns.adobe.com/experience/offer-management/fallback-offer;version=0.1&id=xcore:fallback-offer:1295e0cf09517696",
+      "@type": "https://ns.adobe.com/experience/xcore/hal/results",
+    },
+  },
+};
 const data = {
   offerActivity: offerActivity,
   container: container,
+  offerDetails: offerDetails,
   offerRepresentationImage: offerRepresentationImage,
   offerRepresentationText: offerRepresentationText,
   offerRepresentationError: offerRepresentationError,
   offerPlacements: offerPlacements,
+  offerFallback: offerFallback,
+  offerDecisionRule: offerDecisionRule,
   sandboxes: sandboxes,
   identityNamespaces: identityNamespaces,
   profile: profile,
+  experienceEvents: experienceEvents,
   identityPreviewReport: identityPreviewReport,
 };
 
