@@ -39,7 +39,7 @@ const fakeParams = {
   identityValue: "fake-identity-value",
   identityNamespace: "fake-identity-namespace",
 };
-describe("get-sandboxes", () => {
+describe("get-profile", () => {
   const mockFetchErrorResponse = {
     ok: false,
     json: () => Promise.reject(new Error("fake")),
@@ -101,7 +101,7 @@ describe("get-sandboxes", () => {
         statusCode: 400,
         body: {
           error:
-            "missing header(s) 'authorization,x-gw-ims-org-id' and missing parameter(s) 'apiKey,sandboxName,mergePolicyId,identityValue,identityNamespace'",
+            "missing header(s) 'authorization,x-gw-ims-org-id' and missing parameter(s) 'apiKey,sandboxName,identityValue,identityNamespace'",
         },
       },
     });

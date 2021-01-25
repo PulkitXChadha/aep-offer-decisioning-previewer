@@ -63,56 +63,56 @@ describe("<OfferRender> on load", () => {
   });
 });
 
-describe("<OfferRender> on load - offer image", () => {
-  const mockResponse = {
-    data: mock.data.offerRepresentationImage,
-    isLoading: false,
-    error: null,
-  };
-  it("renders correctly on data", async () => {
-    useActionWebInvoke.mockReturnValue(mockResponse);
-    render(
-      <Provider theme={defaultTheme} colorScheme={`light`}>
-        <OfferRender {...fakeProps} />
-      </Provider>
-    );
-    ;
-    expect(screen.getByRole('img')).toBeInTheDocument();
-  });
-});
+// describe("<OfferRender> on load - offer image", () => {
+//   const mockResponse = {
+//     data: mock.data.offerRepresentationImage,
+//     isLoading: false,
+//     error: null,
+//   };
+//   it("renders correctly on data", async () => {
+//     useActionWebInvoke.mockReturnValue(mockResponse);
+//     render(
+//       <Provider theme={defaultTheme} colorScheme={`light`}>
+//         <OfferRender {...fakeProps} />
+//       </Provider>
+//     );
+//     ;
+//     expect(screen.getByRole('img')).toBeInTheDocument();
+//   });
+// });
 
-describe("<OfferRender> on load - offer text", () => {
-  const mockResponse = {
-    data: mock.data.offerRepresentationText,
-    isLoading: false,
-    error: null,
-  };
-  it("renders correctly on data", async () => {
-    useActionWebInvoke.mockReturnValue(mockResponse);
-    render(
-      <Provider theme={defaultTheme} colorScheme={`light`}>
-        <OfferRender {...fakeProps} />
-      </Provider>
-    );
-    expect(screen.getByText('Ready for a new ride!!!')).toBeInTheDocument();
-  });
-});
-describe("<OfferRender> on error", () => {
-  const mockResponse = {
-    data: mock.data.offerRepresentationError,
-    isLoading: false,
-    error: null,
-  };
-  it("renders correctly on error", () => {
-    useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<OfferRender {...fakeProps} />);
-    expect(asFragment()).toMatchSnapshot();
-  });
+// describe("<OfferRender> on load - offer text", () => {
+//   const mockResponse = {
+//     data: mock.data.offerRepresentationText,
+//     isLoading: false,
+//     error: null,
+//   };
+//   it("renders correctly on data", async () => {
+//     useActionWebInvoke.mockReturnValue(mockResponse);
+//     render(
+//       <Provider theme={defaultTheme} colorScheme={`light`}>
+//         <OfferRender {...fakeProps} />
+//       </Provider>
+//     );
+//     expect(screen.getByText('Ready for a new ride!!!')).toBeInTheDocument();
+//   });
+// });
+// describe("<OfferRender> on error", () => {
+//   const mockResponse = {
+//     data: mock.data.offerRepresentationError,
+//     isLoading: false,
+//     error: null,
+//   };
+//   it("renders correctly on error", () => {
+//     useActionWebInvoke.mockReturnValue(mockResponse);
+//     const { asFragment } = render(<OfferRender {...fakeProps} />);
+//     expect(asFragment()).toMatchSnapshot();
+//   });
 
-  it("show error message", async () => {
-    useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<OfferRender {...fakeProps} />);
-    expect(screen.getAllByText("fake-error-message")).toBeDefined();
-  });
-});
+//   it("show error message", async () => {
+//     useActionWebInvoke.mockReturnValue(mockResponse);
+//     render(<OfferRender {...fakeProps} />);
+//     expect(screen.getAllByText("fake-error-message")).toBeDefined();
+//   });
+// });
 
