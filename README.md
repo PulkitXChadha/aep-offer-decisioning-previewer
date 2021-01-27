@@ -135,3 +135,13 @@ Alternatively, there are also debug configs for only UI and each separate action
 ### Adobe Offer Decisioning Engine
 * [Getting Started](https://experienceleague.adobe.com/docs/offer-decisioning/using/get-started/starting-offer-decisioning.html?lang=en#get-started)
 * [Offer Decisioning API Reference](https://experienceleague.adobe.com/docs/offer-decisioning/using/api-reference/getting-started.html?lang=en#api-reference)
+
+
+## Releases
+
+### v0.0.3
+* Added support to render JSON and HTML representation of offers
+* Sort sandbox list based on name.
+* Cleaned display of events data removing datatypes and length.
+* Added dry run toggle to switch between various modes of offer decisioning.
+* Added offer capping metric Meter component to 

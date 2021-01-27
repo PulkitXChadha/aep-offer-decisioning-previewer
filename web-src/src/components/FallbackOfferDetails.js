@@ -51,6 +51,16 @@ const FallbackOfferDetails = (props) => {
     );
   }
 
+  if (!offerDetails.data && !offerDetails.error && !offerDetails.isLoading) {
+    content = (
+      <View>
+        <Well role="offerDetails">
+          <h3>Offer Details</h3>
+          <p>No details available.</p>
+        </Well>
+      </View>
+    );
+  }
   if (
     !offerDetails.isLoading &&
     offerDetails.data &&
@@ -66,7 +76,11 @@ const FallbackOfferDetails = (props) => {
     );
   }
 
-  if (!offerDetails.isLoading && offerDetails.data) {
+  if (
+    !offerDetails.isLoading &&
+    offerDetails.data &&
+    offerDetails.data.status != 404
+  ) {
     const detailedResult = offerDetails.data._embedded.results[0];
 
     const offerName = detailedResult._instance["xdm:name"];

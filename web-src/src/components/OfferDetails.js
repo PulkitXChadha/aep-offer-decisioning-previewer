@@ -7,10 +7,12 @@ import {
   IllustratedMessage,
   Heading,
   Well,
+  Grid,
 } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
 
 import EligibilityRuleDetails from "./EligibilityRuleDetails";
+import OfferPropositionMetricView from "./OfferPropositionMetricView";
 
 import Error from "@spectrum-icons/illustrations/Error";
 
@@ -68,11 +70,23 @@ const OfferDetails = (props) => {
     );
   }
 
+  if (!offerDetails.data && !offerDetails.error && !offerDetails.isLoading) {
+    content = (
+      <View>
+        <Well role="offerDetails">
+          <h3>Offer Details</h3>
+          <p>No details available.</p>
+        </Well>
+      </View>
+    );
+  }
+  
   if (!offerDetails.isLoading && offerDetails.data) {
     const detailedResult = offerDetails.data._embedded.results[0];
-
     const offerName = detailedResult._instance["xdm:name"];
     const offerRank = detailedResult._instance["xdm:rank"]["xdm:priority"];
+    const offerGlobalCap =
+      detailedResult._instance["xdm:cappingConstraint"]["xdm:globalCap"];
     const offerStartDate =
       detailedResult._instance["xdm:selectionConstraint"]["xdm:startDate"];
     const offerEndDate =
@@ -83,7 +97,7 @@ const OfferDetails = (props) => {
       ];
 
     content = (
-      <View>
+      <View gridArea="offerDetails">
         <Well role="offerDetails">
           <h3>Offer Details</h3>
           <p>
@@ -91,10 +105,21 @@ const OfferDetails = (props) => {
             {offerName}
             <br /> <strong>Rank: </strong>
             {offerRank}
+            <br /> <strong>Global Cap: </strong>
+            {offerGlobalCap}
+            <br /> <br />
+            {offerGlobalCap && (
+              <OfferPropositionMetricView
+                ims={props.ims}
+                offerGlobalCap={offerGlobalCap}
+                containerID={props.containerID}
+                offerID={props.offerID}
+              />
+            )}
             <br /> <strong>Start Date: </strong>
-            {offerStartDate}
+            {new Date(offerStartDate).toUTCString()}
             <br /> <strong>End: </strong>
-            {offerEndDate}
+            {new Date(offerEndDate).toUTCString()}
           </p>
         </Well>
         <EligibilityRuleDetails

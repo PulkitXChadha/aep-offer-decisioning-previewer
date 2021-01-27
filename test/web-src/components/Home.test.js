@@ -7,16 +7,16 @@ afterEach(cleanup);
 
 describe("<Home> on load", () => {
   it("renders correctly ", () => {
-    const fakeProps = { isSandboxSelected: false };
+    const fakeProps = { isSandboxSelected: false, isLoading: true };
     const { asFragment } = render(<Home {...fakeProps} />);
     expect(asFragment()).toMatchSnapshot();
-    expect(screen.getByText("Select a Sandbox")).toBeDefined();
+    expect(screen.getByLabelText("Getting Containers")).toBeDefined();
   });
 });
 
 describe("<Home> on sandbox selection", () => {
   it("renders correctly", () => {
-    const fakeProps = { isSandboxSelected: true };
+    const fakeProps = { isSandboxSelected: true, isLoading: false };
     const { asFragment } = render(<Home {...fakeProps} />);
     expect(asFragment()).toMatchSnapshot();
     expect(screen.queryByText("Select a Sandbox")).toBeNull();

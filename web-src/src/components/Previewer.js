@@ -7,6 +7,7 @@ import {
   Button,
   View,
   Divider,
+  Switch,
 } from "@adobe/react-spectrum";
 import { Tabs, Item } from "@react-spectrum/tabs";
 
@@ -19,6 +20,7 @@ import ProfileView from "./ProfileView";
 import ExperienceEventsView from "./ExperienceEventsView";
 
 const Previewer = (props) => {
+  const [dryRunFlag, setDryRunFlag] = useState(true);
   const [getOffer, setGetOffer] = useState(false);
   const [getProfile, setGetProfile] = useState(false);
   const [getExperienceEvents, setGetExperienceEvents] = useState(false);
@@ -39,10 +41,17 @@ const Previewer = (props) => {
   //refresh offer when any of the inputs change
   useEffect(() => {
     setGetOffer(false);
-  }, [selectedActivity, selectedPlacement, selectedNamespace, entityValue]);
+  }, [
+    selectedActivity,
+    selectedPlacement,
+    selectedNamespace,
+    entityValue,
+    dryRunFlag,
+  ]);
 
   //Update page if sandbox or container change
   useEffect(() => {
+    setDryRunFlag(true);
     setGetOffer(false);
     setSelectedActivity(null);
     setSelectedPlacement(null);
@@ -109,13 +118,13 @@ const Previewer = (props) => {
   }
 
   let offerButton = null;
-
+  let offerToggle = null;
   if (entityValue) {
     offerButton = (
       <Button
         variant="primary"
         onPress={() => {
-          if (!getOffer) setGetOffer(true);
+          setGetOffer(true);
           setGetProfile(true);
           setGetExperienceEvents(true);
         }}
@@ -123,6 +132,11 @@ const Previewer = (props) => {
       >
         Get Offer
       </Button>
+    );
+    offerToggle = (
+      <Switch isSelected={dryRunFlag} onChange={setDryRunFlag}>
+        Dry Run
+      </Switch>
     );
   }
 
@@ -137,6 +151,7 @@ const Previewer = (props) => {
         activityID={selectedActivity}
         identityNamespace={selectedNamespace}
         entityValue={entityValue}
+        dryRunFlag={dryRunFlag}
       />
     );
   }
@@ -170,7 +185,7 @@ const Previewer = (props) => {
       areas={[
         "header header header header header header",
         "activity activity activity placement placement placement",
-        "namespace namespace entityValue entityValue offer offer",
+        "namespace namespace entityValue entityValue offer offerToggle",
         "spacing spacing spacing spacing spacing spacing",
         "content content content profileContent profileContent profileContent",
       ]}
@@ -181,10 +196,11 @@ const Previewer = (props) => {
     >
       <View gridArea="header">{header}</View>
       <View gridArea="activity">{activities}</View>
-      <View gridArea="placement">{placement}</View>{" "}
+      <View gridArea="placement">{placement}</View>
       <View gridArea="namespace">{identityNamespace}</View>
       <View gridArea="entityValue">{valueInput}</View>
       <View gridArea="offer">{offerButton}</View>
+      <View gridArea="offerToggle">{offerToggle}</View>
       <View gridArea="spacing">
         <Divider></Divider>
       </View>
