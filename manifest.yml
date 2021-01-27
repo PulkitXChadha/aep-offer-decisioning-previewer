@@ -122,3 +122,13 @@ packages:
         annotations:
           require-adobe-auth: true
           final: true
+      get-offer-metrics:
+        function: actions/ODE/get-offer-metrics.js
+        web: "yes"
+        runtime: "nodejs:10"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true

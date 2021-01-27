@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from "react";
-
+import React from "react";
 import ReactJson from "react-json-view";
 import PropTypes from "prop-types";
 import {
   Content,
-  Image,
   ProgressCircle,
   IllustratedMessage,
   Heading,
-  Text,
 } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
 
 import Error from "@spectrum-icons/illustrations/Error";
 
-const ProfileView = (props) => {
+const PropositionHistoryView = (props) => {
   let headers = {};
   if (props.ims.token && !headers.authorization) {
     headers.authorization = `Bearer ${props.ims.token}`;
@@ -23,8 +20,8 @@ const ProfileView = (props) => {
     headers["x-gw-ims-org-id"] = props.ims.org;
   }
 
-  const profile = useActionWebInvoke({
-    actionName: "get-profile",
+  const experienceEvents = useActionWebInvoke({
+    actionName: "get-profile-experience-events",
     headers: headers,
     params: {
       identityNamespace: props.identityNamespace,
@@ -34,34 +31,31 @@ const ProfileView = (props) => {
   });
   let content = (
     <ProgressCircle
-      id="profile-view-progress-circle"
-      aria-label="Getting Profile"
+      id="proposition-history-view-progress-circle"
+      aria-label="Getting Proposition Events"
       isIndeterminate
-      isHidden={!profile.isLoading}
+      isHidden={!experienceEvents.isLoading}
       marginStart="size-100"
     />
   );
 
-  if (!profile.isLoading && profile.error) {
+  if (!experienceEvents.isLoading && experienceEvents.error) {
     content = (
       <IllustratedMessage>
         <Error />
         <Heading>Error 500: Internal server error</Heading>
         <Content>Something went wrong. Please try again later.</Content>
-        <Content>{profile.error.message}</Content>
+        <Content>{experienceEvents.error.message}</Content>
       </IllustratedMessage>
     );
   }
-  if (!profile.data && !profile.error && !profile.isLoading) {
-    content = <Text>No Profile Data Found</Text>;
-  }
 
-  if (!profile.isLoading && profile.data) {
-    const keys = Object.keys(profile.data);
+  if (!experienceEvents.isLoading && experienceEvents.data) {
+    experienceEvents.data.children
     content = (
       <ReactJson
-        src={profile.data[keys[0]].entity}
-        name="profile"
+        src={experienceEvents.data.children}
+        name="propositionHistory"
         displayObjectSize={false}
         displayDataTypes={false}
         quotesOnKeys={false}
@@ -72,8 +66,8 @@ const ProfileView = (props) => {
   return content;
 };
 
-ProfileView.propTypes = {
+PropositionHistoryView.propTypes = {
   offer: PropTypes.any,
 };
 
-export default ProfileView;
+export default PropositionHistoryView;

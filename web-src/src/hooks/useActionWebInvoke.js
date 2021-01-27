@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import actionWebInvoke from "../utils";
 
 export const useActionWebInvoke = ({
-  actionName = null,
+  actionName,
   headers = {},
   params = {},
 }) => {

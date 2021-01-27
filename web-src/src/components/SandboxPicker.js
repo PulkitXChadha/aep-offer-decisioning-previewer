@@ -3,6 +3,14 @@ import React from "react";
 import { Item, Text, Picker, ProgressCircle } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
 const SandboxPicker = (props) => {
+  function sortByProperty(property) {
+    return function (a, b) {
+      if (a[property] > b[property]) return 1;
+      else if (a[property] < b[property]) return -1;
+      return 0;
+    };
+  }
+
   let headers = {};
   // set the authorization header and org from the ims props object
   if (props.ims.token && !headers.authorization) {
@@ -51,10 +59,12 @@ const SandboxPicker = (props) => {
         maxWidth="100%"
         aria-label="select a sandbox"
         // defaultSelectedKey={defaultSelection}
-        items={sandboxes.data.sandboxes.map((sandbox) => ({
-          id: sandbox.name,
-          name: `${sandbox.title} (${sandbox.region})`,
-        }))}
+        items={sandboxes.data.sandboxes
+          .sort(sortByProperty("name"))
+          .map((sandbox) => ({
+            id: sandbox.name,
+            name: `${sandbox.title} (${sandbox.region})`,
+          }))}
         itemKey="id"
         onSelectionChange={props.onSelectionChange}
       >

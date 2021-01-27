@@ -50,7 +50,18 @@ const EligibilityRuleDetails = (props) => {
       </IllustratedMessage>
     );
   }
-
+  if (!ruleDetails.data && !ruleDetails.error && !ruleDetails.isLoading) {
+    content = (
+      <View>
+        <Well role="ruleDetails">
+          <h3>Decision Rule Details</h3>
+          <p>
+            <strong>No Details found.</strong>
+          </p>
+        </Well>
+      </View>
+    );
+  }
   if (!ruleDetails.isLoading && ruleDetails.data) {
     const detailedResult = ruleDetails.data._embedded.results[0];
     const ruleName = detailedResult._instance["xdm:name"];

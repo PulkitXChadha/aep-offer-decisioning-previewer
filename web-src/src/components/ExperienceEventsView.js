@@ -7,6 +7,7 @@ import {
   ProgressCircle,
   IllustratedMessage,
   Heading,
+  Text,
 } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
 
@@ -51,9 +52,24 @@ const ExperienceEventsView = (props) => {
     );
   }
 
+  if (
+    !experienceEvents.data &&
+    !experienceEvents.error &&
+    !experienceEvents.isLoading
+  ) {
+    content = <Text>No Experience Events Found</Text>;
+  }
+
   if (!experienceEvents.isLoading && experienceEvents.data) {
-    
-    content = <ReactJson src={experienceEvents.data.children} />;
+    content = (
+      <ReactJson
+        src={experienceEvents.data.children}
+        name="events"
+        displayObjectSize={false}
+        displayDataTypes={false}
+        quotesOnKeys={false}
+      />
+    );
   }
 
   return content;

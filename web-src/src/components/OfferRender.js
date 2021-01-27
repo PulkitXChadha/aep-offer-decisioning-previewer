@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+import ReactJson from "react-json-view";
 import PropTypes from "prop-types";
 import {
   Content,
@@ -34,6 +36,7 @@ const OfferRender = (props) => {
       activityID: props.activityID,
       identityNamespace: props.identityNamespace,
       entityValue: props.entityValue,
+      dryRunFlag: props.dryRunFlag,
     },
   });
   let content = (
@@ -70,8 +73,6 @@ const OfferRender = (props) => {
 
   if (!offer.isLoading && offer.data && offer.data.status != 404) {
     const offerProposition = offer.data["xdm:propositions"][0];
-
-    //get proposition or Fallback response
     const offerData = offerProposition["xdm:options"]
       ? { offerType: "proposition", ...offerProposition["xdm:options"][0] }
       : { offerType: "fallback", ...offerProposition["xdm:fallback"] };
@@ -89,6 +90,19 @@ const OfferRender = (props) => {
     if (offerData["dc:format"] == "text/plain")
       offerContent = <Content>{offerData["xdm:content"]}</Content>;
 
+    if (offerData["dc:format"] == "application/json")
+      offerContent = (
+        <ReactJson
+          src={JSON.parse(offerData["xdm:content"])}
+          name="offerContent"
+          displayObjectSize={false}
+          displayDataTypes={false}
+          quotesOnKeys={false}
+        />
+      );
+
+    if (offerData["dc:format"] == "text/html")
+      offerContent = <Well>{offerData["xdm:deliveryURL"]}</Well>;
     if (offerData.offerType === "proposition") {
       content = (
         <View>

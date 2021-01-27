@@ -10,7 +10,6 @@ const {
   checkMissingRequestInputs,
 } = require("../utils");
 
-
 // main function that will be executed by Adobe I/O Runtime
 async function main(params) {
   // create a Logger
@@ -54,7 +53,6 @@ async function main(params) {
     ];
 
     const body = {
-      "xdm:dryRun": true,
       "xdm:propositionRequests": [
         {
           "xdm:placementId": params.placementID,
@@ -72,22 +70,24 @@ async function main(params) {
       },
     };
 
+    if (params.dryRunFlag) {
+      body["xdm:dryRun"] = params.dryRunFlag;
+    }
+    logger.debug(JSON.stringify(body));
     // fetch content from external api endpoint
-    const res = await fetch(
-      apiEndpoint, {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: {
-          "x-api-key": params.apiKey,
-          "x-gw-ims-org-id": params.__ow_headers["x-gw-ims-org-id"],
-          Authorization: `Bearer ${token}`,
-          "Content-Type":
-            'application/vnd.adobe.xdm+json; schema="https://ns.adobe.com/experience/offer-management/decision-request;version=1.0"',
-          Accept:
-            'application/vnd.adobe.xdm+json; schema="https://ns.adobe.com/experience/offer-management/decision-response;version=1.0"',
-        },
-      }
-    );
+    const res = await fetch(apiEndpoint, {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "x-api-key": params.apiKey,
+        "x-gw-ims-org-id": params.__ow_headers["x-gw-ims-org-id"],
+        Authorization: `Bearer ${token}`,
+        "Content-Type":
+          'application/vnd.adobe.xdm+json; schema="https://ns.adobe.com/experience/offer-management/decision-request;version=1.0"',
+        Accept:
+          'application/vnd.adobe.xdm+json; schema="https://ns.adobe.com/experience/offer-management/decision-response;version=1.0"',
+      },
+    });
 
     if (!res.ok) {
       throw new Error(

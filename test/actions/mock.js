@@ -386,6 +386,19 @@ const sandboxes = {
       createdBy: "7FDC1DB1597654FF0A495C19@AdobeID",
       lastModifiedBy: "7FDC1DB1597654FF0A495C19@AdobeID",
     },
+    {
+      name: "sandbox2",
+      title: "Sandbox 2",
+      state: "active",
+      type: "development",
+      region: "VA7",
+      isDefault: false,
+      eTag: 1459970834,
+      createdDate: "2020-12-15 21:58:52",
+      lastModifiedDate: "2020-12-15 21:58:52",
+      createdBy: "7FDC1DB1597654FF0A495C19@AdobeID",
+      lastModifiedBy: "7FDC1DB1597654FF0A495C19@AdobeID",
+    },
   ],
   _page: {
     limit: 50,
@@ -1164,6 +1177,19 @@ const offerFallback = {
     },
   },
 };
+const offerPropositionMetric = {
+  "xdm:metrics": {
+    "https://ns.adobe.com/experience/offer-management/offer-propositions": {
+      "xdm:value": 5,
+    },
+    "xdm:channels": [
+      {
+        "xdm:channel": "https://ns.adobe.com/xdm/channels/email",
+        "xdm:usage": 5,
+      },
+    ],
+  },
+};
 const data = {
   offerActivity: offerActivity,
   container: container,
@@ -1179,6 +1205,7 @@ const data = {
   profile: profile,
   experienceEvents: experienceEvents,
   identityPreviewReport: identityPreviewReport,
+  offerPropositionMetric: offerPropositionMetric,
 };
 
 module.exports = {

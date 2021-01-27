@@ -45,7 +45,7 @@
   "scripts": {
     "test": "jest --env=jest-environment-jsdom-sixteen --passWithNoTests ./test",
     "e2e": "jest --collectCoverage=false --env=jest-environment-jsdom-sixteen --testRegex ./e2e",
-    "test-coverage": "jest --collectCoverage=true --env=jest-environment-jsdom-sixteen"
+    "test-coverage": "jest --collectCoverage=true --env=jest-environment-jsdom-sixteen --passWithNoTests ./test"
   },
   "engines": {
     "node": "^10 || ^12"
@@ -53,6 +53,9 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
-    }
+    },
+    "modulePathIgnorePatterns": [
+      "home/mac/dev/git/personal/react-json-view"
+    ]
   }
 }
