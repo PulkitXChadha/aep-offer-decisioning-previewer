@@ -139,6 +139,9 @@ Alternatively, there are also debug configs for only UI and each separate action
 
 ## Releases
 
+### v0.0.4
+* Added session caching of API responses to improve App performance. 
+* Updated Offer Metric component to not cache API responses.
 ### v0.0.3
 * Added support to render JSON and HTML representation of offers
 * Sort sandbox list based on name.

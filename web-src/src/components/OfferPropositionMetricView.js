@@ -33,6 +33,7 @@ const OfferPropositionMetricView = (props) => {
         metric:
           "https://ns.adobe.com/experience/offer-management/offer-propositions",
       },
+      cacheResponse: false,
     });
     let content = (
       <ProgressCircle
