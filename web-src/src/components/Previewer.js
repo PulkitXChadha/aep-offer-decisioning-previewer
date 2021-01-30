@@ -140,7 +140,12 @@ const Previewer = (props) => {
         setGetProfile(true);
         setGetExperienceEvents(true);
       }}
-      isDisabled={!entityValue}
+      isDisabled={
+        !entityValue ||
+        !selectedActivityPlacements ||
+        !selectedPlacement ||
+        !selectedNamespace
+      }
     >
       <OfferIcon />
       <Text>Get Offer Decision</Text>
@@ -150,7 +155,6 @@ const Previewer = (props) => {
     <Switch
       isSelected={dryRunFlag}
       onChange={setDryRunFlag}
-      isDisabled={!entityValue}
     >
       Dry Run
     </Switch>
