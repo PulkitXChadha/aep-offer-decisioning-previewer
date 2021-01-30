@@ -9,10 +9,16 @@ import {
   Well,
 } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
-
+import {
+  ProfileProvider,
+  useProfileState,
+  useProfileDispatch,
+} from "../context/ProfileViewContext.js";
 import Error from "@spectrum-icons/illustrations/Error";
 
 const EligibilityRuleDetails = (props) => {
+  const setProfileAttributes = useProfileDispatch();
+
   let headers = {};
   if (props.ims.token && !headers.authorization) {
     headers.authorization = `Bearer ${props.ims.token}`;
@@ -82,6 +88,8 @@ const EligibilityRuleDetails = (props) => {
         </Well>
       </View>
     );
+
+    setProfileAttributes(ruleConditionValue );
   }
 
   return content;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Picker, ProgressCircle, Item, Text } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
@@ -19,6 +19,16 @@ const ActivityList = (props) => {
       containerID: props.containerID,
     },
   });
+
+  const onSelection = (id) => {
+    const placements = activities.data._embedded.results
+      .filter((activity) => activity._instance["@id"] === id)[0]
+      ._instance["xdm:criteria"].map(
+        (criteria) => criteria["xdm:placements"][0]
+      );
+
+    props.onSelectionChange(id, placements);
+  };
 
   let picker = (
     <ProgressCircle
@@ -54,7 +64,7 @@ const ActivityList = (props) => {
           id: activity._instance["@id"],
         }))}
         itemKey="id"
-        onSelectionChange={props.onSelectionChange}
+        onSelectionChange={onSelection}
       >
         {(item) => <Item key={item.id}>{item.name}</Item>}
       </Picker>

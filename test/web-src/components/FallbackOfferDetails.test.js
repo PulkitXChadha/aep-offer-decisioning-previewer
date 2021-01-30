@@ -5,7 +5,11 @@ import "@testing-library/jest-dom/extend-expect";
 jest.mock("../../../web-src/src/hooks/useActionWebInvoke.js");
 import { useActionWebInvoke } from "../../../web-src/src/hooks/useActionWebInvoke";
 import mock from "../../actions/mock";
-
+import {
+  ProfileProvider,
+  useProfileState,
+  useProfileDispatch,
+} from "../../../web-src/src/context/ProfileViewContext";
 import FallbackOfferDetails from "../../../web-src/src/components/FallbackOfferDetails";
 
 afterEach(cleanup);
@@ -34,7 +38,11 @@ describe("<FallbackOfferDetails> calls custom hook", () => {
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<FallbackOfferDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   it("call custom hooks with global parameters correctly", () => {
@@ -44,7 +52,11 @@ describe("<FallbackOfferDetails> calls custom hook", () => {
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<FallbackOfferDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
@@ -57,12 +69,20 @@ describe("<FallbackOfferDetails> on load", () => {
   };
   it("renders correctly on load", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<FallbackOfferDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   it("has a <ProgressCircle> when loading", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<FallbackOfferDetails {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getByLabelText("Getting Offer Details")).toBeDefined();
   });
 });
@@ -77,7 +97,9 @@ describe("<FallbackOfferDetails> on load", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
     render(
       <Provider theme={defaultTheme} colorScheme={`light`}>
-        <FallbackOfferDetails {...fakeProps} />
+        <ProfileProvider>
+          <FallbackOfferDetails {...fakeProps} />
+        </ProfileProvider>
       </Provider>
     );
     expect(screen.getByText("Offer Details")).toBeInTheDocument();
@@ -92,13 +114,21 @@ describe("<FallbackOfferDetails> on error", () => {
   };
   it("renders correctly on error", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<FallbackOfferDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("show error message", async () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<FallbackOfferDetails {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getAllByText("fake-error-message")).toBeDefined();
   });
 });
@@ -110,13 +140,21 @@ describe("<FallbackOfferDetails> on ODE error", () => {
   };
   it("renders correctly on error", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<FallbackOfferDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("show error message", async () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<FallbackOfferDetails {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getAllByText("fake-error-message")).toBeDefined();
   });
 });
@@ -128,13 +166,21 @@ describe("<FallbackOfferDetails> on data", () => {
   };
   it("renders correctly on no data", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<FallbackOfferDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("show no data message", async () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<FallbackOfferDetails {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <FallbackOfferDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getAllByText("No details available.")).toBeDefined();
   });
 });

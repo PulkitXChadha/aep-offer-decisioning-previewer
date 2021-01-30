@@ -37,6 +37,7 @@ const fakeParams = {
   containerID: "fake-containerID",
   activityID: "fake-activityID",
   placementID: "fake-placementID",
+  dryRunFlag: true
 };
 describe("get-offer-representation", () => {
   const mockFetchErrorResponse = {

@@ -6,7 +6,11 @@ import "@testing-library/jest-dom/extend-expect";
 jest.mock("../../../web-src/src/hooks/useActionWebInvoke.js");
 import { useActionWebInvoke } from "../../../web-src/src/hooks/useActionWebInvoke";
 import mock from "../../actions/mock";
-
+import {
+  ProfileProvider,
+  useProfileState,
+  useProfileDispatch,
+} from "../../../web-src/src/context/ProfileViewContext";
 import EligibilityRuleDetails from "../../../web-src/src/components/EligibilityRuleDetails";
 
 afterEach(cleanup);
@@ -35,7 +39,11 @@ describe("<EligibilityRuleDetails> calls custom hook", () => {
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<EligibilityRuleDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <EligibilityRuleDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   it("call custom hooks with global parameters correctly", () => {
@@ -45,7 +53,11 @@ describe("<EligibilityRuleDetails> calls custom hook", () => {
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<EligibilityRuleDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <EligibilityRuleDetails {...fakeProps} />{" "}
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
@@ -58,12 +70,20 @@ describe("<EligibilityRuleDetails> on load", () => {
   };
   it("renders correctly on load", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<EligibilityRuleDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <EligibilityRuleDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   it("has a <ProgressCircle> when loading", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<EligibilityRuleDetails {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <EligibilityRuleDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getByLabelText("Getting Offer Details")).toBeDefined();
   });
 });
@@ -78,7 +98,9 @@ describe("<EligibilityRuleDetails> on load", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
     render(
       <Provider theme={defaultTheme} colorScheme={`light`}>
-        <EligibilityRuleDetails {...fakeProps} />
+        <ProfileProvider>
+          <EligibilityRuleDetails {...fakeProps} />
+        </ProfileProvider>
       </Provider>
     );
     expect(screen.getByText("Decision Rule Details")).toBeInTheDocument();
@@ -94,13 +116,21 @@ describe("<EligibilityRuleDetails> on error", () => {
   };
   it("renders correctly on error", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<EligibilityRuleDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <EligibilityRuleDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("show error message", async () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<EligibilityRuleDetails {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <EligibilityRuleDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getAllByText("fake-error-message")).toBeDefined();
   });
 });
@@ -113,13 +143,21 @@ describe("<EligibilityRuleDetails> on data", () => {
   };
   it("renders correctly on no data", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<EligibilityRuleDetails {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <EligibilityRuleDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("show no data message", async () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<EligibilityRuleDetails {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <EligibilityRuleDetails {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getAllByText("No Details found.")).toBeDefined();
   });
 });

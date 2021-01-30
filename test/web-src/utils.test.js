@@ -19,12 +19,14 @@ const mockFetchErrorResponse = {
   text: () => Promise.reject(JSON.stringify(new Error("fake"))),
 };
 
-const mockFetchResponse = {
-  ok: true,
-  text: () =>
-    Promise.resolve({ statusCode: 200, data: { name: "Luke Skywalker" } }),
-};
+
 describe("actionWebInvoke", () => {
+  const mockFetchResponse = {
+    ok: true,
+    text: () =>
+      Promise.resolve({ statusCode: 200, data: { name: "Luke Skywalker" } }),
+  };
+
   test("returns response data", async () => {
     fetch.mockResolvedValue(mockFetchResponse);
     const response = await utils.default(fakeParams);

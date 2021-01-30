@@ -118,7 +118,7 @@ const OfferDetails = (props) => {
             )}
             <br /> <strong>Start Date: </strong>
             {new Date(offerStartDate).toUTCString()}
-            <br /> <strong>End: </strong>
+            <br /> <strong>End Date: </strong>
             {new Date(offerEndDate).toUTCString()}
           </p>
         </Well>

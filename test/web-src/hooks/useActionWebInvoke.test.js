@@ -30,7 +30,7 @@ describe("use the useActionWebInvoke hook", () => {
 
   it("on error return error message", async () => {
     const fakeParams = {
-      actionName: "fake-action",
+      actionName: "fake-falling-action",
       headers: {},
       params: {},
     };
