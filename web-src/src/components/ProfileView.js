@@ -1,20 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import ReactJson from "react-json-view";
 import PropTypes from "prop-types";
 import {
   Content,
-  Image,
   ProgressCircle,
   IllustratedMessage,
   Heading,
   Text,
 } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
+import {
+  ProfileProvider,
+  useProfileState,
+  useProfileDispatch,
+} from "../context/ProfileViewContext.js";
 
 import Error from "@spectrum-icons/illustrations/Error";
 
 const ProfileView = (props) => {
+  const profileAttributesInRule = useProfileState();
+
   let headers = {};
   if (props.ims.token && !headers.authorization) {
     headers.authorization = `Bearer ${props.ims.token}`;
@@ -58,13 +64,27 @@ const ProfileView = (props) => {
 
   if (!profile.isLoading && profile.data) {
     const keys = Object.keys(profile.data);
+    let dataToDisplay = profile.data[keys[0]].entity;
+    delete dataToDisplay._ACP_BATCHID;
+    delete dataToDisplay._acp_system_metadata;
+    delete dataToDisplay._id;
     content = (
       <ReactJson
-        src={profile.data[keys[0]].entity}
+        src={dataToDisplay}
         name="profile"
         displayObjectSize={false}
         displayDataTypes={false}
         quotesOnKeys={false}
+        shouldCollapse={(field) => {
+          if (field.name === "profile") return false;
+
+          console.log(
+            `${field.name} is present? ${!profileAttributesInRule.includes(
+              field.name
+            )}`
+          );
+          return !profileAttributesInRule.includes(field.name);
+        }}
       />
     );
   }
@@ -76,4 +96,4 @@ ProfileView.propTypes = {
   offer: PropTypes.any,
 };
 
-export default ProfileView;
+export default React.memo(ProfileView);

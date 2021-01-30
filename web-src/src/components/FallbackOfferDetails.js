@@ -9,10 +9,15 @@ import {
   Well,
 } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
-
+import {
+  ProfileProvider,
+  useProfileState,
+  useProfileDispatch,
+} from "../context/ProfileViewContext.js";
 import Error from "@spectrum-icons/illustrations/Error";
 
 const FallbackOfferDetails = (props) => {
+  const setProfileAttributes = useProfileDispatch();
   let headers = {};
   if (props.ims.token && !headers.authorization) {
     headers.authorization = `Bearer ${props.ims.token}`;
@@ -97,7 +102,7 @@ const FallbackOfferDetails = (props) => {
       </View>
     );
   }
-
+  setProfileAttributes([]);
   return content;
 };
 

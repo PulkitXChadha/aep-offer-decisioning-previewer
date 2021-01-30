@@ -4,8 +4,8 @@ import { Picker, ProgressCircle, Item, Text } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
 
 const PlacementList = (props) => {
+  const enabledPlacements = props.enabledPlacements || [];
   let headers = {};
-  // set the authorization header and org from the ims props object
   if (props.ims.token && !headers.authorization) {
     headers.authorization = `Bearer ${props.ims.token}`;
   }
@@ -20,7 +20,7 @@ const PlacementList = (props) => {
       containerID: props.containerID,
     },
   });
-  
+
   let picker = (
     <ProgressCircle
       id="placement-list-progress-circle"
@@ -31,7 +31,6 @@ const PlacementList = (props) => {
     />
   );
 
-
   if (placements.error) {
     picker = <Text>{placements.error.message}</Text>;
   }
@@ -40,9 +39,15 @@ const PlacementList = (props) => {
     picker = <Text>You have no placements !</Text>;
   }
   if (placements.data) {
+    const disabledKeys = placements.data._embedded.results
+      .filter(
+        (placement) => !enabledPlacements.includes(placement._instance["@id"])
+      )
+      .map((placement) => placement._instance["@id"]);
+
     picker = (
       <Picker
-      id="placement-list-picker"
+        id="placement-list-picker"
         width="100%"
         maxWidth="100%"
         label="Select Offer Placement"
@@ -53,16 +58,19 @@ const PlacementList = (props) => {
         aria-label="select a placement"
         items={placements.data._embedded.results.map((placement) => ({
           name: placement._instance["xdm:name"],
-          id:  placement._instance["@id"],
+          id: placement._instance["@id"],
         }))}
         itemKey="id"
+        isDisabled={props.isDisabled}
+        selectedKey={props.defaultSelection}
+        disabledKeys={disabledKeys}
         onSelectionChange={props.onSelectionChange}
       >
         {(item) => <Item key={item.id}>{item.name}</Item>}
       </Picker>
     );
   }
-  
+
   return picker;
 };
 

@@ -142,9 +142,19 @@ Alternatively, there are also debug configs for only UI and each separate action
 ### v0.0.4
 * Added session caching of API responses to improve App performance. 
 * Updated Offer Metric component to not cache API responses.
+* Disable Placements not part of the activity selected
+* Profile JSON collapse all attributes that are not part of the decision condition.
 ### v0.0.3
 * Added support to render JSON and HTML representation of offers
 * Sort sandbox list based on name.
 * Cleaned display of events data removing datatypes and length.
 * Added dry run toggle to switch between various modes of offer decisioning.
 * Added offer capping metric Meter component to 
+
+
+## Features Requested
+
+* Show sample profiles based on decision rule.
+* Show proposition history events.
+* Show lineage followed to make the offer decision.
+* Show Decision API call.

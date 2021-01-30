@@ -5,18 +5,24 @@ import {
   Heading,
   TextField,
   Button,
+  Text,
   View,
   Divider,
   Switch,
 } from "@adobe/react-spectrum";
 import { Tabs, Item } from "@react-spectrum/tabs";
+import {
+  ProfileProvider,
+  useProfileState,
+  useProfileDispatch,
+} from "../context/ProfileViewContext.js";
 
+import OfferIcon from "@spectrum-icons/workflow/Offer";
 import ActivityList from "./ActivityList";
 import PlacementList from "./PlacementList";
 import NamespaceList from "./NamespaceList";
 import OfferRender from "./OfferRender";
 import ProfileView from "./ProfileView";
-
 import ExperienceEventsView from "./ExperienceEventsView";
 
 const Previewer = (props) => {
@@ -26,8 +32,11 @@ const Previewer = (props) => {
   const [getExperienceEvents, setGetExperienceEvents] = useState(false);
   const [sandboxName, setSandboxName] = useState(null);
   const [containerID, setContainerID] = useState(null);
-
   const [selectedActivity, setSelectedActivity] = useState();
+  const [
+    selectedActivityPlacements,
+    setSelectedActivityPlacements,
+  ] = useState();
   const [selectedPlacement, setSelectedPlacement] = useState();
   const [selectedNamespace, setSelectedNamespace] = useState();
   let [entityValue, setEntityValue] = React.useState();
@@ -54,6 +63,7 @@ const Previewer = (props) => {
     setDryRunFlag(true);
     setGetOffer(false);
     setSelectedActivity(null);
+    setSelectedActivityPlacements(null);
     setSelectedPlacement(null);
     setSelectedNamespace(null);
     setSelectedNamespace(null);
@@ -63,35 +73,38 @@ const Previewer = (props) => {
   }, [props.sandboxName, props.containerID]);
 
   let header = <Heading level={3}>ODE Previewer</Heading>;
+
   let activities = null;
+  let placement = null;
+  let valueInput = null;
+  let identityNamespace = null;
 
   if (containerID) {
     activities = (
       <ActivityList
         ims={props.ims}
         containerID={containerID}
-        onSelectionChange={(id) => {
+        onSelectionChange={(id, placements) => {
           setSelectedActivity(id);
+          setSelectedActivityPlacements(placements);
+          setSelectedPlacement(null);
         }}
       />
     );
-  }
-  let placement = null;
-  if (selectedActivity) {
+
     placement = (
       <PlacementList
         ims={props.ims}
         containerID={containerID}
+        isDisabled={selectedActivity ? false : true}
+        defaultSelection={selectedPlacement}
+        enabledPlacements={selectedActivityPlacements}
         onSelectionChange={(id) => {
           setSelectedPlacement(id);
         }}
       />
     );
-  }
 
-  let identityNamespace = null;
-
-  if (selectedPlacement) {
     identityNamespace = (
       <NamespaceList
         ims={props.ims}
@@ -101,44 +114,47 @@ const Previewer = (props) => {
         }}
       />
     );
-  }
-  let valueInput = null;
-  if (selectedNamespace) {
     valueInput = (
       <TextField
         width="100%"
         maxWidth="100%"
+        isDisabled={selectedNamespace ? false : true}
         label={`Enter ${selectedNamespace} ID value`}
         labelPosition="side"
         labelAlign="end"
         isRequired={true}
         onChange={setEntityValue}
+        inputMode="text"
+        maxLength="255"
       />
     );
   }
 
   let offerButton = null;
   let offerToggle = null;
-  if (entityValue) {
-    offerButton = (
-      <Button
-        variant="primary"
-        onPress={() => {
-          setGetOffer(true);
-          setGetProfile(true);
-          setGetExperienceEvents(true);
-        }}
-        isDisabled={!entityValue}
-      >
-        Get Offer
-      </Button>
-    );
-    offerToggle = (
-      <Switch isSelected={dryRunFlag} onChange={setDryRunFlag}>
-        Dry Run
-      </Switch>
-    );
-  }
+  offerButton = (
+    <Button
+      variant="primary"
+      onPress={() => {
+        setGetOffer(true);
+        setGetProfile(true);
+        setGetExperienceEvents(true);
+      }}
+      isDisabled={!entityValue}
+    >
+      <OfferIcon />
+      <Text>Get Offer Decision</Text>
+    </Button>
+  );
+  offerToggle = (
+    <Switch
+      isSelected={dryRunFlag}
+      onChange={setDryRunFlag}
+      isDisabled={!entityValue}
+    >
+      Dry Run
+    </Switch>
+  );
 
   let offerContent = null;
 
@@ -184,7 +200,7 @@ const Previewer = (props) => {
     <Grid
       areas={[
         "header header header header header header",
-        "activity activity activity placement placement placement",
+        "activity activity placement placement placeholder placeholder",
         "namespace namespace entityValue entityValue offer offerToggle",
         "spacing spacing spacing spacing spacing spacing",
         "content content content profileContent profileContent profileContent",
@@ -192,7 +208,8 @@ const Previewer = (props) => {
       columns={["1fr", "1fr", "1fr", "1fr", "1fr", "1fr"]}
       rows={["size-400", "size-400", "size-400", "size-100", "auto"]}
       height="100vh"
-      gap="size-100"
+      gap="size-200"
+      columnGap="size-300"
     >
       <View gridArea="header">{header}</View>
       <View gridArea="activity">{activities}</View>
@@ -204,8 +221,10 @@ const Previewer = (props) => {
       <View gridArea="spacing">
         <Divider></Divider>
       </View>
-      <View gridArea="content">{offerContent}</View>
-      <View gridArea="profileContent">{profileContent}</View>
+      <ProfileProvider>
+        <View gridArea="content">{offerContent}</View>
+        <View gridArea="profileContent">{profileContent}</View>
+      </ProfileProvider>
     </Grid>
   );
 };
