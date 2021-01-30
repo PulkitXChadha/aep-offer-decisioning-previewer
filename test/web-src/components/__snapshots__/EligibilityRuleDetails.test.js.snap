@@ -83,6 +83,7 @@ exports[`<EligibilityRuleDetails> calls custom hook call custom hooks with globa
       </div>
     </div>
   </div>
+   
 </DocumentFragment>
 `;
 

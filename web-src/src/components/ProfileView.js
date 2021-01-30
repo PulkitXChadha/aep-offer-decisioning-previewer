@@ -77,12 +77,6 @@ const ProfileView = (props) => {
         quotesOnKeys={false}
         shouldCollapse={(field) => {
           if (field.name === "profile") return false;
-
-          console.log(
-            `${field.name} is present? ${!profileAttributesInRule.includes(
-              field.name
-            )}`
-          );
           return !profileAttributesInRule.includes(field.name);
         }}
       />

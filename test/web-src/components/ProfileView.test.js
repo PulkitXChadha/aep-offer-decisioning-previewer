@@ -5,7 +5,11 @@ import "@testing-library/jest-dom/extend-expect";
 jest.mock("../../../web-src/src/hooks/useActionWebInvoke.js");
 import { useActionWebInvoke } from "../../../web-src/src/hooks/useActionWebInvoke";
 import mock from "../../actions/mock";
-
+import {
+  ProfileProvider,
+  useProfileState,
+  useProfileDispatch,
+} from "../../../web-src/src/context/ProfileViewContext";
 import ProfileView from "../../../web-src/src/components/ProfileView";
 
 afterEach(cleanup);
@@ -34,7 +38,11 @@ describe("<ProfileView> calls custom hook", () => {
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ProfileView {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <ProfileView {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   it("call custom hooks with global parameters correctly", () => {
@@ -44,7 +52,11 @@ describe("<ProfileView> calls custom hook", () => {
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ProfileView {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <ProfileView {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
@@ -57,19 +69,27 @@ describe("<ProfileView> on load", () => {
   };
   it("renders correctly on load", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ProfileView {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <ProfileView {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   it("has a <ProgressCircle> when loading", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<ProfileView {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <ProfileView {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getByLabelText("Getting Profile")).toBeDefined();
   });
 });
 
 describe("<ProfileView> on load", () => {
   const mockResponse = {
-    data: mock.data.experienceEvents,
+    data: mock.data.profile,
     isLoading: false,
     error: null,
   };
@@ -77,7 +97,9 @@ describe("<ProfileView> on load", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
     render(
       <Provider theme={defaultTheme} colorScheme={`light`}>
-        <ProfileView {...fakeProps} />
+        <ProfileProvider>
+          <ProfileView {...fakeProps} />
+        </ProfileProvider>
       </Provider>
     );
     expect(screen.getByText("profile")).toBeInTheDocument();
@@ -92,13 +114,21 @@ describe("<ProfileView> on error", () => {
   };
   it("renders correctly on error", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ProfileView {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <ProfileView {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("show error message", async () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<ProfileView {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <ProfileView {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getAllByText("fake-error-message")).toBeDefined();
   });
 });
@@ -111,13 +141,21 @@ describe("<ProfileView> on data", () => {
   };
   it("renders correctly on no data", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ProfileView {...fakeProps} />);
+    const { asFragment } = render(
+      <ProfileProvider>
+        <ProfileView {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("show no data message", async () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<ProfileView {...fakeProps} />);
+    render(
+      <ProfileProvider>
+        <ProfileView {...fakeProps} />
+      </ProfileProvider>
+    );
     expect(screen.getAllByText("No Profile Data Found")).toBeDefined();
   });
 });
