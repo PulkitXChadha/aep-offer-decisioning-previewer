@@ -30,6 +30,7 @@ const ExperienceEventsView = (props) => {
       identityValue: props.identityValue,
       sandboxName: props.sandboxName,
     },
+    cacheResponse: false,
   });
   let content = (
     <ProgressCircle

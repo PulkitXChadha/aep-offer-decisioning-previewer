@@ -141,7 +141,7 @@ Alternatively, there are also debug configs for only UI and each separate action
 
 ### v0.0.5
 * Added validation to Get Offer button be disabled if any of the inputs are not populated.
-
+* Change to not cache Experience Events to session/local storage
 ### v0.0.4
 * Added session caching of API responses to improve App performance. 
 * Updated Offer Metric component to not cache API responses.
