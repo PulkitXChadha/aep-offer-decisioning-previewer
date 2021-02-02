@@ -103,6 +103,7 @@ const App = (props) => {
           <Home
             isLoading={containerIDs.isLoading}
             isSandboxSelected={sandboxName ? true : false}
+            firstName={props.ims.profile.first_name}
           ></Home>
         </Route>
         <Route path="/previewer">
