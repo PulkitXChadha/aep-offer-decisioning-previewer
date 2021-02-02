@@ -186,6 +186,7 @@ const Previewer = (props) => {
             identityNamespace={selectedNamespace}
             identityValue={entityValue}
             sandboxName={sandboxName}
+            darkMode={props.darkMode}
           />
         </Item>
         <Item title="Experience Events" key="ee">
@@ -194,6 +195,7 @@ const Previewer = (props) => {
             identityNamespace={selectedNamespace}
             identityValue={entityValue}
             sandboxName={sandboxName}
+            darkMode={props.darkMode}
           />
         </Item>
       </Tabs>

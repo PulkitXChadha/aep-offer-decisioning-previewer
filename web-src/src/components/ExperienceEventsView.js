@@ -64,6 +64,7 @@ const ExperienceEventsView = (props) => {
   if (!experienceEvents.isLoading && experienceEvents.data) {
     content = (
       <ReactJson
+        theme={props.darkMode ? "twilight": "rjv-default" }
         src={experienceEvents.data.children}
         name="events"
         displayObjectSize={false}

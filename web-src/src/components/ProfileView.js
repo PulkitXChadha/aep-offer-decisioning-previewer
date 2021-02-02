@@ -70,6 +70,7 @@ const ProfileView = (props) => {
     delete dataToDisplay._id;
     content = (
       <ReactJson
+        theme={props.darkMode ? "twilight" : "rjv-default"}
         src={dataToDisplay}
         name="profile"
         displayObjectSize={false}

@@ -17,6 +17,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { Switch as Toggle } from "@adobe/react-spectrum";
 import SideBar from "./SideBar";
 import Previewer from "./Previewer";
 import SandboxPicker from "./SandboxPicker";
@@ -36,6 +37,7 @@ const App = (props) => {
   const [sandboxName, setSandboxName] = useState(null);
   const [containerID, setContainerID] = useState(null);
   const [redirect, setRedirect] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   let redirectTo = null;
   if (redirect) {
@@ -61,17 +63,22 @@ const App = (props) => {
 
   let sidebar = (
     <View gridArea="sidebar" backgroundColor="gray-200" padding="size-200">
-      <SideBar isSandboxSelected={sandboxName ? true : false}></SideBar>
+      <SideBar
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        isSandboxSelected={sandboxName ? true : false}
+      ></SideBar>
     </View>
   );
+  const greyRibbon = darkMode ? "gray-600" : "gray-900";
   let sandboxSelector = (
     <View
       backgroundColor={
         sandboxName
           ? sandboxName != "prod"
-            ? "gray-900"
-            : "blue-600"
-          : "blue-600"
+            ? greyRibbon
+            : "blue-400"
+          : "blue-400"
       }
       gridArea="header"
     >
@@ -80,6 +87,11 @@ const App = (props) => {
           ims={props.ims}
           onSelectionChange={handleSandboxSelection}
         />
+        <View position="absolute" end="10px">
+          <Toggle isSelected={darkMode} onChange={() => setDarkMode(!darkMode)}>
+            Dark mode
+          </Toggle>
+        </View>
       </Provider>
     </View>
   );
@@ -98,6 +110,7 @@ const App = (props) => {
             ims={props.ims}
             containerID={containerID}
             sandboxName={sandboxName}
+            darkMode={darkMode}
           />
         </Route>
         <Route path="/about">
@@ -109,7 +122,10 @@ const App = (props) => {
   return (
     <ErrorBoundary onError={onError} FallbackComponent={fallbackComponent}>
       <Router>
-        <Provider theme={defaultTheme} colorScheme={`light`}>
+        <Provider
+          theme={defaultTheme}
+          colorScheme={darkMode ? `dark` : `light`}
+        >
           <Grid
             areas={["header  header", "sidebar content"]}
             columns={["256px", "3fr"]}
