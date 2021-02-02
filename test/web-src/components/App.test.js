@@ -11,7 +11,11 @@ import mock from "../../actions/mock";
 afterEach(cleanup);
 const onSelectionChange = jest.fn();
 const mockRuntime = { on: () => {} };
-const mockIms = { token: "fake-token", org: "fake-org" };
+const mockIms = {
+  token: "fake-token",
+  org: "fake-org",
+  profile: { first_name: "fake-firstname" },
+};
 
 describe("<App> on initial load", () => {
   it("renders correctly ", async () => {
