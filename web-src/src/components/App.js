@@ -24,6 +24,10 @@ import SandboxPicker from "./SandboxPicker";
 import Home from "./Home";
 import { About } from "./About";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
+import {
+  useSettingsState,
+  useSettingsDispatch,
+} from "../context/UserSettingsContext.js";
 
 const App = (props) => {
   let headers = {};
@@ -34,11 +38,12 @@ const App = (props) => {
     headers["x-gw-ims-org-id"] = props.ims.org;
   }
 
+  const userSettings = useSettingsState();
+
+  const setUserSettings = useSettingsDispatch();
   const [sandboxName, setSandboxName] = useState(null);
   const [containerID, setContainerID] = useState(null);
   const [redirect, setRedirect] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-
   let redirectTo = null;
   if (redirect) {
     redirectTo = <Redirect to="/" />;
@@ -51,7 +56,7 @@ const App = (props) => {
     actionName: "get-container",
     headers: headers,
   });
-
+  console.log(`dark mode = ${JSON.stringify(userSettings)}`);
   const handleSandboxSelection = (id) => {
     const newContainerID = containerIDs.data._embedded[
       "https://ns.adobe.com/experience/xcore/container"
@@ -63,14 +68,10 @@ const App = (props) => {
 
   let sidebar = (
     <View gridArea="sidebar" backgroundColor="gray-200" padding="size-200">
-      <SideBar
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-        isSandboxSelected={sandboxName ? true : false}
-      ></SideBar>
+      <SideBar isSandboxSelected={sandboxName ? true : false}></SideBar>
     </View>
   );
-  const greyRibbon = darkMode ? "gray-600" : "gray-900";
+  const greyRibbon = userSettings ? "gray-600" : "gray-900";
   let sandboxSelector = (
     <View
       backgroundColor={
@@ -88,7 +89,10 @@ const App = (props) => {
           onSelectionChange={handleSandboxSelection}
         />
         <View position="absolute" end="10px">
-          <Toggle isSelected={darkMode} onChange={() => setDarkMode(!darkMode)}>
+          <Toggle
+            isSelected={userSettings}
+            onChange={() => setUserSettings(!userSettings)}
+          >
             Dark mode
           </Toggle>
         </View>
@@ -111,7 +115,6 @@ const App = (props) => {
             ims={props.ims}
             containerID={containerID}
             sandboxName={sandboxName}
-            darkMode={darkMode}
           />
         </Route>
         <Route path="/about">
@@ -125,7 +128,7 @@ const App = (props) => {
       <Router>
         <Provider
           theme={defaultTheme}
-          colorScheme={darkMode ? `dark` : `light`}
+          colorScheme={userSettings ? `dark` : `light`}
         >
           <Grid
             areas={["header  header", "sidebar content"]}

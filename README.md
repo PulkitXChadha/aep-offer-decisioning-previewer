@@ -153,6 +153,7 @@ Alternatively, there are also debug configs for only UI and each separate action
 - Does not cache Experience Events responses to session/local storage
 - Added IMS user's first name to the greeting of the app.
 - Added support for Dark Mode.
+- Used State SDK to store dark mode setting.
 
 ### v0.0.4
 

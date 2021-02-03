@@ -15,10 +15,16 @@ import {
   useProfileState,
   useProfileDispatch,
 } from "../context/ProfileViewContext.js";
+import {
+  useSettingsState
+} from "../context/UserSettingsContext.js";
+
+
 
 import Error from "@spectrum-icons/illustrations/Error";
 
 const ProfileView = (props) => {
+  const userSettings = useSettingsState();
   const profileAttributesInRule = useProfileState();
 
   let headers = {};
@@ -70,7 +76,7 @@ const ProfileView = (props) => {
     delete dataToDisplay._id;
     content = (
       <ReactJson
-        theme={props.darkMode ? "twilight" : "rjv-default"}
+        theme={userSettings ? "twilight" : "rjv-default"}
         src={dataToDisplay}
         name="profile"
         displayObjectSize={false}
