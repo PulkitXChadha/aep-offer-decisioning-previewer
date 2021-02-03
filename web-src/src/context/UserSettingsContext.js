@@ -33,9 +33,9 @@ const UserSettingsProvider = ({ children, userID }) => {
         ttl: -1, //forever
       }
     )
-      .then((response) => {
-        console.log(JSON.stringify(response));
-      })
+      // .then((response) => {
+      //   console.log(JSON.stringify(response));
+      // })
       .catch((e) => {
         throw new Error(`update of settings failed with ${e}`);
       });

@@ -56,7 +56,7 @@ const App = (props) => {
     actionName: "get-container",
     headers: headers,
   });
-  console.log(`dark mode = ${JSON.stringify(userSettings)}`);
+
   const handleSandboxSelection = (id) => {
     const newContainerID = containerIDs.data._embedded[
       "https://ns.adobe.com/experience/xcore/container"

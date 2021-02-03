@@ -5,7 +5,9 @@ import "@testing-library/jest-dom/extend-expect";
 jest.mock("../../../web-src/src/hooks/useActionWebInvoke.js");
 import { useActionWebInvoke } from "../../../web-src/src/hooks/useActionWebInvoke";
 import mock from "../../actions/mock";
-
+import {
+  UserSettingsProvider,
+} from "../../../web-src/src/context/UserSettingsContext.js";
 import ExperienceEventsView from "../../../web-src/src/components/ExperienceEventsView";
 
 afterEach(cleanup);
@@ -34,7 +36,11 @@ describe("<ExperienceEventsView> calls custom hook", () => {
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ExperienceEventsView {...fakeProps} />);
+    const { asFragment } = render(
+      <UserSettingsProvider>
+        <ExperienceEventsView {...fakeProps} />
+      </UserSettingsProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   it("call custom hooks with global parameters correctly", () => {
@@ -44,7 +50,11 @@ describe("<ExperienceEventsView> calls custom hook", () => {
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ExperienceEventsView {...fakeProps} />);
+    const { asFragment } = render(
+      <UserSettingsProvider>
+        <ExperienceEventsView {...fakeProps} />
+      </UserSettingsProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
@@ -57,12 +67,20 @@ describe("<ExperienceEventsView> on load", () => {
   };
   it("renders correctly on load", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ExperienceEventsView {...fakeProps} />);
+    const { asFragment } = render(
+      <UserSettingsProvider>
+        <ExperienceEventsView {...fakeProps} />
+      </UserSettingsProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   it("has a <ProgressCircle> when loading", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<ExperienceEventsView {...fakeProps} />);
+    render(
+      <UserSettingsProvider>
+        <ExperienceEventsView {...fakeProps} />
+      </UserSettingsProvider>
+    );
     expect(screen.getByLabelText("Getting Experience Events")).toBeDefined();
   });
 });
@@ -77,7 +95,9 @@ describe("<ExperienceEventsView> on load", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
     render(
       <Provider theme={defaultTheme} colorScheme={`light`}>
-        <ExperienceEventsView {...fakeProps} />
+        <UserSettingsProvider>
+          <ExperienceEventsView {...fakeProps} />
+        </UserSettingsProvider>
       </Provider>
     );
     expect(screen.getByText("events")).toBeInTheDocument();
@@ -92,13 +112,21 @@ describe("<ExperienceEventsView> on error", () => {
   };
   it("renders correctly on error", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ExperienceEventsView {...fakeProps} />);
+    const { asFragment } = render(
+      <UserSettingsProvider>
+        <ExperienceEventsView {...fakeProps} />
+      </UserSettingsProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("show error message", async () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<ExperienceEventsView {...fakeProps} />);
+    render(
+      <UserSettingsProvider>
+        <ExperienceEventsView {...fakeProps} />
+      </UserSettingsProvider>
+    );
     expect(screen.getAllByText("fake-error-message")).toBeDefined();
   });
 });
@@ -111,13 +139,21 @@ describe("<ExperienceEventsView> on data", () => {
   };
   it("renders correctly on no data", () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    const { asFragment } = render(<ExperienceEventsView {...fakeProps} />);
+    const { asFragment } = render(
+      <UserSettingsProvider>
+        <ExperienceEventsView {...fakeProps} />
+      </UserSettingsProvider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("show no data message", async () => {
     useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<ExperienceEventsView {...fakeProps} />);
+    render(
+      <UserSettingsProvider>
+        <ExperienceEventsView {...fakeProps} />
+      </UserSettingsProvider>
+    );
     expect(screen.getAllByText("No Experience Events Found")).toBeDefined();
   });
 });
