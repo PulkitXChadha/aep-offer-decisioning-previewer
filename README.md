@@ -168,7 +168,7 @@ Alternatively, there are also debug configs for only UI and each separate action
 - Sort sandbox list based on name.
 - Cleaned display of events data removing datatypes and length.
 - Added dry run toggle to switch between various modes of offer decisioning.
-- Added offer capping metric Meter component to
+- Added offer capping metric Meter component to offer details.
 
 ## Features Requested
 
