@@ -140,8 +140,13 @@ Adobe Developer Console gives you access to APIs, SDKs, and developer tools to b
      ![](images/aio-org-project-workspace.png)
 
 5. From within the project folder run the following command to downloads the relevant configuration files.
-   `$ aio app use`
+
+   ```
+   $ aio app use
+   ```
+
    ![](images/aio-app-use.png)
+
    This step will create `.aio`, `.env` and `config.json` files which include the credentials needed to run the app in the workspace.
    You can manually populate the `.env` file in the project root and fill it as shown [below](#env).
 
