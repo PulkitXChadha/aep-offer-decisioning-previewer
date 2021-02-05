@@ -144,7 +144,7 @@ describe("<ProfileView> on error", () => {
         </ProfileProvider>
       </UserSettingsProvider>
     );
-    expect(screen.getAllByText("fake-error-message")).toBeDefined();
+    expect(screen.getAllByText("No Profile Data Found")).toBeDefined();
   });
 });
 

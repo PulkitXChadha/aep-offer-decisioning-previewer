@@ -48,28 +48,28 @@ const SandboxPicker = (props) => {
     // const defaultSelection = sandboxes.data.sandboxes[0].name;
 
     picker = (
-      <Picker
-        position="fixed"
-        isQuiet
-        labelPosition="side"
-        labelAlign="end"
-        isRequired={true}
-        placeholder="select a sandbox"
-        width="25%"
-        maxWidth="100%"
-        aria-label="select a sandbox"
-        // defaultSelectedKey={defaultSelection}
-        items={sandboxes.data.sandboxes
-          .sort(sortByProperty("name"))
-          .map((sandbox) => ({
-            id: sandbox.name,
-            name: `${sandbox.title} (${sandbox.region})`,
-          }))}
-        itemKey="id"
-        onSelectionChange={props.onSelectionChange}
-      >
-        {(item) => <Item key={item.id}>{item.name}</Item>}
-      </Picker>
+        <Picker
+          position="fixed"
+          isQuiet
+          labelPosition="side"
+          labelAlign="end"
+          isRequired={true}
+          placeholder="select a sandbox"
+          width="25%"
+          maxWidth="100%"
+          aria-label="select a sandbox"
+          // defaultSelectedKey={defaultSelection}
+          items={sandboxes.data.sandboxes
+            .sort(sortByProperty("name"))
+            .map((sandbox) => ({
+              id: sandbox.name,
+              name: `${sandbox.title} (${sandbox.region})`,
+            }))}
+          itemKey="id"
+          onSelectionChange={props.onSelectionChange}
+        >
+          {(item) => <Item key={item.id}>{item.name}</Item>}
+        </Picker>
     );
   }
 

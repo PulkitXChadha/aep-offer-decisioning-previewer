@@ -15,11 +15,7 @@ import {
   useProfileState,
   useProfileDispatch,
 } from "../context/ProfileViewContext.js";
-import {
-  useSettingsState
-} from "../context/UserSettingsContext.js";
-
-
+import { useSettingsState } from "../context/UserSettingsContext.js";
 
 import Error from "@spectrum-icons/illustrations/Error";
 
@@ -55,14 +51,7 @@ const ProfileView = (props) => {
   );
 
   if (!profile.isLoading && profile.error) {
-    content = (
-      <IllustratedMessage>
-        <Error />
-        <Heading>Error 500: Internal server error</Heading>
-        <Content>Something went wrong. Please try again later.</Content>
-        <Content>{profile.error.message}</Content>
-      </IllustratedMessage>
-    );
+    content = <Text>No Profile Data Found</Text>;
   }
   if (!profile.data && !profile.error && !profile.isLoading) {
     content = <Text>No Profile Data Found</Text>;
