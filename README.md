@@ -3,6 +3,7 @@
 Welcome to ODE Previewer a Adobe I/O Application to view Offer representations for a selected unified profiles. Easily view and test the experiences delivered to your customers via Adobe Experience Platform.
 
 ## Table Of Contents
+
 - [Usage](#usage)
 - [Folder Structure](#folder-structure)
 - [Setup](#setup)
@@ -10,18 +11,19 @@ Welcome to ODE Previewer a Adobe I/O Application to view Offer representations f
 - [Test & Coverage](#test---coverage)
 - [Deploy & Cleanup](#deploy---cleanup)
 - [Config](#config)
-  * [`.env`](#-env-)
-  * [`manifest.yml`](#-manifestyml-)
+  - [`.env`](#-env-)
+  - [`manifest.yml`](#-manifestyml-)
 - [Debugging in VS Code](#debugging-in-vs-code)
 - [Additional Resources](#additional-resources)
 
 ## Usage
 
-- Start by selecting the sandbox you are working in  (Note: you will only see sandboxes that your Adobe ID has access to.)
+- Start by selecting the sandbox you are working in (Note: you will only see sandboxes that your Adobe ID has access to.)
 
 - From the sidebar select `Previewer`
 
-- Wait for the backend actions to retrieve  the list of activities in the sandbox
+- Wait for the backend actions to retrieve the list of activities in the sandbox
+
 ---
 
 ## Folder Structure
@@ -64,7 +66,9 @@ Welcome to ODE Previewer a Adobe I/O Application to view Offer representations f
 ├── package.json #this file describes project definition and various metadata relevant to the project.
 └── .gitignore
 ```
+
 ---
+
 ## Setup
 
 - Populate the `.env` file in the project root and fill it as shown [below](#env)
@@ -105,14 +109,15 @@ SERVICE_API_KEY=
 ### `manifest.yml`
 
 - List your backend actions under the `actions` field within the `__APP_PACKAGE__`
-package placeholder. We will take care of replacing the package name placeholder
-by your project name and version.
+  package placeholder. We will take care of replacing the package name placeholder
+  by your project name and version.
 - For each action, use the `function` field to indicate the path to the action
-code.
+  code.
 - More documentation for supported action fields can be found
-[here](https://github.com/apache/incubator-openwhisk-wskdeploy/blob/master/specification/html/spec_actions.md#actions).
+  [here](https://github.com/apache/incubator-openwhisk-wskdeploy/blob/master/specification/html/spec_actions.md#actions).
 
 ---
+
 ## Debugging in VS Code
 
 While running your local server (`aio app run`), both UI and actions can be debugged, to do so open the vscode debugger
@@ -120,41 +125,63 @@ and select the debugging configuration called `WebAndActions`.
 Alternatively, there are also debug configs for only UI and each separate action.
 
 ---
+
 ## Additional Resources
 
 ### Adobe I/O
-* [Firefly Apps](https://github.com/AdobeDocs/project-firefly/blob/master/README.md#project-firefly-developer-guide)
-* [Adobe I/O SDK](https://github.com/adobe/aio-sdk#adobeaio-sdk)
-* [Adobe I/O Runtime](https://adobedocs.github.io/adobeio-runtime/)
-* [React Spectrum](https://react-spectrum.adobe.com/react-spectrum/index.html)
+
+- [Firefly Apps](https://github.com/AdobeDocs/project-firefly/blob/master/README.md#project-firefly-developer-guide)
+- [Adobe I/O SDK](https://github.com/adobe/aio-sdk#adobeaio-sdk)
+- [Adobe I/O Runtime](https://adobedocs.github.io/adobeio-runtime/)
+- [React Spectrum](https://react-spectrum.adobe.com/react-spectrum/index.html)
 
 ### Adobe Experience Platform - Unified Profile
-* [Overview](https://experienceleague.adobe.com/docs/experience-platform/profile/home.html?lang=en)
-* [Unified Profile API Reference](https://experienceleague.adobe.com/docs/experience-platform/profile/home.html?lang=en#api)
+
+- [Overview](https://experienceleague.adobe.com/docs/experience-platform/profile/home.html?lang=en)
+- [Unified Profile API Reference](https://experienceleague.adobe.com/docs/experience-platform/profile/home.html?lang=en#api)
 
 ### Adobe Offer Decisioning Engine
-* [Getting Started](https://experienceleague.adobe.com/docs/offer-decisioning/using/get-started/starting-offer-decisioning.html?lang=en#get-started)
-* [Offer Decisioning API Reference](https://experienceleague.adobe.com/docs/offer-decisioning/using/api-reference/getting-started.html?lang=en#api-reference)
 
+- [Getting Started](https://experienceleague.adobe.com/docs/offer-decisioning/using/get-started/starting-offer-decisioning.html?lang=en#get-started)
+- [Offer Decisioning API Reference](https://experienceleague.adobe.com/docs/offer-decisioning/using/api-reference/getting-started.html?lang=en#api-reference)
 
 ## Releases
 
-### v0.0.4
-* Added session caching of API responses to improve App performance. 
-* Updated Offer Metric component to not cache API responses.
-* Disable Placements not part of the activity selected
-* Profile JSON collapse all attributes that are not part of the decision condition.
-### v0.0.3
-* Added support to render JSON and HTML representation of offers
-* Sort sandbox list based on name.
-* Cleaned display of events data removing datatypes and length.
-* Added dry run toggle to switch between various modes of offer decisioning.
-* Added offer capping metric Meter component to 
+### v0.0.5
 
+- Added validation to Get Offer button be disabled if any of the inputs are not populated.
+- Does not cache Experience Events responses to session/local storage
+- Added IMS user's first name to the greeting of the app.
+- Added support for Dark Mode.
+- Used State SDK to store dark mode setting.
+
+  #### Bug Fixes
+
+  - Updated profile data error message
+  - Offer Metric Bar only displayed when metric has been created.
+
+### v0.0.4
+
+- Added session caching of API responses to improve App performance.
+- Updated Offer Metric component to not cache API responses.
+- Disable Placements not part of the activity selected
+- Profile JSON collapse all attributes that are not part of the decision condition.
+
+### v0.0.3
+
+- Added support to render JSON and HTML representation of offers
+- Sort sandbox list based on name.
+- Cleaned display of events data removing datatypes and length.
+- Added dry run toggle to switch between various modes of offer decisioning.
+- Added offer capping metric Meter component to offer details.
 
 ## Features Requested
 
-* Show sample profiles based on decision rule.
-* Show proposition history events.
-* Show lineage followed to make the offer decision.
-* Show Decision API call.
+- Show sample profiles based on decision rule.
+- Show proposition history events.
+- Show lineage followed to make the offer decision.
+- Show Decision API call.
+- Add integration tests.
+- Add better error handling.
+- Document How to install the app on a new IMS org.
+- Document how to use the App

@@ -106,12 +106,6 @@ describe("<OfferPropositionMetricView> on error", () => {
     );
     expect(asFragment()).toMatchSnapshot();
   });
-
-  it("show error message", async () => {
-    useActionWebInvoke.mockReturnValue(mockResponse);
-    render(<OfferPropositionMetricView {...fakeProps} />);
-    expect(screen.getAllByText("fake-error-message")).toBeDefined();
-  });
 });
 
 describe("<OfferPropositionMetricView> on data", () => {

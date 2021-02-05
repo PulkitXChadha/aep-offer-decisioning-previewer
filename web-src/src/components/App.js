@@ -17,12 +17,17 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { Switch as Toggle } from "@adobe/react-spectrum";
 import SideBar from "./SideBar";
 import Previewer from "./Previewer";
 import SandboxPicker from "./SandboxPicker";
 import Home from "./Home";
 import { About } from "./About";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
+import {
+  useSettingsState,
+  useSettingsDispatch,
+} from "../context/UserSettingsContext.js";
 
 const App = (props) => {
   let headers = {};
@@ -33,10 +38,12 @@ const App = (props) => {
     headers["x-gw-ims-org-id"] = props.ims.org;
   }
 
+  const userSettings = useSettingsState();
+
+  const setUserSettings = useSettingsDispatch();
   const [sandboxName, setSandboxName] = useState(null);
   const [containerID, setContainerID] = useState(null);
   const [redirect, setRedirect] = useState(false);
-
   let redirectTo = null;
   if (redirect) {
     redirectTo = <Redirect to="/" />;
@@ -64,14 +71,15 @@ const App = (props) => {
       <SideBar isSandboxSelected={sandboxName ? true : false}></SideBar>
     </View>
   );
+  const greyRibbon = userSettings ? "gray-600" : "gray-900";
   let sandboxSelector = (
     <View
       backgroundColor={
         sandboxName
           ? sandboxName != "prod"
-            ? "gray-900"
-            : "blue-600"
-          : "blue-600"
+            ? greyRibbon
+            : "blue-400"
+          : "blue-400"
       }
       gridArea="header"
     >
@@ -80,6 +88,14 @@ const App = (props) => {
           ims={props.ims}
           onSelectionChange={handleSandboxSelection}
         />
+        <View position="absolute" end="10px">
+          <Toggle
+            isSelected={userSettings}
+            onChange={() => setUserSettings(!userSettings)}
+          >
+            Dark mode
+          </Toggle>
+        </View>
       </Provider>
     </View>
   );
@@ -91,6 +107,7 @@ const App = (props) => {
           <Home
             isLoading={containerIDs.isLoading}
             isSandboxSelected={sandboxName ? true : false}
+            firstName={props.ims.profile.first_name}
           ></Home>
         </Route>
         <Route path="/previewer">
@@ -109,7 +126,10 @@ const App = (props) => {
   return (
     <ErrorBoundary onError={onError} FallbackComponent={fallbackComponent}>
       <Router>
-        <Provider theme={defaultTheme} colorScheme={`light`}>
+        <Provider
+          theme={defaultTheme}
+          colorScheme={userSettings ? `dark` : `light`}
+        >
           <Grid
             areas={["header  header", "sidebar content"]}
             columns={["256px", "3fr"]}

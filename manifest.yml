@@ -55,7 +55,7 @@ packages:
       get-identity-namespaces:
         function: actions/UPS/get-identity-namespaces.js
         web: "yes"
-        runtime: "nodejs:10"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -65,7 +65,7 @@ packages:
       get-identity-preview-report:
         function: actions/UPS/get-identity-preview-report.js
         web: "yes"
-        runtime: "nodejs:10"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -75,7 +75,7 @@ packages:
       get-profile:
         function: actions/UPS/get-profile.js
         web: "yes"
-        runtime: "nodejs:10"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -85,7 +85,7 @@ packages:
       get-profile-experience-events:
         function: actions/UPS/get-profile-experience-events.js
         web: "yes"
-        runtime: "nodejs:10"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -95,7 +95,7 @@ packages:
       get-decision-rules:
         function: actions/ODE/get-decision-rules.js
         web: "yes"
-        runtime: "nodejs:10"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -105,7 +105,7 @@ packages:
       get-offer-details:
         function: actions/ODE/get-offer-details.js
         web: "yes"
-        runtime: "nodejs:10"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -115,7 +115,7 @@ packages:
       get-fallback-offer-details:
         function: actions/ODE/get-fallback-offer-details.js
         web: "yes"
-        runtime: "nodejs:10"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
@@ -125,10 +125,26 @@ packages:
       get-offer-metrics:
         function: actions/ODE/get-offer-metrics.js
         web: "yes"
-        runtime: "nodejs:10"
+        runtime: "nodejs:12"
         inputs:
           LOG_LEVEL: debug
           apiKey: $SERVICE_API_KEY
         annotations:
           require-adobe-auth: true
+          final: true
+      update-aio-state:
+        function: actions/misc/update-aio-state.js
+        web: "yes"
+        runtime: "nodejs:12"
+        inputs:
+          LOG_LEVEL: debug
+        annotations:
+          final: true
+      get-aio-state:
+        function: actions/misc/get-aio-state.js
+        web: "yes"
+        runtime: "nodejs:12"
+        inputs:
+          LOG_LEVEL: debug
+        annotations:
           final: true

@@ -9,11 +9,15 @@ import {
   Heading,
   Text,
 } from "@adobe/react-spectrum";
+import { useSettingsState } from "../context/UserSettingsContext.js";
+
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
 
 import Error from "@spectrum-icons/illustrations/Error";
 
 const ExperienceEventsView = (props) => {
+  const userSettings = useSettingsState();
+
   let headers = {};
   if (props.ims.token && !headers.authorization) {
     headers.authorization = `Bearer ${props.ims.token}`;
@@ -30,6 +34,7 @@ const ExperienceEventsView = (props) => {
       identityValue: props.identityValue,
       sandboxName: props.sandboxName,
     },
+    cacheResponse: false,
   });
   let content = (
     <ProgressCircle
@@ -63,6 +68,7 @@ const ExperienceEventsView = (props) => {
   if (!experienceEvents.isLoading && experienceEvents.data) {
     content = (
       <ReactJson
+        theme={userSettings ? "twilight" : "rjv-default"}
         src={experienceEvents.data.children}
         name="events"
         displayObjectSize={false}

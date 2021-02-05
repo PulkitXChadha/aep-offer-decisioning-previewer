@@ -11,11 +11,16 @@ import {
   ProgressCircle,
 } from "@adobe/react-spectrum";
 import NotFound from "@spectrum-icons/illustrations/NotFound";
-const Home = ({ isSandboxSelected = false, isLoading = false }) => {
+const Home = ({
+  isSandboxSelected = false,
+  isLoading = false,
+  firstName = "",
+}) => {
   return (
     <View width="size-6000">
       <Heading level={1}>
-        Welcome to Offer Decisioning Engine Previewer!
+        {firstName ? `${firstName}, ` : ""}Welcome to Offer Decisioning Engine
+        Previewer!
       </Heading>
       <ProgressCircle
         id="home-page-progress-circle"

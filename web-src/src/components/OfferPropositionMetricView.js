@@ -46,14 +46,7 @@ const OfferPropositionMetricView = (props) => {
     );
 
     if (!offerMetrics.isLoading && offerMetrics.error) {
-      content = (
-        <IllustratedMessage>
-          <Error />
-          <Heading>Error 500: Internal server error</Heading>
-          <Content>Something went wrong. Please try again later.</Content>
-          <Content>{offerMetrics.error.message}</Content>
-        </IllustratedMessage>
-      );
+      content = null;
     }
     if (!offerMetrics.data && !offerMetrics.error && !offerMetrics.isLoading) {
       content = <Text>Metrics not Found</Text>;
