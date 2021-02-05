@@ -155,6 +155,11 @@ Alternatively, there are also debug configs for only UI and each separate action
 - Added support for Dark Mode.
 - Used State SDK to store dark mode setting.
 
+  #### Bug Fixes
+
+  - Updated profile data error message
+  - Offer Metric Bar only displayed when metric has been created.
+
 ### v0.0.4
 
 - Added session caching of API responses to improve App performance.
