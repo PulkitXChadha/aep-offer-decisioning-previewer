@@ -30,6 +30,7 @@ const Previewer = (props) => {
   const [getOffer, setGetOffer] = useState(false);
   const [getProfile, setGetProfile] = useState(false);
   const [getExperienceEvents, setGetExperienceEvents] = useState(false);
+  const [eventCount, setEventCount] = useState();
   const [sandboxName, setSandboxName] = useState(null);
   const [containerID, setContainerID] = useState(null);
   const [selectedActivity, setSelectedActivity] = useState();
@@ -185,12 +186,19 @@ const Previewer = (props) => {
             sandboxName={sandboxName}
           />
         </Item>
-        <Item title="Experience Events" key="ee">
+        <Item
+          title={`Experience Events ${eventCount ? `(${eventCount})` : ``}`}
+          key="ee"
+        >
           <ExperienceEventsView
             ims={props.ims}
             identityNamespace={selectedNamespace}
             identityValue={entityValue}
             sandboxName={sandboxName}
+            onLoad={(count) => {
+              console.log(count);
+              setEventCount(count);
+            }}
           />
         </Item>
       </Tabs>

@@ -66,6 +66,7 @@ const ExperienceEventsView = (props) => {
   }
 
   if (!experienceEvents.isLoading && experienceEvents.data) {
+    props.onLoad(experienceEvents.data.children.length);
     content = (
       <ReactJson
         theme={userSettings ? "twilight" : "rjv-default"}

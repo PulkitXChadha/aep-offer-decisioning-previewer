@@ -1,5 +1,25 @@
-# Adobe Offer Decisioning Engine Preview App
+# Adobe Offer Decisioning Engine Previewer
 
+<p align="center">
+  <a href="https://github.com/nsfw-filter/nsfw-filter/releases/" target="_blank">
+    <img alt="GitHub release" src="https://img.shields.io/github/v/release/PulkitXChadha/aep-offer-decisioning-previewer?include_prereleases&style=flat-square">
+  </a>
+  <a href="https://github.com/PulkitXChadha/aep-offer-decisioning-previewer/commits/master" target="_blank">
+    <img src="https://img.shields.io/github/last-commit/PulkitXChadha/aep-offer-decisioning-previewer?style=flat-square" alt="GitHub last commit">
+  </a>
+  <a href="https://github.com/PulkitXChadha/aep-offer-decisioning-previewer/issues" target="_blank">
+    <img src="https://img.shields.io/github/issues/PulkitXChadha/aep-offer-decisioning-previewer?style=flat-square&color=red" alt="GitHub issues">
+  </a>
+  </br>
+  <a href="https://github.com/PulkitXChadha/aep-offer-decisioning-previewer/pulls" target="_blank">
+    <img src="https://img.shields.io/github/issues-pr/PulkitXChadha/aep-offer-decisioning-previewer?style=flat-square&color=blue" alt="GitHub pull requests">
+  </a>
+  <a href="https://github.com/nsfw-filter/nsfw-filter/blob/master/LICENSE" target="_blank">
+    <img alt="LICENSE" src="https://img.shields.io/github/license/PulkitXChadha/aep-offer-decisioning-previewer?style=flat-square&color=yellow">
+  <a>
+  </a>
+</p>
+<hr>
 Welcome to ODE Previewer a Adobe I/O Application to view Offer representations for a selected unified profile. Easily view and test the experiences delivered to your customers via Adobe Experience Platform.
 
 ![](images/ODEPreviewerDemo.gif)
