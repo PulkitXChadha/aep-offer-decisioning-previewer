@@ -327,6 +327,10 @@ SERVICE_API_KEY=
 
 ## Releases
 
+### v0.0.6
+
+- Added event count to the Experience Events tab title.
+
 ### v0.0.5
 
 - Added validation to Get Offer button be disabled if any of the inputs are not populated.
