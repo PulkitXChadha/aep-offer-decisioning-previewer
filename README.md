@@ -22,7 +22,7 @@
   </a>
 </p>
 <hr>
-Welcome to ODE Previewer a Adobe I/O Application to view Offer representations for a selected unified profile. Easily view and test the experiences delivered to your customers via Adobe Experience Platform.
+Welcome to ODE Previewer an Adobe I/O Application to view Offer representations for a selected unified profile. Easily view and test the experiences delivered to your customers via Adobe Experience Platform.
 
 ![](images/ODEPreviewerDemo.gif)
 
@@ -332,6 +332,7 @@ SERVICE_API_KEY=
 ### v0.0.6
 
 - Added event count to the Experience Events tab title.
+- Separated Github workflows per Org deployment.
 
 ### v0.0.5
 
@@ -340,6 +341,8 @@ SERVICE_API_KEY=
 - Added IMS user's first name to the greeting of the app.
 - Added support for Dark Mode.
 - Used State SDK to store dark mode setting.
+- Document How to install the app on a new IMS org.
+- Document how to use the App
 
   #### Bug Fixes
 
@@ -369,5 +372,3 @@ SERVICE_API_KEY=
 - Show Decision API call.
 - Add integration tests.
 - Add better error handling.
-- Document How to install the app on a new IMS org.
-- Document how to use the App
