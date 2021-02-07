@@ -1,5 +1,7 @@
 # Adobe Offer Decisioning Engine Previewer
 
+![aep-offer-decisioning-previewer](https://socialify.git.ci/PulkitXChadha/aep-offer-decisioning-previewer/image?description=1&descriptionEditable=View%20Offer%20representations%20to%20unified%20profiles%20easily%20and%20test%20experiences%20delivered%20to%20customers%20via%20Adobe%20Experience%20Platform.&forks=1&language=1&logo=https%3A%2F%2Fgblobscdn.gitbook.com%2Fspaces%252F-Lf1Mc1caFdNCK_mBwhe%252Favatar-1585843848509.png%3Falt%3Dmedia&owner=1&stargazers=1&theme=Light)
+
 <p align="center">
   <a href="https://github.com/nsfw-filter/nsfw-filter/releases/" target="_blank">
     <img alt="GitHub release" src="https://img.shields.io/github/v/release/PulkitXChadha/aep-offer-decisioning-previewer?include_prereleases&style=flat-square">
