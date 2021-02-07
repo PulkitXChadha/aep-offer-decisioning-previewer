@@ -19,7 +19,7 @@
     "react": "^16.8.0 || ^17.0.0-rc.1",
     "react-dom": "^16.13.1",
     "react-error-boundary": "^1.2.5",
-    "react-json-view": "^1.20.2",
+    "react-json-view": "^1.21.1",
     "react-router-dom": "^5.2.0",
     "regenerator-runtime": "^0.13.5"
   },
