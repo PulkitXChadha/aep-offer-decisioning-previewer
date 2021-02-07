@@ -5,9 +5,7 @@ import "@testing-library/jest-dom/extend-expect";
 jest.mock("../../../web-src/src/hooks/useActionWebInvoke.js");
 import { useActionWebInvoke } from "../../../web-src/src/hooks/useActionWebInvoke";
 import mock from "../../actions/mock";
-import {
-  UserSettingsProvider,
-} from "../../../web-src/src/context/UserSettingsContext.js";
+import { UserSettingsProvider } from "../../../web-src/src/context/UserSettingsContext.js";
 import ExperienceEventsView from "../../../web-src/src/components/ExperienceEventsView";
 
 afterEach(cleanup);
@@ -20,6 +18,7 @@ const fakeProps = {
   ims: { token: "fake-token", org: "fake-org" },
   containerID: "fake-containerID",
   ruleID: "fake-rule-id",
+  onLoad: jest.fn(0),
 };
 
 describe("<ExperienceEventsView> calls custom hook", () => {

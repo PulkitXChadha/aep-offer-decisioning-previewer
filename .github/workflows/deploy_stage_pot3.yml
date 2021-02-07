@@ -1,13 +1,19 @@
-name: AIO App CI - Test Pull Request on POT 6
-on: [pull_request]
+name: AIO App CI - Deploy to Stage POT 3
+
+on:
+  push:
+    branches:
+      - master
+      - main
 jobs:
-  test:
-    name: Test PR
+  deploy:
+    name: Deploy to Stage
     runs-on: ${{ matrix.os }}
     strategy:
+      max-parallel: 1
       matrix:
         node-version: ['12']
-        os: [macOS-latest, ubuntu-latest]
+        os: [ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,13 +29,18 @@ jobs:
           os: ${{ matrix.os }}
       - name: Build
         env:
-          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT6_AIO_RUNTIME_NAMESPACE_STAGE }}
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT3_AIO_RUNTIME_NAMESPACE_STAGE }}
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
           command: build
-      - name: Test
+      - name: Deploy
+        env:
+          AIO_RUNTIME_NAMESPACE: ${{ secrets.POT3_AIO_RUNTIME_NAMESPACE_STAGE }}
+          AIO_RUNTIME_AUTH: ${{ secrets.POT3_AIO_RUNTIME_AUTH_STAGE }}
+          SERVICE_API_KEY: ${{ secrets.POT3_SERVICE_API_KEY_STAGE }}
         uses: adobe/aio-apps-action@1.1.0
         with:
           os: ${{ matrix.os }}
-          command: test
+          command: deploy
+  

@@ -1,6 +1,28 @@
-# Adobe Offer Decisioning Engine Preview App
+# Adobe Offer Decisioning Engine Previewer
 
-Welcome to ODE Previewer a Adobe I/O Application to view Offer representations for a selected unified profile. Easily view and test the experiences delivered to your customers via Adobe Experience Platform.
+![aep-offer-decisioning-previewer](https://socialify.git.ci/PulkitXChadha/aep-offer-decisioning-previewer/image?description=1&descriptionEditable=View%20Offer%20representations%20to%20unified%20profiles%20easily%20and%20test%20experiences%20delivered%20to%20customers%20via%20Adobe%20Experience%20Platform.&forks=1&language=1&logo=https%3A%2F%2Fgblobscdn.gitbook.com%2Fspaces%252F-Lf1Mc1caFdNCK_mBwhe%252Favatar-1585843848509.png%3Falt%3Dmedia&owner=1&stargazers=1&theme=Light)
+
+<p align="center">
+  <a href="https://github.com/nsfw-filter/nsfw-filter/releases/" target="_blank">
+    <img alt="GitHub release" src="https://img.shields.io/github/v/release/PulkitXChadha/aep-offer-decisioning-previewer?include_prereleases&style=flat-square">
+  </a>
+  <a href="https://github.com/PulkitXChadha/aep-offer-decisioning-previewer/commits/master" target="_blank">
+    <img src="https://img.shields.io/github/last-commit/PulkitXChadha/aep-offer-decisioning-previewer?style=flat-square" alt="GitHub last commit">
+  </a>
+  <a href="https://github.com/PulkitXChadha/aep-offer-decisioning-previewer/issues" target="_blank">
+    <img src="https://img.shields.io/github/issues/PulkitXChadha/aep-offer-decisioning-previewer?style=flat-square&color=red" alt="GitHub issues">
+  </a>
+  </br>
+  <a href="https://github.com/PulkitXChadha/aep-offer-decisioning-previewer/pulls" target="_blank">
+    <img src="https://img.shields.io/github/issues-pr/PulkitXChadha/aep-offer-decisioning-previewer?style=flat-square&color=blue" alt="GitHub pull requests">
+  </a>
+  <a href="https://github.com/nsfw-filter/nsfw-filter/blob/master/LICENSE" target="_blank">
+    <img alt="LICENSE" src="https://img.shields.io/github/license/PulkitXChadha/aep-offer-decisioning-previewer?style=flat-square&color=yellow">
+  <a>
+  </a>
+</p>
+<hr>
+Welcome to ODE Previewer an Adobe I/O Application to view Offer representations for a selected unified profile. Easily view and test the experiences delivered to your customers via Adobe Experience Platform.
 
 ![](images/ODEPreviewerDemo.gif)
 
@@ -307,6 +329,11 @@ SERVICE_API_KEY=
 
 ## Releases
 
+### v0.0.6
+
+- Added event count to the Experience Events tab title.
+- Separated Github workflows per Org deployment.
+
 ### v0.0.5
 
 - Added validation to Get Offer button be disabled if any of the inputs are not populated.
@@ -314,6 +341,8 @@ SERVICE_API_KEY=
 - Added IMS user's first name to the greeting of the app.
 - Added support for Dark Mode.
 - Used State SDK to store dark mode setting.
+- Document How to install the app on a new IMS org.
+- Document how to use the App
 
   #### Bug Fixes
 
@@ -343,5 +372,3 @@ SERVICE_API_KEY=
 - Show Decision API call.
 - Add integration tests.
 - Add better error handling.
-- Document How to install the app on a new IMS org.
-- Document how to use the App
