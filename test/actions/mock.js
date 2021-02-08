@@ -1190,6 +1190,200 @@ const offerPropositionMetric = {
     ],
   },
 };
+const offerCollections = {
+  containerId: "e0bd8463-0913-4ca1-bd84-6309134ca1f6",
+  schemaNs:
+    "https://ns.adobe.com/experience/offer-management/offer-filter;version=0.1",
+  requestTime: "2020-10-21T21:14:19.282175Z",
+  _embedded: {
+    results: [
+      {
+        instanceId: "27c92e00-127d-11eb-b9fe-5bcfb5d7ef36",
+        schemas: [
+          "https://ns.adobe.com/experience/offer-management/offer-filter;version=0.3",
+        ],
+        productContexts: ["acp"],
+        "repo:etag": 1,
+        "repo:createdDate": "2020-10-20T02:37:11.263718Z",
+        "repo:lastModifiedDate": "2020-10-20T02:37:11.263718Z",
+        "repo:createdBy": "{CREATED_BY}",
+        "repo:lastModifiedBy": "{MODIFIED_BY}",
+        "repo:createdByClientId": "{CREATED_CLIENT_ID}",
+        "repo:lastModifiedByClientId": "{MODIFIED_CLIENT_ID}",
+        _instance: {
+          "xdm:ids": ["xcore:tag:124bd3de7f598dd8"],
+          "xdm:name": "Mobile Demo",
+          "xdm:filterType": "anyTags",
+          "@id": "xcore:offer-filter:124bd44648f17ec1",
+        },
+        _links: {
+          self: {
+            name:
+              "https://ns.adobe.com/experience/offer-management/offer-filter;version=0.3#27c92e00-127d-11eb-b9fe-5bcfb5d7ef36",
+            href:
+              "/e0bd8463-0913-4ca1-bd84-6309134ca1f6/instances/27c92e00-127d-11eb-b9fe-5bcfb5d7ef36",
+            "@type":
+              "https://ns.adobe.com/experience/offer-management/offer-filter;version=0.3",
+          },
+        },
+        sandboxName: "ode-prod-va7-edge-testing",
+      },
+      {
+        instanceId: "2c54fc90-f8f3-11ea-ad6e-775ad2c9b1a1",
+        schemas: [
+          "https://ns.adobe.com/experience/offer-management/offer-filter;version=0.3",
+        ],
+        productContexts: ["acp"],
+        "repo:etag": 1,
+        "repo:createdDate": "2020-09-17T14:36:29.272451Z",
+        "repo:lastModifiedDate": "2020-09-17T14:36:29.272451Z",
+        "repo:createdBy": "{CREATED_BY}",
+        "repo:lastModifiedBy": "{MODIFIED_BY}",
+        "repo:createdByClientId": "{CREATED_CLIENT_ID}",
+        "repo:lastModifiedByClientId": "{MODIFIED_CLIENT_ID}",
+        _instance: {
+          "xdm:ids": ["xcore:personalized-offer:1221fbedfa4d98b0"],
+          "xdm:name": "demo collection",
+          "xdm:filterType": "offers",
+          "@id": "xcore:offer-filter:1221fc71c74d98b4",
+        },
+        _links: {
+          self: {
+            name:
+              "https://ns.adobe.com/experience/offer-management/offer-filter;version=0.3#2c54fc90-f8f3-11ea-ad6e-775ad2c9b1a1",
+            href:
+              "/e0bd8463-0913-4ca1-bd84-6309134ca1f6/instances/2c54fc90-f8f3-11ea-ad6e-775ad2c9b1a1",
+            "@type":
+              "https://ns.adobe.com/experience/offer-management/offer-filter;version=0.3",
+          },
+        },
+        sandboxName: "ode-prod-va7-edge-testing",
+      },
+    ],
+    total: 8,
+    count: 2,
+  },
+  _links: {
+    self: {
+      href:
+        "/e0bd8463-0913-4ca1-bd84-6309134ca1f6/queries/core/search?schema=https://ns.adobe.com/experience/offer-management/offer-filter;version=0.1&limit=2",
+      "@type": "https://ns.adobe.com/experience/xcore/hal/results",
+    },
+    next: {
+      href:
+        "/e0bd8463-0913-4ca1-bd84-6309134ca1f6/queries/core/search?start=2c54fc90-f8f3-11ea-ad6e-775ad2c9b1a1&orderby=instanceId&schema=https://ns.adobe.com/experience/offer-management/offer-filter;version=0.1&limit=2",
+      "@type": "https://ns.adobe.com/experience/xcore/hal/results",
+    },
+  },
+};
+const listOffers = {
+  containerId: "e0bd8463-0913-4ca1-bd84-6309134ca1f6",
+  schemaNs:
+    "https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5",
+  requestTime: "2020-10-22T20:36:50.408105Z",
+  _embedded: {
+    results: [
+      {
+        instanceId: "2cdb4d10-149e-11eb-b1a9-a779d2fe8690",
+        schemas: [
+          "https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5",
+        ],
+        productContexts: ["acp"],
+        "repo:etag": 2,
+        "repo:createdDate": "2020-10-22T19:38:35.489354Z",
+        "repo:lastModifiedDate": "2020-10-22T19:45:43.839088Z",
+        "repo:createdBy": "{CREATED_BY}",
+        "repo:lastModifiedBy": "{MODIFIED_BY}",
+        "repo:createdByClientId": "{CREATED_CLIENT_ID}",
+        "repo:lastModifiedByClientId": "{MODIFIED_CLIENT_ID}",
+        _instance: {
+          "xdm:name": "Checking Advanced",
+          "xdm:representations": [
+            {
+              "xdm:components": [
+                {
+                  "dc:format": "image/png",
+                  "repo:id":
+                    "urn:aaid:sc:US:7db21be9-89ee-472a-b2c9-91f7a39ada51",
+                  "repo:resolveURL":
+                    "https://platform-cs-va6.adobe.io/content/storage/id/urn:aaid:sc:US:7db21be9-89ee-472a-b2c9-91f7a39ada51/:rendition;size=300",
+                  "repo:name": "mobile-check-deposit.png",
+                  "dc:language": ["en-us"],
+                  "@type":
+                    "https://ns.adobe.com/experience/offer-management/content-component-imagelink",
+                  "xdm:deliveryURL": "",
+                },
+              ],
+              "xdm:channel": "https://ns.adobe.com/xdm/channel-types/offline",
+              "xdm:placement": "xcore:offer-placement:124f4e33724bb15f",
+            },
+            {
+              "xdm:components": [
+                {
+                  "dc:format": "text/html",
+                  "repo:name": "my content",
+                  "dc:language": ["en-us"],
+                  "xdm:content": '{\n"foo": "bar"\n}',
+                  "@type":
+                    "https://ns.adobe.com/experience/offer-management/content-component-html",
+                },
+              ],
+              "xdm:channel": "https://ns.adobe.com/xdm/channel-types/web",
+              "xdm:placement": "xcore:offer-placement:124e0be5699743d3",
+            },
+          ],
+          "xdm:rank": {
+            "xdm:priority": 10,
+          },
+          "xdm:characteristics": {
+            PROD: "checking",
+            offer_code: "CHECK200",
+            region: "NA",
+          },
+          "xdm:selectionConstraint": {
+            "xdm:startDate": "2020-10-22T07:00:00.000Z",
+            "xdm:endDate": "2020-12-31T08:00:00.000Z",
+            "xdm:eligibilityRule": "xcore:eligibility-rule:124f4f57259caba5",
+          },
+          "xdm:status": "draft",
+          "xdm:cappingConstraint": {
+            "xdm:globalCap": 1000,
+          },
+          "xdm:tags": [
+            "xcore:tag:124f4e5c8a00cd92",
+            "xcore:tag:1229cf47455177b1",
+          ],
+          "@id": "xcore:personalized-offer:124f513c290bb16e",
+        },
+        _links: {
+          self: {
+            name:
+              "https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5#2cdb4d10-149e-11eb-b1a9-a779d2fe8690",
+            href:
+              "/e0bd8463-0913-4ca1-bd84-6309134ca1f6/instances/2cdb4d10-149e-11eb-b1a9-a779d2fe8690",
+            "@type":
+              "https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5",
+          },
+        },
+        sandboxName: "ode-prod-va7-edge-testing",
+      },
+    ],
+    total: 15,
+    count: 1,
+  },
+  _links: {
+    self: {
+      href:
+        "/e0bd8463-0913-4ca1-bd84-6309134ca1f6/queries/core/search?schema=https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5&orderby=-repo:createdDate&limit=1",
+      "@type": "https://ns.adobe.com/experience/xcore/hal/results",
+    },
+    next: {
+      href:
+        "/e0bd8463-0913-4ca1-bd84-6309134ca1f6/queries/core/search?start=1603395515489%2C2cdb4d10-149e-11eb-b1a9-a779d2fe8690&schema=https://ns.adobe.com/experience/offer-management/personalized-offer;version=0.5&orderby=-repo%3AcreatedDate%2CinstanceId&limit=1",
+      "@type": "https://ns.adobe.com/experience/xcore/hal/results",
+    },
+  },
+};
 const data = {
   offerActivity: offerActivity,
   container: container,
@@ -1206,6 +1400,8 @@ const data = {
   experienceEvents: experienceEvents,
   identityPreviewReport: identityPreviewReport,
   offerPropositionMetric: offerPropositionMetric,
+  offerCollections: offerCollections,
+  listOffers: listOffers,
 };
 
 module.exports = {

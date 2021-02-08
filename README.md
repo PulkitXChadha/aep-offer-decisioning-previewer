@@ -1,6 +1,6 @@
 # Adobe Offer Decisioning Engine Previewer
 
-![aep-offer-decisioning-previewer](https://socialify.git.ci/PulkitXChadha/aep-offer-decisioning-previewer/image?description=1&descriptionEditable=View%20Offer%20representations%20to%20unified%20profiles%20easily%20and%20test%20experiences%20delivered%20to%20customers%20via%20Adobe%20Experience%20Platform.&forks=1&language=1&logo=https%3A%2F%2Fgblobscdn.gitbook.com%2Fspaces%252F-Lf1Mc1caFdNCK_mBwhe%252Favatar-1585843848509.png%3Falt%3Dmedia&owner=1&stargazers=1&theme=Light)
+![aep-offer-decisioning-previewer](https://socialify.git.ci/PulkitXChadha/aep-offer-decisioning-previewer/image?description=1&descriptionEditable=Preview%20Offer%20representations%20for%20unified%20profile%20and%20test%20experiences%20delivered%20to%20your%20customers%20via%20Adobe%20Experience%20Platform.&forks=1&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAxlBMVEUACx36DwD%2F%2F%2F%2F%2FDwAAAADrDwGiDREAABYACRy0Dg4AABMACxwAAA9OUVkABBrDxMf1DwBHSlPd3t%2FaDgjUDgm9vsAwNUEfJDGWmJx2eH3lDgUxCxrHDgunDRB8DBUJEiMAAAg4PEWcDREmCxtVDBhxDBayDQ46CxrFDgwYHi1kZ26ChInh4eOMjpOCDBSmDRAcCxt1DBVGCxmMDRNpDBdfDBcUCxyrrbHOz9GhoqYSGSlODBlaDBcYCxtRCxiTDBMsCxtBCxrj6IE5AAAII0lEQVR4nO2daXubOhCFsawU4ho70HpL2xs7XRPH6b4kbW9v%2F%2F%2BfusJLjEHAQRhG0sN5%2Bq12Om9GaEZHQnVYgcLRdOaPry48Rzd5F1djfzYd3RQhOHl%2F%2BWMV9DjnfXfg6YcoIL2B2xfx9YLVDzXGcBl9XUe2pLwoEcuwNOPQ53MT%2BHby5twflmIcTczIYFwim5MRzBguuEsdsZJcvpCNWAnj0lDCSC5fAozhFacOtJL4JJXKJOOdwUncyOV3%2BYzX3LSpJi2PX%2BcxBmaP0514kM24mFNHdyTNF1mMizl1bEfTAWSM0bdjoG7EfRnjtU2IAvI6zXhnF6KAvEsyhhYUjUN5PEwwTkwv%2FWm5k0PGpW0jNdKud3UsHamRdqN1wxj0qOOpRb1gzzi0caRG4sMHxrF9E85G7njHaG0at4l07H0aI%2FX8DeONlZPqVvxmzbiyd6gKxtWa0RlQB1KjBhGgqP%2FUcdQq0Qc4bGo541QwWjyrRhK9jsOM2tYoL2%2FOHMsfx%2BiBdEbWM46c1Zw6iJo1XzmzPnUQNas%2Fc3xb1xw7ub4ztrnLiTQYO%2Fd2lw5RPO4dDQ%2BlHFfeBXUErVq1atWqlURfLh9l6%2FILdXhH0O1ZN19nt9QhVtX7bqdI3UfUQVbT62JEAWn2eD2HGM%2Bpw6yifxFEAfmKOtAKegcyvqMOVF0fMEQB%2BYE6VGVdwozmTq0nIGKnc0YdqqqgwrFN5EfqYBX1pATjE%2Bpg1fQXRxSQn6jDVdJpKcZT6nCVVIIwgnxMHa%2BCPpdJo2D8Qx2wgs7L5bFzQh1weX0tl0YjVx9gqxpjfE4dclnBrWoM8hl10CX1SIHxBXXQJXVWGlGIOuhy%2Blg%2BjSKRZrlXJVrVmIzyPEq1qrFEmuR5lGpVY4wGlY%2FHSoQR5Evq0GH9UUujUZ4H7nEkZYznUbpVjSXyH%2BrgQT2vwGiI5%2FFMHdEYz%2BNFJUYzPI8KhB1DPI9%2FqqTREM9DrVXdywDP42dFRBM8j9IeR4rxKTVCkR5XRTTA81BuVWOMb6ghCqTeqsZEDZGvL9XTKBL5mRojV0%2BPwai351GpVd2r%2B4saJEdvjsSos%2BdxFMKO1p7HLZDGLtLraex5ANtx3VsPadq19TxegcEDNVRbzwNoVdeDEOiFdPU8kO249aGxb8gHf1LjSAWcHNse%2FgNsdE09D2A7bruh8QlJ5DdiHJmQk2O7Jg2oH1p6HkCr%2BrDBiGxPauh5vEXauIdPI%2BNaP88DaFVji19kftLO80C247pvHz7%2BG5l13ub8exQCTo4dJAbpF3TzPJBW9XXs80j50Mzz%2BFV6okTKh16eB7Ad1708%2BAZSPrTyPF4qNC5I%2BfhKgyMVcHIs9Z4K8h2dPA8kJ8mFBLT60MfzUHu2kPLxnoBGLmSOTC%2FskRfOtPE8kFonC1btV0MjZMkrO5sKmFe6eB7Idpx88ij%2Bni7nPBALSl4EVEoOjZBWVb4WVGkdSIRsx2Wt6ZHycZnx3SaFtKpZ3gziOmvgeUDjLfNcUdklGY2Ak2M5XimwC6SB54G0qjnzP%2FL1v83RSFW1jiPDgNrzQPqxvHeNoce5MRqpVFvVvZBpmdbzQLfjsoU4QaSex7fi%2BArXuUj5oPQ81FvVvZDyQel5ILvehWdtin8GpeeBtKrFzxJSPug8D2Q7rnhORA5nkXke0HYccAQeKR9Unke57bhsAe%2F1kF0HBWQR219DygfNOY%2FjrRmQjT0azwNpVcG1X3EeO93f9dJIhazh0R1E5Mmm8DyglxzAF4s0LR%2FIlkync%2FLmVKJ0zUTKR%2FOeB3jnmPwey9SqGeiYCDyPSi85pLsfpPNt2vMoceeYTClDESkfTR8TrPiSQ%2Brhgs73NPtqJNSq5oWbeiKRza9mPY%2FKLzmkejPkt9Zo06p8kcOeMdWbIQu1Jj2PkneOSeNNvgGIlI8mPY%2Byd47J4k2tupDy8V9jiBUucojFm%2FypiAHW3HVQld%2FHXceb3LBD9twba1oR%2Fx5Qqg9AykdT10Ep3DkmjTe5DwLcntSY56F055hEqXiR8tHMdVBKd45B8QJNcEOeR9WLHPbxplZLSPlowvNQvHNMGm%2FStUPKRxOeh%2BKdY9J4k6slZB%2BsgXMe1VvVOGRytYSUj%2Fo9jyO0qrF4kwMPKR%2F1ex5HucjhQam%2BBTFt6%2FY8kK3tEkodpEPKR93nPI5w58hBvArmVe2D9WgNwDbe1LgrXkbW3wZA%2F7MKSiiz2m67%2Bf9Ct%2F5ju97pydH0RHoe8tnpee6XTLrAtFWrVq1atWrVqlWrVq3s0YVHHUHN8i6ce%2BsZ753xgDqImjUYO75LHUTNcn1n1qcOomb1Z85qTh1EzZpPnRGnDqJm8ZETWs8YOqxvd%2FHw%2BsxhQY86jFrVCwTj1O7ByqeC0fIHkoeCkXk2dzoDASj%2BrGxOJF%2BtGW%2B4xTMrv1kzMt%2FemVXMqhvGob2DlQ%2B3jGxs69rDHbMdo7WJXKdxw2hrr7N%2BGneMoZVTqyfq%2F56RLW0crXzJ4oxsYt%2B0407YIaN9o3U3UveM7Ltto5V%2FZ0lGNrMLks9YmpH5NkFyn8kY2WJOHdnRNF8wOSMLbMkkD1gWoy3DNT5QU4xi4jG%2FhHix6UbGKEqI6c2Auy8aGYwsvDJ7vPJJmERKMUa9q7mrkN6uRy1gZGFg6IB1eZBKYgajWDRPDMxlj0%2BGUho5o6D0OTfJdx1w7ssJsxkZu1ndc94zoZR4Pc7vpzeZJNmMQuE0EF%2FnfXfg6cjqeQO3L%2BLrBVPZY4gxrtM5ms788ZWGR1y8i6uxP5uOcvki%2FQ8jRIFLjONcQgAAAABJRU5ErkJggg%3D%3D&owner=1&stargazers=1&theme=Light)
 
 <p align="center">
   <a href="https://github.com/nsfw-filter/nsfw-filter/releases/" target="_blank">
@@ -22,7 +22,10 @@
   </a>
 </p>
 <hr>
-Welcome to ODE Previewer an Adobe I/O Application to view Offer representations for a selected unified profile. Easily view and test the experiences delivered to your customers via Adobe Experience Platform.
+
+<br> </br>
+Welcome to ODE Previewer an Adobe I/O Application to view Offer representations for a selected unified profile. Easily view and test the experiences delivered to your customers via Adobe Experience Platform.  
+<br> </br>
 
 ![](images/ODEPreviewerDemo.gif)
 
@@ -35,6 +38,8 @@ Welcome to ODE Previewer an Adobe I/O Application to view Offer representations 
   - [Install Project Locally](#install-project-locally)
   - [Test & Coverage](#test---coverage)
   - [Deploy & Cleanup](#deploy---cleanup)
+- [Continuous Integration and Continuous Delivery (CI/CD)](#continuous-integration-and-continuous-delivery--ci-cd-)
+- [Publishing your Firefly App](#publishing-your-firefly-app)
 - [Project Folder Structure](#project-folder-structure)
 - [Config Files](#config-files)
   - [`.env`](#-env-)
@@ -44,6 +49,10 @@ Welcome to ODE Previewer an Adobe I/O Application to view Offer representations 
   - [Adobe Experience Platform - Unified Profile](#adobe-experience-platform---unified-profile)
   - [Adobe Offer Decisioning Engine](#adobe-offer-decisioning-engine)
 - [Releases](#releases)
+  - [v0.0.6](#v006)
+  - [v0.0.5](#v005)
+  - [v0.0.4](#v004)
+  - [v0.0.3](#v003)
 - [Features Requested](#features-requested)
 
 ## Installation
@@ -110,6 +119,7 @@ Adobe Developer Console gives you access to APIs, SDKs, and developer tools to b
    - Create a new workspace by clicking the `+ Add workspace` button. Give the workspace an appropriate name and description.
 
    - Click `Save` when ready.
+
      ![](images/console-add-workspace.png)
 
 7. Within each of the workspace you will need to add the service needed for the app.
@@ -212,6 +222,18 @@ Adobe Developer Console gives you access to APIs, SDKs, and developer tools to b
 
 - `aio app deploy` to build and deploy all actions on Runtime and static files to CDN
 - `aio app undeploy` to undeploy the app
+
+## Continuous Integration and Continuous Delivery (CI/CD)
+
+The repo uses GitHub Actions for CI/CD. The `.github/workflows` folder has all the workflows yml files used.
+
+> You may need to modify and/or delete some of these workflow files.
+
+For more information [CI/CD for Project Firefly Applications](https://www.adobe.io/apis/experienceplatform/project-firefly/docs.html#!AdobeDocs/project-firefly/master/guides/ci_cd_for_firefly_apps.md)
+
+## Publishing your Firefly App
+
+For instructions on how to publish and approve your app go to [Publishing a Project Firefly Applications](https://www.adobe.io/apis/experienceplatform/project-firefly/docs.html#!AdobeDocs/project-firefly/master/getting_started/publish_app.md)
 
 ---
 
@@ -329,10 +351,17 @@ SERVICE_API_KEY=
 
 ## Releases
 
+### v0.0.7
+
+- Added runtime actions to get collection and offer details.
+- Added ineligibleOffers UI component.
+- Added business rules to show lineage followed to make the offer decision.
+
 ### v0.0.6
 
 - Added event count to the Experience Events tab title.
 - Separated Github workflows per Org deployment.
+  ![](images/ODEPreviewerDemo_v0.0.6.gif)
 
 ### v0.0.5
 
@@ -343,9 +372,7 @@ SERVICE_API_KEY=
 - Used State SDK to store dark mode setting.
 - Document How to install the app on a new IMS org.
 - Document how to use the App
-
-  #### Bug Fixes
-
+- Bug Fixes
   - Updated profile data error message
   - Offer Metric Bar only displayed when metric has been created.
 
@@ -360,7 +387,7 @@ SERVICE_API_KEY=
 
 - Added support to render JSON and HTML representation of offers
 - Sort sandbox list based on name.
-- Cleaned display of events data removing datatypes and length.
+- Cleaned display of events data removing data types and length.
 - Added dry run toggle to switch between various modes of offer decisioning.
 - Added offer capping metric Meter component to offer details.
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import ReactJson from "react-json-view";
 import PropTypes from "prop-types";
@@ -17,6 +17,7 @@ import Error from "@spectrum-icons/illustrations/Error";
 
 import OfferDetails from "./OfferDetails";
 import FallbackOfferDetails from "./FallbackOfferDetails";
+import IneligibleOffers from "./IneligibleOffers";
 
 const OfferRender = (props) => {
   let headers = {};
@@ -38,8 +39,9 @@ const OfferRender = (props) => {
       entityValue: props.entityValue,
       dryRunFlag: props.dryRunFlag,
     },
+    cacheResponse: false,
   });
-  let content = (
+  let offerMetaDataContent = (
     <ProgressCircle
       id="offer-render-progress-circle"
       aria-label="Getting Offer Representation"
@@ -50,7 +52,7 @@ const OfferRender = (props) => {
   );
 
   if (!offer.isLoading && offer.error) {
-    content = (
+    offerMetaDataContent = (
       <IllustratedMessage>
         <Error />
         <Heading>Error 500: Internal server error</Heading>
@@ -61,7 +63,7 @@ const OfferRender = (props) => {
   }
 
   if (!offer.isLoading && offer.data && offer.data.status === 404) {
-    content = (
+    offerMetaDataContent = (
       <IllustratedMessage>
         <Error />
         <Heading>Error 500: Internal server error</Heading>
@@ -70,7 +72,8 @@ const OfferRender = (props) => {
       </IllustratedMessage>
     );
   }
-
+  let offerContent = null;
+  let ineligibleOfferContent = null;
   if (!offer.isLoading && offer.data && offer.data.status != 404) {
     const offerProposition = offer.data["xdm:propositions"][0];
     const offerData = offerProposition["xdm:options"]
@@ -78,7 +81,6 @@ const OfferRender = (props) => {
       : { offerType: "fallback", ...offerProposition["xdm:fallback"] };
     const offerID = offerData["xdm:id"];
 
-    let offerContent = null;
     if (
       offerData["dc:format"] == "image/png" ||
       offerData["dc:format"] == "image/jpeg"
@@ -104,38 +106,48 @@ const OfferRender = (props) => {
     if (offerData["dc:format"] == "text/html")
       offerContent = <Well>{offerData["xdm:deliveryURL"]}</Well>;
     if (offerData.offerType === "proposition") {
-      content = (
-        <View>
-          <OfferDetails
-            ims={props.ims}
-            containerID={props.containerID}
-            offerID={offerID}
-          />
-          <Well>
-            <h3>Offer Content</h3>
-            {offerContent}
-          </Well>
-        </View>
+      offerMetaDataContent = (
+        <OfferDetails
+          ims={props.ims}
+          containerID={props.containerID}
+          offerID={offerID}
+        />
       );
     }
     if (offerData.offerType === "fallback") {
-      content = (
-        <View>
-          <FallbackOfferDetails
-            ims={props.ims}
-            containerID={props.containerID}
-            offerID={offerID}
-          />
-          <Well>
-            <h3>Offer Content</h3>
-            {offerContent}
-          </Well>
-        </View>
+      offerMetaDataContent = (
+        <FallbackOfferDetails
+          ims={props.ims}
+          containerID={props.containerID}
+          offerID={offerID}
+        />
       );
     }
+    ineligibleOfferContent = (
+      <IneligibleOffers
+        ims={props.ims}
+        containerID={props.containerID}
+        offerID={offerID}
+        collections={props.collections}
+        placementID={props.placementID}
+        offerType={offerData.offerType}
+      />
+    );
   }
 
-  return content;
+  return (
+    <View>
+      <Well>
+        <h3>Offer Content</h3>
+        {offerContent}
+        {offerMetaDataContent}
+      </Well>
+      <Well>
+        <h3>Ineligible Offers</h3>
+        {ineligibleOfferContent}
+      </Well>
+    </View>
+  );
 };
 
 OfferRender.propTypes = {

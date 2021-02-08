@@ -32,13 +32,9 @@ const UserSettingsProvider = ({ children, userID }) => {
         value: darkMode,
         ttl: -1, //forever
       }
-    )
-      // .then((response) => {
-      //   console.log(JSON.stringify(response));
-      // })
-      .catch((e) => {
-        throw new Error(`update of settings failed with ${e}`);
-      });
+    ).catch((e) => {
+      throw new Error(`update of settings failed with ${e}`);
+    });
   }, [darkMode]);
   return (
     <UserSettingsContext.Provider value={darkMode}>

@@ -90,19 +90,14 @@ exports[`<EligibilityRuleDetails> calls custom hook call custom hooks with globa
 exports[`<EligibilityRuleDetails> on data renders correctly on no data 1`] = `
 <DocumentFragment>
   <div>
-    <div
-      class="_spectrum-Well_daead"
-      role="ruleDetails"
-    >
-      <h3>
-        Decision Rule Details
-      </h3>
-      <p>
-        <strong>
-          No Details found.
-        </strong>
-      </p>
-    </div>
+    <h3>
+      Decision Rule Details
+    </h3>
+    <p>
+      <strong>
+        No Details found.
+      </strong>
+    </p>
   </div>
 </DocumentFragment>
 `;
