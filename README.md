@@ -351,6 +351,12 @@ SERVICE_API_KEY=
 
 ## Releases
 
+### v0.0.7
+
+- Added runtime actions to get collection and offer details.
+- Added ineligibleOffers UI component.
+- Added business rules to show lineage followed to make the offer decision.
+
 ### v0.0.6
 
 - Added event count to the Experience Events tab title.
