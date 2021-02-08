@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {
   Content,
-  View,
   ProgressCircle,
   IllustratedMessage,
   Heading,
-  Well,
 } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
-import {
-  ProfileProvider,
-  useProfileState,
-  useProfileDispatch,
-} from "../context/ProfileViewContext.js";
+import { useProfileDispatch } from "../context/ProfileViewContext.js";
 import Error from "@spectrum-icons/illustrations/Error";
 
 const EligibilityRuleDetails = (props) => {
@@ -58,14 +52,12 @@ const EligibilityRuleDetails = (props) => {
   }
   if (!ruleDetails.data && !ruleDetails.error && !ruleDetails.isLoading) {
     content = (
-      <View>
-        <Well role="ruleDetails">
-          <h3>Decision Rule Details</h3>
-          <p>
-            <strong>No Details found.</strong>
-          </p>
-        </Well>
-      </View>
+      <div>
+        <h3>Decision Rule Details</h3>
+        <p>
+          <strong>No Details found.</strong>
+        </p>
+      </div>
     );
   }
   if (!ruleDetails.isLoading && ruleDetails.data) {
@@ -76,20 +68,19 @@ const EligibilityRuleDetails = (props) => {
       detailedResult._instance["xdm:condition"]["xdm:value"];
 
     content = (
-      <View>
-        <Well role="ruleDetails">
-          <h3>Decision Rule Details</h3>
-          <p>
-            <strong>Name: </strong>
-            {ruleName}
-            <br /> <strong>Condition: </strong>
-            {ruleConditionValue}
-          </p>
-        </Well>
-      </View>
+      <div>
+        <h3>Decision Rule Details</h3>
+        <p>
+          <strong>Name: </strong>
+          {ruleName}
+          <br /> <strong>Condition: </strong>
+          {ruleConditionValue}
+        </p>
+      </div>
     );
-
-    setProfileAttributes(ruleConditionValue );
+    if (!props.ineligibleOffer) {
+      setProfileAttributes(ruleConditionValue);
+    }
   }
 
   return content;

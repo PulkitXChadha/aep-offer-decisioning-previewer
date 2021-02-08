@@ -67,13 +67,23 @@ const App = (props) => {
   };
 
   let sidebar = (
-    <View gridArea="sidebar" backgroundColor="gray-200" padding="size-200">
+    <View
+      gridArea="sidebar"
+      backgroundColor="gray-200"
+      padding="size-200"
+      marginTop="size-400"
+      position="fixed"
+      left="200"
+      width="200px"
+      height="400vh"
+    >
       <SideBar isSandboxSelected={sandboxName ? true : false}></SideBar>
     </View>
   );
   const greyRibbon = userSettings ? "gray-600" : "gray-900";
   let sandboxSelector = (
     <View
+      // position="fixed"
       backgroundColor={
         sandboxName
           ? sandboxName != "prod"
@@ -88,7 +98,7 @@ const App = (props) => {
           ims={props.ims}
           onSelectionChange={handleSandboxSelection}
         />
-        <View position="absolute" end="10px">
+        <View position="fixed" end="10px">
           <Toggle
             isSelected={userSettings}
             onChange={() => setUserSettings(!userSettings)}

@@ -132,6 +132,26 @@ packages:
         annotations:
           require-adobe-auth: true
           final: true
+      get-all-collections:
+        function: actions/ODE/get-all-collections.js
+        web: "yes"
+        runtime: "nodejs:12"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      get-all-offers:
+        function: actions/ODE/get-all-offers.js
+        web: "yes"
+        runtime: "nodejs:12"
+        inputs:
+          LOG_LEVEL: debug
+          apiKey: $SERVICE_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
       update-aio-state:
         function: actions/misc/update-aio-state.js
         web: "yes"

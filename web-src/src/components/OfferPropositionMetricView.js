@@ -1,16 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Content,
-  ProgressCircle,
-  IllustratedMessage,
-  Heading,
-  Meter,
-  Text,
-} from "@adobe/react-spectrum";
+import { ProgressCircle, Meter, Text } from "@adobe/react-spectrum";
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
-
-import Error from "@spectrum-icons/illustrations/Error";
 
 const OfferPropositionMetricView = (props) => {
   if (!props.offerGlobalCap) {
@@ -59,6 +50,7 @@ const OfferPropositionMetricView = (props) => {
 
       const usagePercentage =
         (parseInt(used) * 100) / parseInt(props.offerGlobalCap);
+      props.onLoad(used);
       content = (
         <Meter
           label="Usage"

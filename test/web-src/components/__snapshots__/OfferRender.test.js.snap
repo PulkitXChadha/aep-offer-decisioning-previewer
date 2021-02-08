@@ -2,42 +2,58 @@
 
 exports[`<OfferRender> calls custom hook call custom hooks with global parameters correctly 1`] = `
 <DocumentFragment>
-  <div
-    aria-label="Getting Offer Representation"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
-    id="offer-render-progress-circle"
-    role="progressbar"
-  >
+  <div>
     <div
-      class="_spectrum-CircleLoader-track_40b43"
-    />
-    <div
-      class="_spectrum-CircleLoader-fills_40b43"
+      class="_spectrum-Well_daead"
     >
+      <h3>
+        Offer Content
+      </h3>
       <div
-        class="_spectrum-CircleLoader-fillMask1_40b43"
+        aria-label="Getting Offer Representation"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
+        id="offer-render-progress-circle"
+        role="progressbar"
       >
         <div
-          class="_spectrum-CircleLoader-fillSubMask1_40b43"
-        >
-          <div
-            class="_spectrum-CircleLoader-fill_40b43"
-          />
-        </div>
-      </div>
-      <div
-        class="_spectrum-CircleLoader-fillMask2_40b43"
-      >
+          class="_spectrum-CircleLoader-track_40b43"
+        />
         <div
-          class="_spectrum-CircleLoader-fillSubMask2_40b43"
+          class="_spectrum-CircleLoader-fills_40b43"
         >
           <div
-            class="_spectrum-CircleLoader-fill_40b43"
-          />
+            class="_spectrum-CircleLoader-fillMask1_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fillSubMask1_40b43"
+            >
+              <div
+                class="_spectrum-CircleLoader-fill_40b43"
+              />
+            </div>
+          </div>
+          <div
+            class="_spectrum-CircleLoader-fillMask2_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fillSubMask2_40b43"
+            >
+              <div
+                class="_spectrum-CircleLoader-fill_40b43"
+              />
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <div
+      class="_spectrum-Well_daead"
+    >
+      <h3>
+        Ineligible Offers
+      </h3>
     </div>
   </div>
 </DocumentFragment>
@@ -45,42 +61,58 @@ exports[`<OfferRender> calls custom hook call custom hooks with global parameter
 
 exports[`<OfferRender> calls custom hook call custom hooks with global parameters correctly 2`] = `
 <DocumentFragment>
-  <div
-    aria-label="Getting Offer Representation"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
-    id="offer-render-progress-circle"
-    role="progressbar"
-  >
+  <div>
     <div
-      class="_spectrum-CircleLoader-track_40b43"
-    />
-    <div
-      class="_spectrum-CircleLoader-fills_40b43"
+      class="_spectrum-Well_daead"
     >
+      <h3>
+        Offer Content
+      </h3>
       <div
-        class="_spectrum-CircleLoader-fillMask1_40b43"
+        aria-label="Getting Offer Representation"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
+        id="offer-render-progress-circle"
+        role="progressbar"
       >
         <div
-          class="_spectrum-CircleLoader-fillSubMask1_40b43"
-        >
-          <div
-            class="_spectrum-CircleLoader-fill_40b43"
-          />
-        </div>
-      </div>
-      <div
-        class="_spectrum-CircleLoader-fillMask2_40b43"
-      >
+          class="_spectrum-CircleLoader-track_40b43"
+        />
         <div
-          class="_spectrum-CircleLoader-fillSubMask2_40b43"
+          class="_spectrum-CircleLoader-fills_40b43"
         >
           <div
-            class="_spectrum-CircleLoader-fill_40b43"
-          />
+            class="_spectrum-CircleLoader-fillMask1_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fillSubMask1_40b43"
+            >
+              <div
+                class="_spectrum-CircleLoader-fill_40b43"
+              />
+            </div>
+          </div>
+          <div
+            class="_spectrum-CircleLoader-fillMask2_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fillSubMask2_40b43"
+            >
+              <div
+                class="_spectrum-CircleLoader-fill_40b43"
+              />
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <div
+      class="_spectrum-Well_daead"
+    >
+      <h3>
+        Ineligible Offers
+      </h3>
     </div>
   </div>
 </DocumentFragment>
@@ -88,42 +120,58 @@ exports[`<OfferRender> calls custom hook call custom hooks with global parameter
 
 exports[`<OfferRender> on load renders correctly on load 1`] = `
 <DocumentFragment>
-  <div
-    aria-label="Getting Offer Representation"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
-    id="offer-render-progress-circle"
-    role="progressbar"
-  >
+  <div>
     <div
-      class="_spectrum-CircleLoader-track_40b43"
-    />
-    <div
-      class="_spectrum-CircleLoader-fills_40b43"
+      class="_spectrum-Well_daead"
     >
+      <h3>
+        Offer Content
+      </h3>
       <div
-        class="_spectrum-CircleLoader-fillMask1_40b43"
+        aria-label="Getting Offer Representation"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        class="_spectrum-CircleLoader_40b43 _spectrum-CircleLoader--indeterminate_40b43"
+        id="offer-render-progress-circle"
+        role="progressbar"
       >
         <div
-          class="_spectrum-CircleLoader-fillSubMask1_40b43"
-        >
-          <div
-            class="_spectrum-CircleLoader-fill_40b43"
-          />
-        </div>
-      </div>
-      <div
-        class="_spectrum-CircleLoader-fillMask2_40b43"
-      >
+          class="_spectrum-CircleLoader-track_40b43"
+        />
         <div
-          class="_spectrum-CircleLoader-fillSubMask2_40b43"
+          class="_spectrum-CircleLoader-fills_40b43"
         >
           <div
-            class="_spectrum-CircleLoader-fill_40b43"
-          />
+            class="_spectrum-CircleLoader-fillMask1_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fillSubMask1_40b43"
+            >
+              <div
+                class="_spectrum-CircleLoader-fill_40b43"
+              />
+            </div>
+          </div>
+          <div
+            class="_spectrum-CircleLoader-fillMask2_40b43"
+          >
+            <div
+              class="_spectrum-CircleLoader-fillSubMask2_40b43"
+            >
+              <div
+                class="_spectrum-CircleLoader-fill_40b43"
+              />
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <div
+      class="_spectrum-Well_daead"
+    >
+      <h3>
+        Ineligible Offers
+      </h3>
     </div>
   </div>
 </DocumentFragment>

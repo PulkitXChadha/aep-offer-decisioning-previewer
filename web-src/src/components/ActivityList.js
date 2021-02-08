@@ -26,8 +26,15 @@ const ActivityList = (props) => {
       ._instance["xdm:criteria"].map(
         (criteria) => criteria["xdm:placements"][0]
       );
+    const allCollections = activities.data._embedded.results
+      .filter((activity) => activity._instance["@id"] === id)[0]
+      ._instance["xdm:criteria"].map(
+        (criteria) => criteria["xdm:optionSelection"]["xdm:filter"] || null
+      );
 
-    props.onSelectionChange(id, placements);
+    const collections = [...new Set(allCollections)];
+
+    props.onSelectionChange(id, placements, collections);
   };
 
   let picker = (

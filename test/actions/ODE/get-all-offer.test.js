@@ -19,7 +19,7 @@ Core.Logger.mockReturnValue(mockLoggerInstance);
 jest.mock("node-fetch");
 const fetch = require("node-fetch");
 const mock = require("../mock");
-const action = require("../../../actions/UPS/get-identity-namespaces");
+const action = require("../../../actions/ODE/get-all-offers");
 
 beforeEach(() => {
   Core.Logger.mockClear();
@@ -31,20 +31,19 @@ beforeEach(() => {
 const fakeParams = {
   __ow_headers: {
     authorization: "Bearer fake",
-    "x-gw-ims-org-id": "fake-IMS-ORG",
+    "x-gw-ims-org-id": "fake IMS ORG",
   },
-  apiKey: "fake-API-Key",
-  sandboxName: "fake-sandbox",
+  apiKey: "fake API Key",
+  containerID: "fake-container-ID",
 };
-describe("get-identity-namespaces", () => {
+describe("get-all-offers", () => {
   const mockFetchErrorResponse = {
     ok: false,
     json: () => Promise.reject(new Error("fake")),
   };
-
   const mockFetchResponse = {
     ok: true,
-    json: () => Promise.resolve(mock.data.identityNamespaces),
+    json: () => Promise.resolve(mock.data.listOffers),
   };
 
   test("main should be defined", () => {
@@ -63,7 +62,6 @@ describe("get-identity-namespaces", () => {
   });
   test("if there is an error should return a 500 and log the error", async () => {
     fetch.mockRejectedValue(mockFetchErrorResponse);
-
     const response = await action.main(fakeParams);
     expect(response).toEqual({
       error: {
@@ -100,7 +98,7 @@ describe("get-identity-namespaces", () => {
         statusCode: 400,
         body: {
           error:
-            "missing header(s) 'authorization,x-gw-ims-org-id' and missing parameter(s) 'sandboxName,apiKey'",
+            "missing header(s) 'authorization,x-gw-ims-org-id' and missing parameter(s) 'containerID,apiKey'",
         },
       },
     });

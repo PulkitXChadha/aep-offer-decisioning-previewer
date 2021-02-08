@@ -13,12 +13,12 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-const onSelectionChange = jest.fn(0);
 const fakeProps = {
   ims: { token: "fake-token", org: "fake-org" },
   containerID: "fake-containerID",
   offerID: "fake-offerID",
   offerGlobalCap: "100",
+  onLoad: jest.fn(0),
 };
 
 describe("<OfferPropositionMetricView> calls custom hook", () => {
@@ -31,7 +31,9 @@ describe("<OfferPropositionMetricView> calls custom hook", () => {
     const fakeProps = {
       ims: { token: "fake-token", org: "fake-org" },
       containerID: "fake-containerID",
-      ruleID: "fake-rule-id",
+      offerID: "fake-offerID",
+      offerGlobalCap: "100",
+      onLoad: jest.fn(0),
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);
@@ -43,7 +45,9 @@ describe("<OfferPropositionMetricView> calls custom hook", () => {
   it("call custom hooks with global parameters correctly", () => {
     const fakeProps = {
       ims: { authorization: "fake-token", "x-gw-ims-org-id": "fake-org" },
-      onSelectionChange: onSelectionChange,
+      offerID: "fake-offerID",
+      offerGlobalCap: "100",
+      onLoad: jest.fn(0),
     };
 
     useActionWebInvoke.mockReturnValue(mockResponse);

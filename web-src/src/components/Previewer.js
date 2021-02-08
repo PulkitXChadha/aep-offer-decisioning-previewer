@@ -38,6 +38,10 @@ const Previewer = (props) => {
     selectedActivityPlacements,
     setSelectedActivityPlacements,
   ] = useState();
+  const [
+    selectedActivityCollections,
+    setSelectedActivityCollections,
+  ] = useState();
   const [selectedPlacement, setSelectedPlacement] = useState();
   const [selectedNamespace, setSelectedNamespace] = useState();
   let [entityValue, setEntityValue] = React.useState();
@@ -65,6 +69,7 @@ const Previewer = (props) => {
     setGetOffer(false);
     setSelectedActivity(null);
     setSelectedActivityPlacements(null);
+    setSelectedActivityCollections(null);
     setSelectedPlacement(null);
     setSelectedNamespace(null);
     setSelectedNamespace(null);
@@ -85,9 +90,10 @@ const Previewer = (props) => {
       <ActivityList
         ims={props.ims}
         containerID={containerID}
-        onSelectionChange={(id, placements) => {
+        onSelectionChange={(id, placements, collections) => {
           setSelectedActivity(id);
           setSelectedActivityPlacements(placements);
+          setSelectedActivityCollections(collections);
           setSelectedPlacement(null);
         }}
       />
@@ -170,6 +176,7 @@ const Previewer = (props) => {
         identityNamespace={selectedNamespace}
         entityValue={entityValue}
         dryRunFlag={dryRunFlag}
+        collections={selectedActivityCollections}
       />
     );
   }
@@ -196,7 +203,6 @@ const Previewer = (props) => {
             identityValue={entityValue}
             sandboxName={sandboxName}
             onLoad={(count) => {
-              console.log(count);
               setEventCount(count);
             }}
           />
