@@ -361,6 +361,7 @@ SERVICE_API_KEY=
 
 - Added event count to the Experience Events tab title.
 - Separated Github workflows per Org deployment.
+  ![](images/ODEPreviewerDemo_v0.0.6.gif)
 
 ### v0.0.5
 
