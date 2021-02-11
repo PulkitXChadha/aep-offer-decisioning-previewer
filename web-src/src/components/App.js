@@ -137,16 +137,15 @@ const App = (props) => {
           theme={defaultTheme}
           colorScheme={userSettings ? `dark` : `light`}
         >
-          <View minHeight="100vh" overflow="hidden">
+          <View height="100vh" overflow="hidden">
             <View elementType="header" height="size-400" position="fixed" width="100vw">
               {sandboxSelector}
             </View>
             <main css={css`
               height: calc(100vh - var(--spectrum-global-dimension-size-400));
               padding-top: var(--spectrum-global-dimension-size-400);
-              box-sizing: border-box;
               `}>
-              <Grid id="Grid" areas={['nav main']} columns={['size-3000', 'auto']}>
+              <Grid id="Grid" areas={['nav main']} columns={['size-3000', 'auto']} height="100%">
                 <View
                   id="Sidenav"
                   backgroundColor="gray-75"
