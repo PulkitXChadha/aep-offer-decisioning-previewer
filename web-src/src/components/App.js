@@ -135,7 +135,7 @@ const App = (props) => {
       <Router>
         <Provider
           theme={defaultTheme}
-          colorScheme={'dark'}
+          colorScheme={userSettings ? `dark` : `light`}
         >
           <View minHeight="100vh" overflow="hidden">
             <View elementType="header" height="size-400" position="fixed" width="100vw">
