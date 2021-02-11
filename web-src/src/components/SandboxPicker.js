@@ -49,14 +49,11 @@ const SandboxPicker = (props) => {
 
     picker = (
         <Picker
-          position="fixed"
           isQuiet
           labelPosition="side"
           labelAlign="end"
           isRequired={true}
           placeholder="select a sandbox"
-          width="25%"
-          maxWidth="100%"
           aria-label="select a sandbox"
           // defaultSelectedKey={defaultSelection}
           items={sandboxes.data.sandboxes
