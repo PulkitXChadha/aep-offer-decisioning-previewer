@@ -9,6 +9,7 @@
     "@adobe/exc-app": "^0.2.25",
     "@adobe/react-spectrum": "^3.4.0",
     "@babel/preset-react": "^7.12.13",
+    "@emotion/react": "^11.1.5",
     "@react-spectrum/provider": "^3.0.0-rc.1",
     "@react-spectrum/tabs": "^3.0.0-alpha.3",
     "@spectrum-icons/illustrations": "^3.2.1",

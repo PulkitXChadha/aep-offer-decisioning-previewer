@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import {
   Grid,
+  View,
+  Flex,
   Heading,
   TextField,
   Button,
   Text,
-  View,
   Divider,
   Switch,
 } from "@adobe/react-spectrum";
@@ -44,7 +47,7 @@ const Previewer = (props) => {
   ] = useState();
   const [selectedPlacement, setSelectedPlacement] = useState();
   const [selectedNamespace, setSelectedNamespace] = useState();
-  let [entityValue, setEntityValue] = React.useState();
+  let [entityValue, setEntityValue] = useState();
 
   //refresh profile and experience events went entity value or selectedNamespace change
   useEffect(() => {
@@ -212,35 +215,47 @@ const Previewer = (props) => {
   }
 
   return (
-    <Grid
-      areas={[
-        "header header header header header header",
-        "activity activity placement placement placeholder placeholder",
-        "namespace namespace entityValue entityValue offer offerToggle",
-        "spacing spacing spacing spacing spacing spacing",
-        "content content content profileContent profileContent profileContent",
-      ]}
-      columns={["1fr", "1fr", "1fr", "1fr", "1fr", "1fr"]}
-      rows={["size-400", "size-400", "size-400", "size-100", "auto"]}
-      height="100vh"
-      gap="size-200"
-      columnGap="size-300"
-    >
-      <View gridArea="header">{header}</View>
-      <View gridArea="activity">{activities}</View>
-      <View gridArea="placement">{placement}</View>
-      <View gridArea="namespace">{identityNamespace}</View>
-      <View gridArea="entityValue">{valueInput}</View>
-      <View gridArea="offer">{offerButton}</View>
-      <View gridArea="offerToggle">{offerToggle}</View>
-      <View gridArea="spacing">
-        <Divider></Divider>
-      </View>
-      <ProfileProvider>
-        <View gridArea="content">{offerContent}</View>
-        <View gridArea="profileContent">{profileContent}</View>
-      </ProfileProvider>
-    </Grid>
+    <div css={css`
+      height: calc(100vh - var(--spectrum-global-dimension-size-400));
+    `}>
+      <Grid
+        areas={[
+          "header header header header header header",
+          "activity activity placement placement placeholder placeholder",
+          "namespace namespace entityValue entityValue offer offerToggle",
+          "spacing spacing spacing spacing spacing spacing",
+          "content content content content content content",
+        ]}
+        columns={["1fr", "1fr", "1fr", "1fr", "1fr", "1fr"]}
+        rows={["size-400", "size-400", "size-400", "size-100", "auto"]}
+        height="100%"
+        gap="size-200"
+        columnGap="size-300"
+      >
+        <View gridArea="header">{header}</View>
+        <View gridArea="activity">{activities}</View>
+        <View gridArea="placement">{placement}</View>
+        <View gridArea="namespace">{identityNamespace}</View>
+        <View gridArea="entityValue">{valueInput}</View>
+        <View gridArea="offer">{offerButton}</View>
+        <View gridArea="offerToggle">{offerToggle}</View>
+        <View gridArea="spacing">
+          <Divider></Divider>
+        </View>
+        <ProfileProvider>
+          <View gridArea="content" overflow="auto">
+            <Flex gap="size-400">
+              <View>
+                {offerContent}
+              </View>
+              <View>
+                {profileContent}
+              </View>
+            </Flex>
+          </View>
+        </ProfileProvider>
+      </Grid>
+    </div>
   );
 };
 

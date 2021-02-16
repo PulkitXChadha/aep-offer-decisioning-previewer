@@ -2,12 +2,15 @@
  * <license header>
  */
 
-import React, { useState, useEffect } from "react";
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
+import { useState, useEffect } from "react";
 import {
   Provider,
   defaultTheme,
   lightTheme,
   Grid,
+  Flex,
   View,
 } from "@adobe/react-spectrum";
 import ErrorBoundary from "react-error-boundary";
@@ -67,47 +70,41 @@ const App = (props) => {
   };
 
   let sidebar = (
-    <View
-      gridArea="sidebar"
-      backgroundColor="gray-200"
-      padding="size-200"
-      marginTop="size-400"
-      position="fixed"
-      left="200"
-      width="200px"
-      height="400vh"
-    >
+    <View margin="size-200">
       <SideBar isSandboxSelected={sandboxName ? true : false}></SideBar>
     </View>
   );
   const greyRibbon = userSettings ? "gray-600" : "gray-900";
   let sandboxSelector = (
-    <View
-      // position="fixed"
-      backgroundColor={
-        sandboxName
-          ? sandboxName != "prod"
+    <Provider theme={lightTheme} colorScheme={`dark`}>
+      <View
+        paddingStart="size-200"
+        backgroundColor={
+          sandboxName
+            ? sandboxName != "prod"
             ? greyRibbon
             : "blue-400"
-          : "blue-400"
-      }
-      gridArea="header"
-    >
-      <Provider theme={lightTheme} colorScheme={`dark`}>
-        <SandboxPicker
-          ims={props.ims}
-          onSelectionChange={handleSandboxSelection}
-        />
-        <View position="fixed" end="10px">
-          <Toggle
-            isSelected={userSettings}
-            onChange={() => setUserSettings(!userSettings)}
-          >
-            Dark mode
-          </Toggle>
-        </View>
-      </Provider>
-    </View>
+            : "blue-400"
+        }
+      >
+        <Flex alignItems="center">
+          <View flex="1">
+            <SandboxPicker
+              ims={props.ims}
+              onSelectionChange={handleSandboxSelection}
+            />
+          </View>
+          <View>
+            <Toggle
+              isSelected={userSettings}
+              onChange={() => setUserSettings(!userSettings)}
+            >
+              Dark mode
+            </Toggle>
+          </View>
+        </Flex>
+      </View>
+    </Provider>
   );
 
   let routes = (
@@ -140,18 +137,31 @@ const App = (props) => {
           theme={defaultTheme}
           colorScheme={userSettings ? `dark` : `light`}
         >
-          <Grid
-            areas={["header  header", "sidebar content"]}
-            columns={["256px", "3fr"]}
-            rows={["size-400", "auto"]}
-            height="100vh"
-            gap="size-100"
-          >
-            {redirectTo}
-            {sidebar}
-            {sandboxSelector}
-            {routes}
-          </Grid>
+          <View height="100vh" overflow="hidden">
+            <View elementType="header" height="size-400" position="fixed" width="100vw">
+              {sandboxSelector}
+            </View>
+            <main css={css`
+              height: calc(100vh - var(--spectrum-global-dimension-size-400));
+              padding-top: var(--spectrum-global-dimension-size-400);
+              `}>
+              <Grid id="Grid" areas={['nav main']} columns={['size-3000', 'auto']} height="100%">
+                <View
+                  id="Sidenav"
+                  backgroundColor="gray-75"
+                  gridArea="nav"
+                  position="fixed"
+                  width="size-3000"
+                  height="100%">
+                  {sidebar}
+                </View>
+                <View gridArea="main">
+                  {redirectTo}
+                  {routes}
+                </View>
+              </Grid>
+            </main>
+          </View>
         </Provider>
       </Router>
     </ErrorBoundary>
@@ -163,12 +173,12 @@ const App = (props) => {
   // component to show if UI fails rendering
   function fallbackComponent({ componentStack, error }) {
     return (
-      <React.Fragment>
+      <div>
         <h1 style={{ textAlign: "center", marginTop: "20px" }}>
           Something went wrong :(
         </h1>
         <pre>{componentStack + "\n" + error.message}</pre>
-      </React.Fragment>
+      </div>
     );
   }
 };
