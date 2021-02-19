@@ -15,7 +15,7 @@
     "@spectrum-icons/illustrations": "^3.2.1",
     "@spectrum-icons/workflow": "^3.2.0",
     "@types/jest": "^26.0.20",
-    "core-js": "^3.8.3",
+    "core-js": "^3.9.0",
     "node-fetch": "^2.6.1",
     "react": "^17.0.1",
     "react-dom": "^16.13.1",
