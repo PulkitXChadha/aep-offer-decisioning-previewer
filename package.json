@@ -11,7 +11,7 @@
     "@babel/preset-react": "^7.12.13",
     "@emotion/react": "^11.1.5",
     "@react-spectrum/provider": "^3.0.0-rc.1",
-    "@react-spectrum/tabs": "^3.0.0-alpha.3",
+    "@react-spectrum/tabs": "^3.0.0-alpha.4",
     "@spectrum-icons/illustrations": "^3.2.1",
     "@spectrum-icons/workflow": "^3.2.0",
     "@types/jest": "^26.0.20",
