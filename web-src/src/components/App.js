@@ -3,7 +3,7 @@
  */
 
 /** @jsx jsx */
-import { css, jsx } from '@emotion/react';
+import { css, jsx } from "@emotion/react";
 import { useState, useEffect } from "react";
 import {
   Provider,
@@ -74,7 +74,7 @@ const App = (props) => {
       <SideBar isSandboxSelected={sandboxName ? true : false}></SideBar>
     </View>
   );
-  const greyRibbon = userSettings ? "gray-600" : "gray-900";
+  const greyRibbon = userSettings ? "gray-300" : "gray-300";
   let sandboxSelector = (
     <Provider theme={lightTheme} colorScheme={`dark`}>
       <View
@@ -82,8 +82,8 @@ const App = (props) => {
         backgroundColor={
           sandboxName
             ? sandboxName != "prod"
-            ? greyRibbon
-            : "blue-400"
+              ? greyRibbon
+              : "blue-400"
             : "blue-400"
         }
       >
@@ -138,21 +138,34 @@ const App = (props) => {
           colorScheme={userSettings ? `dark` : `light`}
         >
           <View height="100vh" overflow="hidden">
-            <View elementType="header" height="size-400" position="fixed" width="100vw">
+            <View
+              elementType="header"
+              height="size-400"
+              position="fixed"
+              width="100vw"
+            >
               {sandboxSelector}
             </View>
-            <main css={css`
-              height: calc(100vh - var(--spectrum-global-dimension-size-400));
-              padding-top: var(--spectrum-global-dimension-size-400);
-              `}>
-              <Grid id="Grid" areas={['nav main']} columns={['size-3000', 'auto']} height="100%">
+            <main
+              css={css`
+                height: calc(100vh - var(--spectrum-global-dimension-size-400));
+                padding-top: var(--spectrum-global-dimension-size-400);
+              `}
+            >
+              <Grid
+                id="Grid"
+                areas={["nav main"]}
+                columns={["size-3000", "auto"]}
+                height="100%"
+              >
                 <View
                   id="Sidenav"
                   backgroundColor="gray-75"
                   gridArea="nav"
                   position="fixed"
                   width="size-3000"
-                  height="100%">
+                  height="100%"
+                >
                   {sidebar}
                 </View>
                 <View gridArea="main">

@@ -351,6 +351,11 @@ SERVICE_API_KEY=
 
 ## Releases
 
+### v0.0.8
+
+- Added State SDK list action
+- Updates to the UI from @Stephan Ringel
+
 ### v0.0.7
 
 - Added runtime actions to get collection and offer details.
@@ -399,3 +404,5 @@ SERVICE_API_KEY=
 - Show Decision API call.
 - Add integration tests.
 - Add better error handling.
+- Adding context data to Hub API call to get offer decision.
+- Web SDK
