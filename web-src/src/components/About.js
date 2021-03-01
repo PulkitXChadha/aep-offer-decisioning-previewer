@@ -6,17 +6,7 @@ import React, { useState, useEffect } from "react";
 
 import ReactMarkdown from "react-markdown";
 import { Heading, View, Content, Link } from "@adobe/react-spectrum";
-import readme from "../../../README.md";
 export const About = () => {
-  const [text, setText] = useState({ markdown: "" });
-
-  useEffect(() => {
-    fetch(readme)
-      .then((response) => response.text())
-      .then((text) => {
-        setText({ markdown: text });
-      });
-  }, []);
   return (
     <View width="size-6000">
       <Heading level={1}>Useful documentation for your app</Heading>
