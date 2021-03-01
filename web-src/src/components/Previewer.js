@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/react';
+import { css, jsx } from "@emotion/react";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import {
@@ -215,16 +215,18 @@ const Previewer = (props) => {
   }
 
   return (
-    <div css={css`
-      height: calc(100vh - var(--spectrum-global-dimension-size-400));
-    `}>
+    <div
+      css={css`
+        height: calc(100vh - var(--spectrum-global-dimension-size-400));
+      `}
+    >
       <Grid
         areas={[
           "header header header header header header",
           "activity activity placement placement placeholder placeholder",
           "namespace namespace entityValue entityValue offer offerToggle",
           "spacing spacing spacing spacing spacing spacing",
-          "content content content content content content",
+          "offerContent offerContent offerContent offerContent profileContent profileContent",
         ]}
         columns={["1fr", "1fr", "1fr", "1fr", "1fr", "1fr"]}
         rows={["size-400", "size-400", "size-400", "size-100", "auto"]}
@@ -243,15 +245,11 @@ const Previewer = (props) => {
           <Divider></Divider>
         </View>
         <ProfileProvider>
-          <View gridArea="content" overflow="auto">
-            <Flex gap="size-400">
-              <View>
-                {offerContent}
-              </View>
-              <View>
-                {profileContent}
-              </View>
-            </Flex>
+          <View gridArea="offerContent" overflow="auto">
+            {offerContent}
+          </View>
+          <View gridArea="profileContent" overflow="auto">
+            {profileContent}
           </View>
         </ProfileProvider>
       </Grid>

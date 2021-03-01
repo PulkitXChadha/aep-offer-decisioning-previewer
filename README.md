@@ -399,3 +399,5 @@ SERVICE_API_KEY=
 - Show Decision API call.
 - Add integration tests.
 - Add better error handling.
+- Adding context data to Hub API call to get offer decision.
+- Web SDK
