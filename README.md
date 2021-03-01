@@ -351,6 +351,11 @@ SERVICE_API_KEY=
 
 ## Releases
 
+### v0.0.8
+
+- Added State SDK list action
+- Updates to the UI from @Stephan Ringel
+
 ### v0.0.7
 
 - Added runtime actions to get collection and offer details.
