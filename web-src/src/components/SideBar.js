@@ -36,6 +36,16 @@ const SideBar = (props) => {
           className="SideNav-itemLink"
           activeClassName="is-selected"
           aria-current="page"
+          to="/aiostatelist"
+        >
+          AIO State List
+        </NavLink>
+      </li>
+      <li className="SideNav-item">
+        <NavLink
+          className="SideNav-itemLink"
+          activeClassName="is-selected"
+          aria-current="page"
           to="/about"
         >
           About this Apps
