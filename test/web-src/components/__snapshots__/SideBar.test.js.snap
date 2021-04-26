@@ -27,6 +27,16 @@ exports[`<SideBar> on load renders correctly  1`] = `
       >
         <a
           class="SideNav-itemLink"
+          href="#/aiostatelist"
+        >
+          AIO State List
+        </a>
+      </li>
+      <li
+        class="SideNav-item"
+      >
+        <a
+          class="SideNav-itemLink"
           href="#/about"
         >
           About this Apps
@@ -61,6 +71,16 @@ exports[`<SideBar> on sandbox selection renders correctly 1`] = `
         href="#/previewer"
       >
         Previewer
+      </a>
+    </li>
+    <li
+      class="SideNav-item"
+    >
+      <a
+        class="SideNav-itemLink"
+        href="#/aiostatelist"
+      >
+        AIO State List
       </a>
     </li>
     <li

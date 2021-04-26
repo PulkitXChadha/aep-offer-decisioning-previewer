@@ -49,6 +49,9 @@ Welcome to ODE Previewer an Adobe I/O Application to view Offer representations 
   - [Adobe Experience Platform - Unified Profile](#adobe-experience-platform---unified-profile)
   - [Adobe Offer Decisioning Engine](#adobe-offer-decisioning-engine)
 - [Releases](#releases)
+  - [v0.0.9](#v009)
+  - [v0.0.8](#v008)
+  - [v0.0.7](#v007)
   - [v0.0.6](#v006)
   - [v0.0.5](#v005)
   - [v0.0.4](#v004)
@@ -350,6 +353,12 @@ SERVICE_API_KEY=
 - [Offer Decisioning API Reference](https://experienceleague.adobe.com/docs/offer-decisioning/using/api-reference/getting-started.html?lang=en#api-reference)
 
 ## Releases
+
+### v0.0.9
+
+- Added tests for get-aio-state action
+- Visualize state
+- Added url encoding for query parameters
 
 ### v0.0.8
 

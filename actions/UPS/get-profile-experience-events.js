@@ -1,6 +1,7 @@
 "use strict";
 const fetch = require("node-fetch");
 
+const querystring = require("querystring");
 const { Core } = require("@adobe/aio-sdk");
 const {
   errorResponse,
@@ -30,7 +31,13 @@ async function main(params) {
       return errorResponse(400, errorMessage, logger);
     }
     const token = getBearerToken(params);
-    const apiEndpoint = `https://platform.adobe.io/data/core/ups/access/entities?schema.name=_xdm.context.experienceevent&relatedSchema.name=_xdm.context.profile&relatedEntityId=${params.identityValue}&relatedEntityIdNS=${params.identityNamespace}`;
+    var queryParams = querystring.stringify({
+      relatedEntityId: params.identityValue,
+      relatedEntityIdNS: params.identityNamespace,
+      "schema.name": "_xdm.context.experienceevent",
+      "relatedSchema.name": "_xdm.context.profile",
+    });
+    const apiEndpoint = `https://platform.adobe.io/data/core/ups/access/entities?${queryParams}`;
 
     const res = await fetch(apiEndpoint, {
       method: "GET",
@@ -43,6 +50,14 @@ async function main(params) {
         "cache-control": "no-cache",
       },
     });
+    if (res.status === 404) {
+      const response = {
+        statusCode: 200,
+        body: {},
+      };
+      return response;
+    }
+
     if (!res.ok) {
       throw new Error(
         "request to " + apiEndpoint + " failed with status code " + res.status

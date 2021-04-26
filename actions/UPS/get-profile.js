@@ -1,5 +1,6 @@
 "use strict";
 const fetch = require("node-fetch");
+const querystring = require("querystring");
 
 const { Core } = require("@adobe/aio-sdk");
 const {
@@ -41,23 +42,26 @@ async function main(params) {
 
     // extract the user Bearer token from the Authorization header
     const token = getBearerToken(params);
-
+    var queryParams = querystring.stringify({
+      entityId: params.identityValue,
+      entityIdNS: params.identityNamespace,
+      "schema.name": "_xdm.context.profile",
+      withCA: "true",
+    });
     // replace this with the api you want to access
-    const apiEndpoint = `https://platform.adobe.io/data/core/ups/access/entities?entityId=${params.identityValue}&entityIdNS=${params.identityNamespace}&schema.name=_xdm.context.profile&withCA=true`;
+    const apiEndpoint = `https://platform.adobe.io/data/core/ups/access/entities?${queryParams}`;
     // fetch content from external api endpoint
-    const res = await fetch(
-      apiEndpoint, {
-        method: "GET",
-        headers: {
-          "x-api-key": params.apiKey,
-          "x-gw-ims-org-id": params.__ow_headers["x-gw-ims-org-id"],
-          Authorization: `Bearer ${token}`,
-          "x-sandbox-name": params.sandboxName,
-          Accept: "application/vnd.adobe.xed+json",
-          "cache-control": "no-cache",
-        },
-      }
-    );
+    const res = await fetch(apiEndpoint, {
+      method: "GET",
+      headers: {
+        "x-api-key": params.apiKey,
+        "x-gw-ims-org-id": params.__ow_headers["x-gw-ims-org-id"],
+        Authorization: `Bearer ${token}`,
+        "x-sandbox-name": params.sandboxName,
+        Accept: "application/vnd.adobe.xed+json",
+        "cache-control": "no-cache",
+      },
+    });
     if (!res.ok) {
       throw new Error(
         "request to " + apiEndpoint + " failed with status code " + res.status

@@ -32,7 +32,7 @@ describe("<App> on initial load", () => {
 
     expect(screen.getAllByRole("progressbar")).toHaveLength(2);
     expect(screen.getByRole("list")).toBeDefined();
-    expect(screen.getAllByRole("listitem")).toHaveLength(2);
+    expect(screen.getAllByRole("listitem")).toHaveLength(3);
 
     await waitFor(() => expect(actionWebInvoke).toHaveBeenCalledTimes(5));
 
