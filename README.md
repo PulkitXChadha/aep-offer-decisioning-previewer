@@ -49,6 +49,9 @@ Welcome to ODE Previewer an Adobe I/O Application to view Offer representations 
   - [Adobe Experience Platform - Unified Profile](#adobe-experience-platform---unified-profile)
   - [Adobe Offer Decisioning Engine](#adobe-offer-decisioning-engine)
 - [Releases](#releases)
+  - [v0.0.9](#v009)
+  - [v0.0.8](#v008)
+  - [v0.0.7](#v007)
   - [v0.0.6](#v006)
   - [v0.0.5](#v005)
   - [v0.0.4](#v004)
@@ -161,7 +164,7 @@ Adobe Developer Console gives you access to APIs, SDKs, and developer tools to b
    $ cd aep-offer-decisioning-previewer
    ```
 
-4. Select the Organization, Project and workspace. the AIO CLI has helper commands to allow you to efficiently select the workspaces and have the app use the credentials associated with the workspace. The credentials included the `.aio`, `.env` and `config.json` files. You will need to run the following commands:
+4. Select the Organization, Project and workspace. the AIO CLI has helper commands to allow you to efficiently select the workspaces and have the app use the credentials associated with the workspace. The credentials include the `.aio` and `.env` files. You will need to run the following commands:
 
    - List all organizations you have access to `aio console org list`
    - Select the org you want to use `aio console org select <<IMS ORG>>`
@@ -179,8 +182,8 @@ Adobe Developer Console gives you access to APIs, SDKs, and developer tools to b
 
    ![](images/aio-app-use.png)
 
-   This step will create `.aio`, `.env` and `config.json` files which include the credentials needed to run the app in the workspace.
-   You can manually populate the `.env` file in the project root and fill it as shown [below](#env).
+   This step will create `.aio` and `.env` files which include the credentials needed to run the app in the workspace.
+   You could also manually populate the `.env` file in the project root, but using the aio cli is convenient and recommend.
 
 6. Install all node dependency libraries.From within the project folder run the following command
 
@@ -350,6 +353,12 @@ SERVICE_API_KEY=
 - [Offer Decisioning API Reference](https://experienceleague.adobe.com/docs/offer-decisioning/using/api-reference/getting-started.html?lang=en#api-reference)
 
 ## Releases
+
+### v0.0.9
+
+- Added tests for get-aio-state action
+- Visualize state
+- Added url encoding for query parameters
 
 ### v0.0.8
 

@@ -24,8 +24,10 @@ import { Switch as Toggle } from "@adobe/react-spectrum";
 import SideBar from "./SideBar";
 import Previewer from "./Previewer";
 import SandboxPicker from "./SandboxPicker";
+import AIOStateList from "./AIOStateList";
 import Home from "./Home";
 import { About } from "./About";
+
 import { useActionWebInvoke } from "../hooks/useActionWebInvoke";
 import {
   useSettingsState,
@@ -123,6 +125,9 @@ const App = (props) => {
             containerID={containerID}
             sandboxName={sandboxName}
           />
+        </Route>
+        <Route path="/aiostatelist">
+          <AIOStateList></AIOStateList>
         </Route>
         <Route path="/about">
           <About></About>

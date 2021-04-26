@@ -168,3 +168,11 @@ packages:
           LOG_LEVEL: debug
         annotations:
           final: true
+      get-all-state:
+        function: actions/misc/get-all-state.js
+        web: "yes"
+        runtime: "nodejs:12"
+        inputs:
+          LOG_LEVEL: debug
+        annotations:
+          final: true
