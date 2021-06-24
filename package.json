@@ -7,7 +7,7 @@
     "@adobe/aio-lib-state": "^1.1.0",
     "@adobe/aio-sdk": "^2.3.0",
     "@adobe/exc-app": "^0.2.25",
-    "@adobe/react-spectrum": "^3.4.0",
+    "@adobe/react-spectrum": "^3.11.2",
     "@babel/preset-react": "^7.12.13",
     "@emotion/react": "^11.1.5",
     "@react-spectrum/provider": "^3.0.0-rc.1",
